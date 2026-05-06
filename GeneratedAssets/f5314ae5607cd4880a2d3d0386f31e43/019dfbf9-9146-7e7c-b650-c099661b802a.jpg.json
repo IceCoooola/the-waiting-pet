@@ -1,0 +1,28 @@
+{
+    "asset": "f5314ae5607cd4880a2d3d0386f31e43",
+    "fileName": "019dfbf9-9146-7e7c-b650-c099661b802a.jpg",
+    "prompt": "a small vintage golden pocket watch, pixel art style, top-down view, 32x32 pixels, isolated on white background",
+    "negativePrompt": "",
+    "model": "flux-2-pro",
+    "modelName": "Flux 2 (Pro)",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}
