@@ -4,20 +4,14 @@ public class InteractableObject : MonoBehaviour
 {
     public string dialogueText = "a clock.";
     private bool isPlayerInRange;
-    private DialogueManager dialogueManager;
-
-    private void Start()
-    {
-        dialogueManager = Object.FindFirstObjectByType<DialogueManager>();
-    }
 
     private void Update()
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
         {
-            if (dialogueManager != null)
+            if (DialogueManager.Instance != null)
             {
-                dialogueManager.ShowDialogue(dialogueText);
+                DialogueManager.Instance.ShowDialogue(dialogueText);
             }
         }
     }
@@ -35,9 +29,9 @@ public class InteractableObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            if (dialogueManager != null)
+            if (DialogueManager.Instance != null)
             {
-                dialogueManager.HideDialogue();
+                DialogueManager.Instance.HideDialogue();
             }
         }
     }
