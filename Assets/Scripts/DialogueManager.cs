@@ -31,8 +31,14 @@ public class DialogueManager : MonoBehaviour
         hideCoroutine = StartCoroutine(HideAfterDelay());
     }
 
-    private IEnumerator HideAfterDelay()
+    public void HideDialogue()
     {
+        if (dialoguePanel != null) dialoguePanel.SetActive(false);
+        if (hideCoroutine != null) StopCoroutine(hideCoroutine);
+    }
+
+    private IEnumerator HideAfterDelay()
+{
         yield return new WaitForSeconds(displayDuration);
         dialoguePanel.SetActive(false);
         hideCoroutine = null;
