@@ -13,7 +13,7 @@ public class DoorTransition : MonoBehaviour
     [Header("Lock Settings")]
     public bool isLocked = false;
     public string requiredKeyId = "Room1Key";
-    public string lockedDialogue = "the door is locked.";
+    public string lockedDialogue = "The door is locked,\nwhere's the key?";
 
     private bool isPlayerInRange = false;
     private GameObject player;
