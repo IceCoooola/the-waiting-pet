@@ -10,6 +10,11 @@ public class DoorTransition : MonoBehaviour
     public GameObject roomToEnable;    // The room we are entering
     public TransitionDirection requiredDirection; // Key to press (W=Up, S=Down, etc.)
 
+    [Header("Lock Settings")]
+    public bool isLocked = false;
+    public string requiredKeyId = "Room1Key";
+    public string lockedDialogue = "the door is locked.";
+
     private bool isPlayerInRange = false;
     private GameObject player;
 
@@ -18,13 +23,46 @@ public class DoorTransition : MonoBehaviour
         // Use Input.GetKey instead of GetKeyDown so it works while holding the key
         if (isPlayerInRange && IsPressingRequiredKey())
         {
+            if (isLocked)
+            {
+                TryUnlock();
+            }
+            else
+            {
+                PerformTransition();
+            }
+        }
+    }
+
+    private void TryUnlock()
+    {
+        if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(requiredKeyId))
+        {
+            isLocked = false;
+            InventoryManager.Instance.RemoveItem(requiredKeyId);
+            if (DialogueManager.Instance != null)
+            {
+                DialogueManager.Instance.ShowDialogue("Door unlocked!");
+            }
             PerformTransition();
+        }
+        else
+        {
+            if (DialogueManager.Instance != null)
+            {
+                DialogueManager.Instance.ShowDialogue(lockedDialogue);
+            }
         }
     }
 
     private bool IsPressingRequiredKey()
     {
-        switch (requiredDirection)
+        // Only allow Space for interaction if locked, to prevent accidental triggers while walking into it
+        if (isLocked)
+        {
+            return Input.GetKeyDown(KeyCode.Space);
+        }
+switch (requiredDirection)
         {
             case TransitionDirection.Up:
                 return Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
