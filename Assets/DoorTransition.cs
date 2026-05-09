@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class DoorTransition : MonoBehaviour
 {
-    public enum TransitionDirection { None, Up, Down, Left, Right }
+    public enum TransitionDirection { None, Up, Down, Left, Right, Any }
 
     [Header("Transition Settings")]
     public Transform destination;      // Where the player teleports to
     public GameObject roomToDisable;   // The room we are leaving
     public GameObject roomToEnable;    // The room we are entering
     public TransitionDirection requiredDirection; // Key to press (W=Up, S=Down, etc.)
+    public bool triggerOnTouch = false; // If true, transit immediately on touch
 
     [Header("Lock Settings")]
-    public bool isLocked = false;
+public bool isLocked = false;
     public string requiredKeyId = "Room1Key";
     public string lockedDialogue = "The door is locked,\nwhere's the key?";
 
@@ -20,8 +21,17 @@ public class DoorTransition : MonoBehaviour
 
     private void Update()
     {
+        if (!isPlayerInRange) return;
+
+        // If triggerOnTouch is enabled and not locked, transit immediately
+        if (triggerOnTouch && !isLocked)
+        {
+            PerformTransition();
+            return;
+        }
+
         // Use Input.GetKey instead of GetKeyDown so it works while holding the key
-        if (isPlayerInRange && IsPressingRequiredKey())
+        if (IsPressingRequiredKey())
         {
             if (isLocked)
             {
@@ -79,12 +89,18 @@ switch (requiredDirection)
         }
     }
 
+    private static float lastTransitionTime = 0f;
+    private const float transitionCooldown = 0.5f;
+
     private void PerformTransition()
     {
         if (player == null) return;
+        if (Time.time - lastTransitionTime < transitionCooldown) return;
+
+        lastTransitionTime = Time.time;
 
         // 1. Teleport player
-        if (destination != null)
+if (destination != null)
         {
             player.transform.position = destination.position;
         }
@@ -104,6 +120,11 @@ switch (requiredDirection)
         {
             isPlayerInRange = true;
             player = other.gameObject;
+
+            if (triggerOnTouch && !isLocked)
+            {
+                PerformTransition();
+            }
         }
     }
 

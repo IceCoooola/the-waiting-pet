@@ -8,6 +8,7 @@ public class PuzzleManager : MonoBehaviour
 
     public List<PuzzleSlot> slots = new List<PuzzleSlot>();
     public GameObject starDecal;
+    public GameObject livingSpotDecal;
     public List<GameObject> puzzleProps = new List<GameObject>(); // Prop_1 to Prop_4
 
     private struct PropData
@@ -41,6 +42,7 @@ public class PuzzleManager : MonoBehaviour
         if (isPuzzleSolved)
         {
             if (starDecal != null) starDecal.SetActive(true);
+            if (livingSpotDecal != null) livingSpotDecal.SetActive(true);
             foreach (var prop in puzzleProps)
             {
                 if (prop != null) prop.SetActive(false);
@@ -49,6 +51,7 @@ public class PuzzleManager : MonoBehaviour
         else
         {
             if (starDecal != null) starDecal.SetActive(false);
+            if (livingSpotDecal != null) livingSpotDecal.SetActive(false);
             // Reset all props to initial positions
             foreach (var data in allPropsData)
             {
