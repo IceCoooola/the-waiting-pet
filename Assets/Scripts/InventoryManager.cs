@@ -24,17 +24,37 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(string id, Sprite icon)
+    private bool interactionHandledThisFrame;
+
+    private void LateUpdate()
     {
-        if (items.Count >= slotIcons.Length)
+        interactionHandledThisFrame = false;
+    }
+
+    public bool CanInteract()
+    {
+        if (interactionHandledThisFrame) return false;
+        interactionHandledThisFrame = true;
+        return true;
+    }
+
+    public bool IsFull()
+    {
+        return items.Count >= slotIcons.Length;
+    }
+
+    public bool AddItem(string id, Sprite icon)
+    {
+        if (IsFull())
         {
             Debug.LogWarning("Inventory full!");
-            return;
+            return false;
         }
 
         items.Add(id);
         itemIcons[id] = icon;
         UpdateUI();
+        return true;
     }
 
     public bool HasItem(string id)
@@ -47,7 +67,11 @@ public class InventoryManager : MonoBehaviour
         if (items.Contains(id))
         {
             items.Remove(id);
-            itemIcons.Remove(id);
+            // Only remove from icons dictionary if no items with this ID remain
+            if (!items.Contains(id))
+            {
+                itemIcons.Remove(id);
+            }
             UpdateUI();
         }
     }

@@ -12,7 +12,10 @@ public class KeyPickup : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
         {
-            Pickup();
+            if (InventoryManager.Instance != null && InventoryManager.Instance.CanInteract())
+            {
+                Pickup();
+            }
         }
     }
 
@@ -20,16 +23,24 @@ public class KeyPickup : MonoBehaviour
     {
         if (InventoryManager.Instance != null)
         {
-            InventoryManager.Instance.AddItem(keyId, keySprite);
-        }
+            if (InventoryManager.Instance.IsFull())
+            {
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.ShowDialogue("My pockets are full...");
+                }
+                return;
+            }
 
-        if (DialogueManager.Instance != null)
-        {
-            DialogueManager.Instance.ShowDialogue(pickupDialogue);
+            if (InventoryManager.Instance.AddItem(keyId, keySprite))
+            {
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.ShowDialogue(pickupDialogue);
+                }
+                gameObject.SetActive(false);
+            }
         }
-
-        // Disable this pickup so it only happens once
-        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
