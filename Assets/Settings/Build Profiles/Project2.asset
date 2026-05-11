@@ -842,7 +842,7 @@ MonoBehaviour:
     - line: '|   webEnableSubmoduleStrippingCompatibility: 0'
     - line: '|   scriptingDefineSymbols:'
     - line: '|     Standalone: AMPLIFY_SHADER_EDITOR'
-    - line: '|     WebGL: AMPLIFY_SHADER_EDITOR'
+    - line: '|     WebGL: AMPLIFY_SHADER_EDITOR;SENTIS_ANALYTICS_ENABLED;APP_UI_EDITOR_ONLY'
     - line: '|   additionalCompilerArguments: {}'
     - line: '|   platformArchitecture: {}'
     - line: '|   scriptingBackend:'

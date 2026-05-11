@@ -50,19 +50,33 @@ public class PlayerMovement : MonoBehaviour
             {
                 speedValue = isRunning ? 2f : 1f;
                 idleTimer = 0f; // Reset timer when moving
+                if (HasParameter("IsIdle")) animator.SetBool("IsIdle", false);
             }
             else
             {
                 idleTimer += Time.deltaTime;
-                if (idleTimer >= idleActionThreshold)
+                if (HasParameter("IsIdle")) animator.SetBool("IsIdle", true);
+            
+                // Logic for random actions after 5 seconds
+                if (idleTimer >= 5f && idleTimer < 5.1f) 
                 {
-                    animator.SetTrigger("DoRandom");
-                    idleTimer = 0f;
+                     if (HasParameter("RandomActionIndex")) animator.SetInteger("RandomActionIndex", Random.Range(0, 4));
+                     animator.SetTrigger("DoRandom");
                 }
             }
             animator.SetFloat("Speed", speedValue);
+            if (HasParameter("IdleTime")) animator.SetFloat("IdleTime", idleTimer);
         }
-    }
+        }
+
+        private bool HasParameter(string paramName)
+        {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == paramName) return true;
+        }
+        return false;
+        }
 
     void FixedUpdate()
     {
