@@ -18,14 +18,19 @@ public class PlayerMovement : MonoBehaviour
     [Header("Cat Settings")]
     public string catPlayerName = "CatPlayer";
 
+    [Header("Normal Cat Jump")]
+    public float normalJumpHeight = 0.35f;
+    public float normalJumpDuration = 0.25f;
+
     private Vector2 movement;
     private bool isRunning;
     private float idleTimer;
 
-    private bool isSpecialJumping = false;
     private bool isNormalJumping = false;
+    private bool isSpecialMoving = false;
 
     private CatJumpSpot currentCatJumpSpot;
+    private Coroutine normalJumpCoroutine;
 
     void Awake()
     {
@@ -39,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (isSpecialJumping) return;
+        if (isSpecialMoving) return;
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -59,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isSpecialJumping || isNormalJumping)
+        if (isSpecialMoving)
         {
             rb.linearVelocity = Vector2.zero;
             return;
@@ -73,15 +78,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!IsCat())
         {
-            Debug.Log("[PlayerMovement] Dog cannot jump with J.");
+            Debug.Log("[PlayerMovement] Dog cannot use J jump.");
             return;
         }
 
-        // special jump near the ladder
+        // special movement near the ladder
         if (currentCatJumpSpot != null)
         {
-            Debug.Log("[PlayerMovement] Special ladder jump.");
-            StartCoroutine(currentCatJumpSpot.PerformSpecialJump(transform, rb, this));
+            Debug.Log("[PlayerMovement] Move to bookshelf point.");
+            StopNormalJumpIfRunning();
+            StartCoroutine(currentCatJumpSpot.MovePlayerToBookshelf(transform, rb, this));
             return;
         }
 
@@ -95,11 +101,9 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("[PlayerMovement] Normal cat jump.");
 
         if (animator != null && HasParameter("Jump"))
-        {
             animator.SetTrigger("Jump");
-        }
 
-        StartCoroutine(NormalJumpVisual());
+        normalJumpCoroutine = StartCoroutine(NormalJumpVisual());
     }
 
     private IEnumerator NormalJumpVisual()
@@ -107,23 +111,47 @@ public class PlayerMovement : MonoBehaviour
         isNormalJumping = true;
 
         Vector3 start = transform.position;
-        float duration = 0.22f;
-        float height = 0.12f;
         float elapsed = 0f;
 
-        while (elapsed < duration)
+        while (elapsed < normalJumpDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / duration;
+            float t = elapsed / normalJumpDuration;
 
-            float arc = Mathf.Sin(t * Mathf.PI) * height;
-            transform.position = new Vector3(start.x, start.y + arc, start.z);
+            float yOffset = Mathf.Sin(t * Mathf.PI) * normalJumpHeight;
+
+            // normal jump motion
+            transform.position = new Vector3(start.x, start.y + yOffset, start.z);
 
             yield return null;
         }
 
         transform.position = start;
         isNormalJumping = false;
+        normalJumpCoroutine = null;
+    }
+
+    private void StopNormalJumpIfRunning()
+    {
+        if (normalJumpCoroutine != null)
+        {
+            StopCoroutine(normalJumpCoroutine);
+            normalJumpCoroutine = null;
+        }
+
+        isNormalJumping = false;
+    }
+
+    public void SetSpecialMoving(bool value)
+    {
+        isSpecialMoving = value;
+
+        if (value)
+        {
+            StopNormalJumpIfRunning();
+            movement = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private bool IsCat()
@@ -134,28 +162,12 @@ public class PlayerMovement : MonoBehaviour
     public void EnterCatJumpSpot(CatJumpSpot spot)
     {
         currentCatJumpSpot = spot;
-        Debug.Log("[PlayerMovement] Current special jump spot set.");
     }
 
     public void ExitCatJumpSpot(CatJumpSpot spot)
     {
         if (currentCatJumpSpot == spot)
-        {
             currentCatJumpSpot = null;
-            Debug.Log("[PlayerMovement] Current special jump spot cleared.");
-        }
-    }
-
-    public void SetSpecialJumping(bool value)
-    {
-        isSpecialJumping = value;
-
-        if (value)
-        {
-            isNormalJumping = false;
-            movement = Vector2.zero;
-            rb.linearVelocity = Vector2.zero;
-        }
     }
 
     private void HandleAnimation()

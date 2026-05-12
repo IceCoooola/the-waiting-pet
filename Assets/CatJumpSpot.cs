@@ -6,14 +6,15 @@ public class CatJumpSpot : MonoBehaviour
     [Header("Destination")]
     public Transform destinationPoint;
 
-    [Header("Special Jump")]
-    public float jumpDuration = 0.35f;
+    [Header("Move To Bookshelf")]
+    public float moveDuration = 0.15f;
 
     private bool isBeingUsed = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerMovement player = other.GetComponent<PlayerMovement>();
+
         if (player != null)
             player.EnterCatJumpSpot(this);
     }
@@ -21,46 +22,40 @@ public class CatJumpSpot : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         PlayerMovement player = other.GetComponent<PlayerMovement>();
+
         if (player != null)
             player.ExitCatJumpSpot(this);
     }
 
-    public IEnumerator PerformSpecialJump(Transform player, Rigidbody2D rb, PlayerMovement movementScript)
+    public IEnumerator MovePlayerToBookshelf(Transform player, Rigidbody2D rb, PlayerMovement movementScript)
     {
         if (isBeingUsed) yield break;
         if (destinationPoint == null) yield break;
 
         isBeingUsed = true;
-        movementScript.SetSpecialJumping(true);
-
-        Collider2D playerCollider = player.GetComponent<Collider2D>();
-
-        if (playerCollider != null)
-            playerCollider.enabled = false;
+        movementScript.SetSpecialMoving(true);
 
         Vector3 start = player.position;
         Vector3 end = destinationPoint.position;
 
         float elapsed = 0f;
 
-        while (elapsed < jumpDuration)
+        while (elapsed < moveDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / jumpDuration;
+            float t = elapsed / moveDuration;
 
-            player.position = Vector3.Lerp(start, end, t);
+            Vector3 nextPos = Vector3.Lerp(start, end, t);
+
+            rb.MovePosition(nextPos);
 
             yield return null;
         }
 
+        rb.MovePosition(end);
         player.position = end;
 
-        yield return new WaitForSeconds(0.05f);
-
-        if (playerCollider != null)
-            playerCollider.enabled = true;
-
-        movementScript.SetSpecialJumping(false);
+        movementScript.SetSpecialMoving(false);
         isBeingUsed = false;
     }
 }
