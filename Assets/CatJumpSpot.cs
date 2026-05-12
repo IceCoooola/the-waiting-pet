@@ -7,7 +7,7 @@ public class CatJumpSpot : MonoBehaviour
     public Transform destinationPoint;
 
     [Header("Move To Bookshelf")]
-    public float moveDuration = 0.15f;
+    public float moveDuration = 0.8f;
 
     private bool isBeingUsed = false;
 
@@ -43,11 +43,12 @@ public class CatJumpSpot : MonoBehaviour
         while (elapsed < moveDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / moveDuration;
 
-            Vector3 nextPos = Vector3.Lerp(start, end, t);
+            float t = Mathf.Clamp01(elapsed / moveDuration);
 
-            rb.MovePosition(nextPos);
+            t = Mathf.SmoothStep(0f, 1f, t);
+
+            player.position = Vector3.Lerp(start, end, t);
 
             yield return null;
         }
