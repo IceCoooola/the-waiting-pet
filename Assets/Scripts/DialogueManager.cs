@@ -20,15 +20,23 @@ public class DialogueManager : MonoBehaviour
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
     }
 
-    public void ShowDialogue(string message)
+    public void ShowDialogue(string message, bool autoHide = true)
     {
         if (dialoguePanel == null || dialogueText == null) return;
 
         dialogueText.text = message;
         dialoguePanel.SetActive(true);
 
-        if (hideCoroutine != null) StopCoroutine(hideCoroutine);
-        hideCoroutine = StartCoroutine(HideAfterDelay());
+        if (hideCoroutine != null)
+        {
+            StopCoroutine(hideCoroutine);
+            hideCoroutine = null;
+        }
+
+        if (autoHide)
+        {
+            hideCoroutine = StartCoroutine(HideAfterDelay());
+        }
     }
 
     public void HideDialogue()
