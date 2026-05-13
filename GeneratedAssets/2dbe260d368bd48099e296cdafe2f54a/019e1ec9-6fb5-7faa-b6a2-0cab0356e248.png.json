@@ -1,0 +1,28 @@
+{
+    "asset": "2dbe260d368bd48099e296cdafe2f54a",
+    "fileName": "019e1ec9-6fb5-7faa-b6a2-0cab0356e248.png",
+    "prompt": "A single frame of a 16-bit pixel art fire, vibrant orange and yellow flames, black background, clear silhouette, centered.",
+    "negativePrompt": "",
+    "model": "gemini-3.0-pro",
+    "modelName": "Gemini 3.0 Pro",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}

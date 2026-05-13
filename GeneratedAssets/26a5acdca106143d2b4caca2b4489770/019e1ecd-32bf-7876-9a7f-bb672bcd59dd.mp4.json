@@ -1,0 +1,38 @@
+{
+    "asset": "26a5acdca106143d2b4caca2b4489770",
+    "fileName": "019e1ecd-32bf-7876-9a7f-bb672bcd59dd.mp4",
+    "prompt": "16-bit pixel art fire animation, burning flames, loopable, orange and yellow, vibrant, on a plain black background, 4x4 spritesheet grid, matching the style of the reference image.",
+    "negativePrompt": "",
+    "model": "video-kling-v3-i2v-pro",
+    "modelName": "Kling V3 I2V Pro",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Spritesheet",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 9,
+                "doodle": [],
+                "label": "First",
+                "strength": 1.0,
+                "invertStrength": false,
+                "assetReferenceGuid": "2dbe260d368bd48099e296cdafe2f54a",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 0,
+        "height": 0
+    },
+    "spriteSheet": true,
+    "duration": 5.0
+}
