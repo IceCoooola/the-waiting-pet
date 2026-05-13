@@ -5,8 +5,11 @@ public class KeyPickup : MonoBehaviour
     public string keyId = "Room1Key";
     public Sprite keySprite;
     public string pickupDialogue = "I found a key";
+    public string emptyDialogue = "The bedside table is empty.";
+    public bool deactivateOnPickup = true;
 
     private bool isPlayerInRange;
+    private bool isPickedUp = false;
 
     private void Update()
     {
@@ -14,8 +17,23 @@ public class KeyPickup : MonoBehaviour
         {
             if (InventoryManager.Instance != null && InventoryManager.Instance.CanInteract())
             {
-                Pickup();
+                if (!isPickedUp)
+                {
+                    Pickup();
+                }
+                else
+                {
+                    ShowEmptyDialogue();
+                }
             }
+        }
+    }
+
+    private void ShowEmptyDialogue()
+    {
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.ShowDialogue(emptyDialogue);
         }
     }
 
@@ -38,7 +56,12 @@ public class KeyPickup : MonoBehaviour
                 {
                     DialogueManager.Instance.ShowDialogue(pickupDialogue);
                 }
-                gameObject.SetActive(false);
+
+                isPickedUp = true;
+                if (deactivateOnPickup)
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
     }
