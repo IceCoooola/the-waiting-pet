@@ -12,18 +12,22 @@ public class DialogueManager : MonoBehaviour
 
     private Coroutine hideCoroutine;
 
+    private int defaultFontSize;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
+        if (dialogueText != null) defaultFontSize = dialogueText.fontSize;
     }
 
-    public void ShowDialogue(string message, bool autoHide = true)
+    public void ShowDialogue(string message, bool autoHide = true, int fontSize = 0)
     {
         if (dialoguePanel == null || dialogueText == null) return;
 
+        dialogueText.fontSize = fontSize > 0 ? fontSize : defaultFontSize;
         dialogueText.text = message;
         dialoguePanel.SetActive(true);
 
