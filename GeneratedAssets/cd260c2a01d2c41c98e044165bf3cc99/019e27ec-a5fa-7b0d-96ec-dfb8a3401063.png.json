@@ -1,0 +1,38 @@
+{
+    "asset": "cd260c2a01d2c41c98e044165bf3cc99",
+    "fileName": "019e27ec-a5fa-7b0d-96ec-dfb8a3401063.png",
+    "prompt": "Remove the green seagrass from the bottom row of fish. Remove the blue water bubbles from the third row. Keep only the 16 goldfish in a clean 4x4 grid. The background must be completely transparent.",
+    "negativePrompt": "",
+    "model": "gpt-image-1-5",
+    "modelName": "GPT Image 1.5",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "cd260c2a01d2c41c98e044165bf3cc99",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}

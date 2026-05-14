@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSpecialMoving = false;
 
     private CatJumpSpot currentCatJumpSpot;
+    private FishtankTeleport currentFishtankTeleport;
     private Coroutine normalJumpCoroutine;
 
     void Awake()
@@ -76,11 +77,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJKey()
     {
+        // Check for fishtank teleport first
+        if (currentFishtankTeleport != null)
+        {
+            currentFishtankTeleport.Teleport(this);
+            return;
+        }
+
         if (!IsCat())
         {
             Debug.Log("[PlayerMovement] Dog cannot use J jump.");
             return;
         }
+
+        // If the player is on a ladder, let LadderClimber handle the J key
 
         // special movement near the ladder
         if (currentCatJumpSpot != null)
@@ -168,6 +178,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (currentCatJumpSpot == spot)
             currentCatJumpSpot = null;
+    }
+
+    public void EnterFishtankTeleport(FishtankTeleport spot)
+    {
+        currentFishtankTeleport = spot;
+    }
+
+    public void ExitFishtankTeleport(FishtankTeleport spot)
+    {
+        if (currentFishtankTeleport == spot)
+            currentFishtankTeleport = null;
     }
 
     private void HandleAnimation()

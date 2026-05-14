@@ -1,0 +1,38 @@
+{
+    "asset": "cd260c2a01d2c41c98e044165bf3cc99",
+    "fileName": "019e27eb-4045-7fe3-9156-4a3a4037fdfe.png",
+    "prompt": "Remove all the green seagrass and blue horizontal lines. Keep only the 4x4 grid of orange goldfish. Ensure the background is completely transparent. Maintain the animation frames.",
+    "negativePrompt": "",
+    "model": "gemini-3.1-flash",
+    "modelName": "Gemini 3.1 Nano Banana 2",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "cd260c2a01d2c41c98e044165bf3cc99",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}
