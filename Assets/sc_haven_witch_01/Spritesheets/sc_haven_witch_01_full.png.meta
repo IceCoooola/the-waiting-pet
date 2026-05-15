@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: e337058904ea64a1aa98971f6ccbd51e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7392840002060080238
+    second: sc_haven_witch_01_full_0
+  - first:
+      213: -6922757136933874681
+    second: sc_haven_witch_01_full_1
+  - first:
+      213: -5398893965448366049
+    second: sc_haven_witch_01_full_2
+  - first:
+      213: 7096900061370368633
+    second: sc_haven_witch_01_full_3
+  - first:
+      213: -3176067563682693504
+    second: sc_haven_witch_01_full_4
+  - first:
+      213: -2864665567714054025
+    second: sc_haven_witch_01_full_5
+  - first:
+      213: 3207305150156870500
+    second: sc_haven_witch_01_full_6
+  - first:
+      213: -983709306896680564
+    second: sc_haven_witch_01_full_7
+  - first:
+      213: -2574606402123470924
+    second: sc_haven_witch_01_full_8
+  - first:
+      213: -5054283580709699393
+    second: sc_haven_witch_01_full_9
+  - first:
+      213: 3945429908230977459
+    second: sc_haven_witch_01_full_10
+  - first:
+      213: -6717294677153263495
+    second: sc_haven_witch_01_full_11
+  - first:
+      213: -4148010650033310518
+    second: sc_haven_witch_01_full_12
+  - first:
+      213: -2066321501905953635
+    second: sc_haven_witch_01_full_13
+  - first:
+      213: 6359021379089036908
+    second: sc_haven_witch_01_full_14
+  - first:
+      213: -4469982541849762501
+    second: sc_haven_witch_01_full_15
+  - first:
+      213: 9168371595904314356
+    second: sc_haven_witch_01_full_16
+  - first:
+      213: 7213687321816259046
+    second: sc_haven_witch_01_full_17
+  - first:
+      213: -8547349159048393179
+    second: sc_haven_witch_01_full_18
+  - first:
+      213: -6852968430057553514
+    second: sc_haven_witch_01_full_19
+  - first:
+      213: 6791581902096837038
+    second: sc_haven_witch_01_full_20
+  - first:
+      213: 5279370895245525293
+    second: sc_haven_witch_01_full_21
+  - first:
+      213: -3046012549993472227
+    second: sc_haven_witch_01_full_22
+  - first:
+      213: 5766547681746507736
+    second: sc_haven_witch_01_full_23
+  - first:
+      213: -4492241382229238270
+    second: sc_haven_witch_01_full_24
+  - first:
+      213: 7584635932601444104
+    second: sc_haven_witch_01_full_25
+  - first:
+      213: -4615217607340683558
+    second: sc_haven_witch_01_full_26
+  - first:
+      213: -6151125673228005672
+    second: sc_haven_witch_01_full_27
+  - first:
+      213: -5081335923004604361
+    second: sc_haven_witch_01_full_28
+  - first:
+      213: 7642617328928190397
+    second: sc_haven_witch_01_full_29
+  - first:
+      213: -7263965287532924205
+    second: sc_haven_witch_01_full_30
+  - first:
+      213: 2815055012169120007
+    second: sc_haven_witch_01_full_31
+  - first:
+      213: -7252121991165018256
+    second: sc_haven_witch_01_full_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 97
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64d61c10d4a89660800000000000000
+      internalID: 7392840002060080238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 99
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70491c2ff0d6def90800000000000000
+      internalID: -6922757136933874681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 101
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1833710b864315b0800000000000000
+      internalID: -5398893965448366049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 98
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972cd6c31014d7260800000000000000
+      internalID: 7096900061370368633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 98
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e7d0cd0675ce3d0800000000000000
+      internalID: -3176067563682693504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 100
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7707c1408d9ae38d0800000000000000
+      internalID: -2864665567714054025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_6
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 97
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46391618a03a28c20800000000000000
+      internalID: 3207305150156870500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_7
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 19
+        width: 48
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c897d28e8992952f0800000000000000
+      internalID: -983709306896680564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 65
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b7ebfc3e19254cd0800000000000000
+      internalID: -2574606402123470924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 83
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb085b1bcd39bd9b0800000000000000
+      internalID: -5054283580709699393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 81
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b73f46099bf0c630800000000000000
+      internalID: 3945429908230977459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_11
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 82
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97058a4b41067c2a0800000000000000
+      internalID: -6717294677153263495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 82
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac43a387a4e4f66c0800000000000000
+      internalID: -4148010650033310518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_13
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 81
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9cd427ba83f253e0800000000000000
+      internalID: -2066321501905953635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_14
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 82
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6677b3b048cf3850800000000000000
+      internalID: 6359021379089036908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_15
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 84
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b35e8d8af8e67f1c0800000000000000
+      internalID: -4469982541849762501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 67
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb68aee3699c3f70800000000000000
+      internalID: 9168371595904314356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_17
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 67
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9d891466a2c1460800000000000000
+      internalID: 7213687321816259046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_18
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 67
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52ecfa3c937b16980800000000000000
+      internalID: -8547349159048393179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_19
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 66
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691047d758d55e0a0800000000000000
+      internalID: -6852968430057553514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_20
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 35
+        width: 30
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea92471b1cb804e50800000000000000
+      internalID: 6791581902096837038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_21
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 48
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2145a0abd7144940800000000000000
+      internalID: 5279370895245525293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_22
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 48
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1fd14869b36ab5d0800000000000000
+      internalID: -3046012549993472227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_23
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 48
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d75ad66094e60050800000000000000
+      internalID: 5766547681746507736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_24
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 48
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e9ae6834a58a1c0800000000000000
+      internalID: -4492241382229238270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_25
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 49
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8076f51123a024960800000000000000
+      internalID: 7584635932601444104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_26
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 17
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade8451e90473ffb0800000000000000
+      internalID: -4615217607340683558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_27
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 34
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de857e4acfc2aaa0800000000000000
+      internalID: -6151125673228005672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_28
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 36
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73001ec66e77b79b0800000000000000
+      internalID: -5081335923004604361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_29
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 36
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbf6205e7f7001a60800000000000000
+      internalID: 7642617328928190397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_30
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 35
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2f4df9e06313b90800000000000000
+      internalID: -7263965287532924205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_31
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 35
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709f5876e95111720800000000000000
+      internalID: 2815055012169120007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sc_haven_witch_01_full_32
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 109
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f7fc0f8794b5b90800000000000000
+      internalID: -7252121991165018256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sc_haven_witch_01_full_0: 7392840002060080238
+      sc_haven_witch_01_full_1: -6922757136933874681
+      sc_haven_witch_01_full_10: 3945429908230977459
+      sc_haven_witch_01_full_11: -6717294677153263495
+      sc_haven_witch_01_full_12: -4148010650033310518
+      sc_haven_witch_01_full_13: -2066321501905953635
+      sc_haven_witch_01_full_14: 6359021379089036908
+      sc_haven_witch_01_full_15: -4469982541849762501
+      sc_haven_witch_01_full_16: 9168371595904314356
+      sc_haven_witch_01_full_17: 7213687321816259046
+      sc_haven_witch_01_full_18: -8547349159048393179
+      sc_haven_witch_01_full_19: -6852968430057553514
+      sc_haven_witch_01_full_2: -5398893965448366049
+      sc_haven_witch_01_full_20: 6791581902096837038
+      sc_haven_witch_01_full_21: 5279370895245525293
+      sc_haven_witch_01_full_22: -3046012549993472227
+      sc_haven_witch_01_full_23: 5766547681746507736
+      sc_haven_witch_01_full_24: -4492241382229238270
+      sc_haven_witch_01_full_25: 7584635932601444104
+      sc_haven_witch_01_full_26: -4615217607340683558
+      sc_haven_witch_01_full_27: -6151125673228005672
+      sc_haven_witch_01_full_28: -5081335923004604361
+      sc_haven_witch_01_full_29: 7642617328928190397
+      sc_haven_witch_01_full_3: 7096900061370368633
+      sc_haven_witch_01_full_30: -7263965287532924205
+      sc_haven_witch_01_full_31: 2815055012169120007
+      sc_haven_witch_01_full_32: -7252121991165018256
+      sc_haven_witch_01_full_4: -3176067563682693504
+      sc_haven_witch_01_full_5: -2864665567714054025
+      sc_haven_witch_01_full_6: 3207305150156870500
+      sc_haven_witch_01_full_7: -983709306896680564
+      sc_haven_witch_01_full_8: -2574606402123470924
+      sc_haven_witch_01_full_9: -5054283580709699393
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
