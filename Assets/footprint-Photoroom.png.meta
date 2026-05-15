@@ -1,0 +1,515 @@
+fileFormatVersion: 2
+guid: 8bb0494bd0d8875459ca07d3d542809f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1667937323334122681
+    second: footprint-Photoroom_0
+  - first:
+      213: 7973832155537130479
+    second: footprint-Photoroom_1
+  - first:
+      213: 5749920498418107137
+    second: footprint-Photoroom_2
+  - first:
+      213: -5565553031956732755
+    second: footprint-Photoroom_3
+  - first:
+      213: 5565113230071301346
+    second: footprint-Photoroom_4
+  - first:
+      213: 7107862571777625725
+    second: footprint-Photoroom_5
+  - first:
+      213: 3396893006174370552
+    second: footprint-Photoroom_6
+  - first:
+      213: -8407707689054774388
+    second: footprint-Photoroom_7
+  - first:
+      213: -2680625581177655651
+    second: footprint-Photoroom_8
+  - first:
+      213: -1122793315552183883
+    second: footprint-Photoroom_9
+  - first:
+      213: -9106765126776028412
+    second: footprint-Photoroom_10
+  - first:
+      213: 5986554691841574172
+    second: footprint-Photoroom_11
+  - first:
+      213: -6108848277141825141
+    second: footprint-Photoroom_12
+  - first:
+      213: 8696960803118986731
+    second: footprint-Photoroom_13
+  - first:
+      213: -5465891327539464326
+    second: footprint-Photoroom_14
+  - first:
+      213: -2366274331530670643
+    second: footprint-Photoroom_15
+  - first:
+      213: -3573756424839025977
+    second: footprint-Photoroom_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: footprint-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 766
+        width: 129
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743cd0f67db4ad8e0800000000000000
+      internalID: -1667937323334122681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 782
+        width: 74
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe3c069291eb8ae60800000000000000
+      internalID: 7973832155537130479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 762
+        width: 118
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 103c2fa9a32dbcf40800000000000000
+      internalID: 5749920498418107137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 758
+        width: 133
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da4ee97410f23c2b0800000000000000
+      internalID: -5565553031956732755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 762
+        width: 143
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e40a3d5ff04b3d40800000000000000
+      internalID: 5565113230071301346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 492
+        width: 173
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e8917995334a260800000000000000
+      internalID: 7107862571777625725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 492
+        width: 75
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8bd19a1762d15b80800000000000000
+      internalID: -8407707689054774388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 458
+        width: 75
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ea41a8c318ccad0800000000000000
+      internalID: -2680625581177655651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 488
+        width: 158
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 403899ded554e9180800000000000000
+      internalID: -9106765126776028412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 479
+        width: 159
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c154aab26c3841350800000000000000
+      internalID: 5986554691841574172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 137
+        width: 132
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b895436abd2093ba0800000000000000
+      internalID: -6108848277141825141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_13
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 148
+        width: 126
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be5376f95cfc1b870800000000000000
+      internalID: 8696960803118986731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 141
+        width: 73
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a773f111cc04524b0800000000000000
+      internalID: -5465891327539464326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 148
+        width: 127
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcd4df3580e492fd0800000000000000
+      internalID: -2366274331530670643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: footprint-Photoroom_16
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 149
+        width: 128
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ca23b75777776ec0800000000000000
+      internalID: -3573756424839025977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 710540436b8b81b428d1f5958d88d2a5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      footprint-Photoroom_0: -1667937323334122681
+      footprint-Photoroom_1: 7973832155537130479
+      footprint-Photoroom_10: -9106765126776028412
+      footprint-Photoroom_11: 5986554691841574172
+      footprint-Photoroom_12: -6108848277141825141
+      footprint-Photoroom_13: 8696960803118986731
+      footprint-Photoroom_14: -5465891327539464326
+      footprint-Photoroom_15: -2366274331530670643
+      footprint-Photoroom_16: -3573756424839025977
+      footprint-Photoroom_2: 5749920498418107137
+      footprint-Photoroom_3: -5565553031956732755
+      footprint-Photoroom_4: 5565113230071301346
+      footprint-Photoroom_5: 7107862571777625725
+      footprint-Photoroom_6: 3396893006174370552
+      footprint-Photoroom_7: -8407707689054774388
+      footprint-Photoroom_8: -2680625581177655651
+      footprint-Photoroom_9: -1122793315552183883
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
