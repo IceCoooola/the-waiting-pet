@@ -10,11 +10,31 @@ public class DiaryInteraction : MonoBehaviour
     [TextArea]
     public string[] readableDialogueTexts;
 
+    [Header("Objects to reveal after reading diary")]
+    public GameObject carpet;
+    public GameObject[] footprints;
+
     private bool isPlayerInRange;
     private int currentDialogueIndex = 0;
     private bool isDialogueShowing = false;
     private string[] currentDialogueTexts;
     private bool currentDialogueWasBeforeLantern = false;
+
+    private void Start()
+    {
+        if (carpet != null)
+        {
+            carpet.SetActive(false);
+        }
+
+        foreach (GameObject footprint in footprints)
+        {
+            if (footprint != null)
+            {
+                footprint.SetActive(false);
+            }
+        }
+    }
 
     private void Update()
     {
@@ -33,7 +53,7 @@ public class DiaryInteraction : MonoBehaviour
             if (currentDialogueTexts == null || currentDialogueTexts.Length == 0) return;
 
             currentDialogueIndex = 0;
-            DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex]);
+            DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex], false);
             isDialogueShowing = true;
         }
         else
@@ -42,7 +62,7 @@ public class DiaryInteraction : MonoBehaviour
 
             if (currentDialogueIndex < currentDialogueTexts.Length)
             {
-                DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex]);
+                DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex], false);
             }
             else
             {
@@ -54,10 +74,33 @@ public class DiaryInteraction : MonoBehaviour
                     Debug.Log("Diary has been read. Lantern is now available.");
                 }
 
+                if (!currentDialogueWasBeforeLantern)
+                {
+                    RevealCarpetAndFootprints();
+                }
+
                 isDialogueShowing = false;
                 currentDialogueIndex = 0;
             }
         }
+    }
+
+    private void RevealCarpetAndFootprints()
+    {
+        if (carpet != null)
+        {
+            carpet.SetActive(true);
+        }
+
+        foreach (GameObject footprint in footprints)
+        {
+            if (footprint != null)
+            {
+                footprint.SetActive(true);
+            }
+        }
+
+        Debug.Log("Carpet and footprints revealed.");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
