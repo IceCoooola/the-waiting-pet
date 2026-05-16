@@ -298,7 +298,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: potions_png_0
+      name: FishPotion
       rect:
         serializedVersion: 2
         x: 128
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_1
+      name: HumanPotion
       rect:
         serializedVersion: 2
         x: 493
@@ -342,7 +342,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_2
+      name: DogPotion
       rect:
         serializedVersion: 2
         x: 814
@@ -364,10 +364,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_3
+      name: CatPotion
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 1150
         y: 713
         width: 192
         height: 281
@@ -386,7 +386,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_31
+      name: RabbitPotion
       rect:
         serializedVersion: 2
         x: 91
@@ -408,7 +408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_32
+      name: BirdPotion
       rect:
         serializedVersion: 2
         x: 322
@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_33
+      name: TurtlePotion
       rect:
         serializedVersion: 2
         x: 532
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_35
+      name: BearPotion
       rect:
         serializedVersion: 2
         x: 1070
@@ -496,7 +496,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_36
+      name: MousePotion
       rect:
         serializedVersion: 2
         x: 1309
@@ -584,7 +584,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_52
+      name: DeerPotion
       rect:
         serializedVersion: 2
         x: 818
@@ -628,7 +628,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: potions_png_54
+      name: DragonPotion
       rect:
         serializedVersion: 2
         x: 1284
@@ -663,8 +663,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      potions_png_0: -3395286705142808657
-      potions_png_1: -7772568719734123695
+      BearPotion: 361166586393491196
+      BirdPotion: -7552690115493319614
+      CatPotion: -4128466362825732295
+      DeerPotion: -3552026256357329102
+      DogPotion: -7955069584805899471
+      DragonPotion: 4154788366848310399
+      FishPotion: -3395286705142808657
+      HumanPotion: -7772568719734123695
+      MousePotion: -6860840366706812939
+      RabbitPotion: -2191133185041974959
+      TurtlePotion: -2295402010926622709
       potions_png_10: 1835350369040686286
       potions_png_11: 3267232099593170511
       potions_png_12: 3421064375358843324
@@ -675,7 +684,6 @@ TextureImporter:
       potions_png_17: 700217784985324814
       potions_png_18: -2794072596586469916
       potions_png_19: 6762610946547951239
-      potions_png_2: -7955069584805899471
       potions_png_20: 3112074523995585827
       potions_png_21: 3501384051928385403
       potions_png_22: 7834313006264864742
@@ -686,14 +694,8 @@ TextureImporter:
       potions_png_27: -4743684831506951235
       potions_png_28: -7514509571259938348
       potions_png_29: -4375300461603205113
-      potions_png_3: -4128466362825732295
       potions_png_30: 213534053277392400
-      potions_png_31: -2191133185041974959
-      potions_png_32: -7552690115493319614
-      potions_png_33: -2295402010926622709
       potions_png_34: -5121219602381402833
-      potions_png_35: 361166586393491196
-      potions_png_36: -6860840366706812939
       potions_png_37: 2645436860874199323
       potions_png_38: -7135494234880811090
       potions_png_39: 340290803590090004
@@ -711,9 +713,7 @@ TextureImporter:
       potions_png_5: 3339132774561099788
       potions_png_50: -945025297739435112
       potions_png_51: 5837813649346813882
-      potions_png_52: -3552026256357329102
       potions_png_53: 8251356385934009076
-      potions_png_54: 4154788366848310399
       potions_png_55: -4501159780237746211
       potions_png_56: 5477173855092148086
       potions_png_57: -5989123631673772199

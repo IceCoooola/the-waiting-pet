@@ -10,7 +10,7 @@ public class DiaryInteraction : MonoBehaviour
     [TextArea]
     public string[] readableDialogueTexts;
 
-    [Header("Objects to reveal after reading diary")]
+    [Header("Objects to reveal after fully reading diary")]
     public GameObject carpet;
     public GameObject[] footprints;
 
@@ -68,15 +68,24 @@ public class DiaryInteraction : MonoBehaviour
             {
                 DialogueManager.Instance.HideDialogue();
 
-                if (currentDialogueWasBeforeLantern && GameProgress.Instance != null)
+                if (currentDialogueWasBeforeLantern)
                 {
-                    GameProgress.Instance.diaryRead = true;
-                    Debug.Log("Diary has been read. Lantern is now available.");
-                }
+                    if (GameProgress.Instance != null)
+                    {
+                        GameProgress.Instance.diaryRead = true;
+                    }
 
-                if (!currentDialogueWasBeforeLantern)
+                    Debug.Log("Diary has been read before getting lantern.");
+                }
+                else
                 {
+                    if (GameProgress.Instance != null)
+                    {
+                        GameProgress.Instance.diaryFullyRead = true;
+                    }
+
                     RevealCarpetAndFootprints();
+                    Debug.Log("Diary has been fully read. Carpet and footprints revealed.");
                 }
 
                 isDialogueShowing = false;
@@ -99,8 +108,6 @@ public class DiaryInteraction : MonoBehaviour
                 footprint.SetActive(true);
             }
         }
-
-        Debug.Log("Carpet and footprints revealed.");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
