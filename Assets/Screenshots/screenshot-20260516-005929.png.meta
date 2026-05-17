@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fc835be0918f344d587afc47fc462d55
+guid: 33e90605f0ee94dd6a174a4f99917aa5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3186150111863754410
-    second: sc_haven_witch_01_bookcase_0
+      213: -7782128236556171353
+    second: screenshot-20260516-005929_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sc_haven_witch_01_bookcase_0
+      name: screenshot-20260516-005929_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 3
-        width: 48
-        height: 85
+        x: 0
+        y: 0
+        width: 1745
+        height: 906
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6513a4daa5588c3d0800000000000000
-      internalID: -3186150111863754410
+      spriteID: 7a7488fa993500490800000000000000
+      internalID: -7782128236556171353
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sc_haven_witch_01_bookcase_0: -3186150111863754410
+      screenshot-20260516-005929_0: -7782128236556171353
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: fc835be0918f344d587afc47fc462d55
+guid: 927e1339d0ee242dd9776496fcf801dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3186150111863754410
-    second: sc_haven_witch_01_bookcase_0
+      213: -587439717078611080
+    second: CauldronBubbles_0
+  - first:
+      213: 2485288195460600368
+    second: CauldronBubbles_1
+  - first:
+      213: -3823760373439297362
+    second: CauldronBubbles_2
+  - first:
+      213: -4313525362755990806
+    second: CauldronBubbles_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sc_haven_witch_01_bookcase_0
+      name: CauldronBubbles_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 3
-        width: 48
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 32
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6513a4daa5588c3d0800000000000000
-      internalID: -3186150111863754410
+      spriteID: 87bc29090bef8d7f0800000000000000
+      internalID: -587439717078611080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronBubbles_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03296e632748d7220800000000000000
+      internalID: 2485288195460600368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronBubbles_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea88fe213364feac0800000000000000
+      internalID: -3823760373439297362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronBubbles_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea8a4f59874324c0800000000000000
+      internalID: -4313525362755990806
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sc_haven_witch_01_bookcase_0: -3186150111863754410
+      CauldronBubbles_0: -587439717078611080
+      CauldronBubbles_1: 2485288195460600368
+      CauldronBubbles_2: -3823760373439297362
+      CauldronBubbles_3: -4313525362755990806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
