@@ -4,52 +4,71 @@ using UnityEngine.UI;
 public class TreasureChestInteraction : MonoBehaviour
 {
     [Header("Required Key")]
-    public string requiredKeyId = "Room1Key";
+    public string requiredKeyId = "QuestKey";
 
     [Header("Potion Choices")]
-    public PotionChoice[] potions; // 8 potions
+    public PotionChoice[] potions;
 
     [Header("Potion UI")]
     public GameObject potionPanel;
-    public Image[] potionSlots; // 8 UI Images, arranged 4 x 2
-    public GameObject selectionMarker;
+    public Image[] potionSlots;
+    public RectTransform selectionMarker;
+
+    [Header("UI Layout")]
+    public float slotSize = 140f;
+    public float spacingX = 180f;
+    public float spacingY = 180f;
 
     [Header("Dialogue")]
     public string lockedDialogue = "It is locked.";
-    public string chooseDialogue = "Choose one potion.";
+    public string foundDialogue = "There are potions inside...";
+    public string instructionDialogue = "Choose one potion. Use arrow keys to move, and press Space to select.";
+    public string fullInventoryDialogue = "My pockets are full...";
 
     private bool isPlayerInRange = false;
-    private bool choosingPotion = false;
     private bool chestOpened = false;
+    private bool showingFoundDialogue = false;
+    private bool showingInstructionDialogue = false;
+    private bool choosingPotion = false;
 
     private int selectedIndex = 0;
 
     private void Start()
     {
-        if (potionPanel != null)
-        {
-            potionPanel.SetActive(false);
-        }
-
-        if (selectionMarker != null)
-        {
-            selectionMarker.SetActive(false);
-        }
+        ClosePotionUI();
     }
 
     private void Update()
     {
         if (!isPlayerInRange) return;
 
-        if (choosingPotion)
-        {
-            HandlePotionSelection();
-            return;
-        }
-
         if (!chestOpened && Input.GetKeyDown(KeyCode.Space))
         {
             TryOpenChest();
+            return;
+        }
+
+        if (showingFoundDialogue && Input.GetKeyDown(KeyCode.Space))
+        {
+            showingFoundDialogue = false;
+            showingInstructionDialogue = true;
+            ShowText(instructionDialogue);
+            return;
+        }
+
+        if (showingInstructionDialogue && Input.GetKeyDown(KeyCode.Space))
+        {
+            showingInstructionDialogue = false;
+            choosingPotion = true;
+
+            HideDialogue();
+            OpenPotionUI();
+            return;
+        }
+
+        if (choosingPotion)
+        {
+            HandlePotionSelection();
         }
     }
 
@@ -63,28 +82,46 @@ public class TreasureChestInteraction : MonoBehaviour
             return;
         }
 
-        chestOpened = true;
-        choosingPotion = true;
-        selectedIndex = 0;
+        InventoryManager.Instance.RemoveItem(requiredKeyId);
 
-        OpenPotionUI();
-        ShowText(chooseDialogue);
+        chestOpened = true;
+        showingFoundDialogue = true;
+
+        ShowText(foundDialogue);
     }
 
     private void OpenPotionUI()
     {
+        PlayerMovement.movementLocked = true;
+
         if (potionPanel != null)
         {
             potionPanel.SetActive(true);
         }
 
+        selectedIndex = 0;
+
         for (int i = 0; i < potionSlots.Length; i++)
         {
             if (potionSlots[i] == null) continue;
 
+            RectTransform slotRect = potionSlots[i].GetComponent<RectTransform>();
+
+            slotRect.sizeDelta = new Vector2(slotSize, slotSize);
+            potionSlots[i].preserveAspect = true;
+
+            int col = i % 4;
+            int row = i / 4;
+
+            float x = (col - 1.5f) * spacingX;
+            float y = row == 0 ? spacingY / 2f : -spacingY / 2f;
+
+            slotRect.anchoredPosition = new Vector2(x, y);
+
             if (i < potions.Length && potions[i] != null)
             {
                 potionSlots[i].sprite = potions[i].potionIcon;
+                potionSlots[i].color = Color.white;
                 potionSlots[i].gameObject.SetActive(true);
             }
             else
@@ -96,29 +133,40 @@ public class TreasureChestInteraction : MonoBehaviour
         UpdateSelectionMarker();
     }
 
+    private void ClosePotionUI()
+    {
+        PlayerMovement.movementLocked = false;
+
+        if (potionPanel != null)
+        {
+            potionPanel.SetActive(false);
+        }
+
+        if (selectionMarker != null)
+        {
+            selectionMarker.gameObject.SetActive(false);
+        }
+    }
+
     private void HandlePotionSelection()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             MoveSelection(1);
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             MoveSelection(-1);
         }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             MoveSelection(4);
         }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             MoveSelection(-4);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             ChoosePotion();
         }
@@ -126,14 +174,15 @@ public class TreasureChestInteraction : MonoBehaviour
 
     private void MoveSelection(int amount)
     {
+        if (potions == null || potions.Length == 0) return;
+
         selectedIndex += amount;
 
         if (selectedIndex < 0)
         {
             selectedIndex = potions.Length - 1;
         }
-
-        if (selectedIndex >= potions.Length)
+        else if (selectedIndex >= potions.Length)
         {
             selectedIndex = 0;
         }
@@ -148,20 +197,28 @@ public class TreasureChestInteraction : MonoBehaviour
         if (selectedIndex < 0 || selectedIndex >= potionSlots.Length) return;
         if (potionSlots[selectedIndex] == null) return;
 
-        selectionMarker.SetActive(true);
-        selectionMarker.transform.position = potionSlots[selectedIndex].transform.position;
+        RectTransform selectedSlot = potionSlots[selectedIndex].GetComponent<RectTransform>();
+
+        selectionMarker.gameObject.SetActive(true);
+        selectionMarker.SetParent(selectedSlot.parent);
+        selectionMarker.anchoredPosition = selectedSlot.anchoredPosition;
+        selectionMarker.sizeDelta = selectedSlot.sizeDelta + new Vector2(25f, 25f);
+        selectionMarker.SetAsLastSibling();
     }
 
     private void ChoosePotion()
     {
-        if (InventoryManager.Instance == null) return;
+        if (potions == null || potions.Length == 0) return;
         if (selectedIndex < 0 || selectedIndex >= potions.Length) return;
 
         PotionChoice chosenPotion = potions[selectedIndex];
+        if (chosenPotion == null) return;
+
+        if (InventoryManager.Instance == null) return;
 
         if (InventoryManager.Instance.IsFull())
         {
-            ShowText("My pockets are full...");
+            ShowText(fullInventoryDialogue);
             return;
         }
 
@@ -173,18 +230,7 @@ public class TreasureChestInteraction : MonoBehaviour
         if (added)
         {
             choosingPotion = false;
-
-            if (potionPanel != null)
-            {
-                potionPanel.SetActive(false);
-            }
-
-            if (selectionMarker != null)
-            {
-                selectionMarker.SetActive(false);
-            }
-
-            ShowText("I chose a potion.");
+            ClosePotionUI();
         }
     }
 
@@ -193,6 +239,14 @@ public class TreasureChestInteraction : MonoBehaviour
         if (!string.IsNullOrEmpty(text) && DialogueManager.Instance != null)
         {
             DialogueManager.Instance.ShowDialogue(text, false);
+        }
+    }
+
+    private void HideDialogue()
+    {
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.HideDialogue();
         }
     }
 
@@ -210,10 +264,12 @@ public class TreasureChestInteraction : MonoBehaviour
         {
             isPlayerInRange = false;
 
-            if (!choosingPotion && DialogueManager.Instance != null)
-            {
-                DialogueManager.Instance.HideDialogue();
-            }
+            showingFoundDialogue = false;
+            showingInstructionDialogue = false;
+            choosingPotion = false;
+
+            ClosePotionUI();
+            HideDialogue();
         }
     }
 }

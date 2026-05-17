@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerMovement : MonoBehaviour
 {
+    public static bool movementLocked = false;
+
     [Header("Movement")]
     public float walkSpeed = 2.5f;
     public float runSpeed = 5f;
@@ -45,6 +47,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (movementLocked)
+        {
+            movement = Vector2.zero;
+            isRunning = false;
+            HandleAnimation();
+            return;
+        }
+
         if (isSpecialMoving) return;
 
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -65,6 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (movementLocked)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         if (isSpecialMoving)
         {
             rb.linearVelocity = Vector2.zero;
@@ -77,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJKey()
     {
-        // Check for fishtank teleport first
         if (currentFishtankTeleport != null)
         {
             currentFishtankTeleport.Teleport(this);
@@ -90,9 +105,6 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // If the player is on a ladder, let LadderClimber handle the J key
-
-        // special movement near the ladder
         if (currentCatJumpSpot != null)
         {
             Debug.Log("[PlayerMovement] Move to bookshelf point.");
@@ -130,7 +142,6 @@ public class PlayerMovement : MonoBehaviour
 
             float yOffset = Mathf.Sin(t * Mathf.PI) * normalJumpHeight;
 
-            // normal jump motion
             transform.position = new Vector3(start.x, start.y + yOffset, start.z);
 
             yield return null;
