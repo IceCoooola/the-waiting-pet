@@ -20,6 +20,8 @@ public class DiaryInteraction : MonoBehaviour
     private string[] currentDialogueTexts;
     private bool currentDialogueWasBeforeLantern = false;
 
+    private bool lanternUsed = false;
+
     private void Start()
     {
         if (carpet != null)
@@ -51,6 +53,12 @@ public class DiaryInteraction : MonoBehaviour
             currentDialogueTexts = hasLantern ? readableDialogueTexts : darkDialogueTexts;
 
             if (currentDialogueTexts == null || currentDialogueTexts.Length == 0) return;
+
+            if (hasLantern && !lanternUsed)
+            {
+                InventoryManager.Instance.RemoveItem("Lantern");
+                lanternUsed = true;
+            }
 
             currentDialogueIndex = 0;
             DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex], false);
