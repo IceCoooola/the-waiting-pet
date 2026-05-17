@@ -4,8 +4,13 @@ public class KeyPickup : MonoBehaviour
 {
     public string keyId = "Room1Key";
     public Sprite keySprite;
+
+    [TextArea]
     public string pickupDialogue = "I found a key";
+
+    [TextArea]
     public string emptyDialogue = "The bedside table is empty.";
+
     public bool deactivateOnPickup = true;
 
     private bool isPlayerInRange;
@@ -15,7 +20,8 @@ public class KeyPickup : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
         {
-            if (InventoryManager.Instance != null && InventoryManager.Instance.CanInteract())
+            if (InventoryManager.Instance != null &&
+                InventoryManager.Instance.CanInteract())
             {
                 if (!isPickedUp)
                 {
@@ -31,7 +37,8 @@ public class KeyPickup : MonoBehaviour
 
     private void ShowEmptyDialogue()
     {
-        if (DialogueManager.Instance != null)
+        if (!string.IsNullOrEmpty(emptyDialogue) &&
+            DialogueManager.Instance != null)
         {
             DialogueManager.Instance.ShowDialogue(emptyDialogue);
         }
@@ -47,17 +54,20 @@ public class KeyPickup : MonoBehaviour
                 {
                     DialogueManager.Instance.ShowDialogue("My pockets are full...");
                 }
+
                 return;
             }
 
             if (InventoryManager.Instance.AddItem(keyId, keySprite))
             {
-                if (DialogueManager.Instance != null)
+                if (!string.IsNullOrEmpty(pickupDialogue) &&
+                    DialogueManager.Instance != null)
                 {
                     DialogueManager.Instance.ShowDialogue(pickupDialogue);
                 }
 
                 isPickedUp = true;
+
                 if (deactivateOnPickup)
                 {
                     gameObject.SetActive(false);
