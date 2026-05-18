@@ -4,11 +4,14 @@ public class IntroDialogue : MonoBehaviour
 {
     private string[] sentences = new string[]
     {
-        "I'm hungry..\n(Press Space to continue)",
-        "who am I..\n(Press Space to continue)",
-        "ummm I looks like someone's pet\n(Press Space to continue)",
-        "but why they didn't feed me..?\n(Press Space to continue)",
-        "I want to find some food..\n(Press Space to continue)"
+        "I'm hungry...\n(Press Space to continue)",
+        "Who am I...\n(Press Space to continue)",
+        "I have no memory...\n(Press Space to continue)",
+        "Am I a dog?\n(Press Space to continue)",
+        "Ummm I look like someone's pet, \n(Press Space to continue)",
+        "but why they didn't feed me...?\n(Press Space to continue)",
+        "I want to find some food...\n(Press Space to continue)",
+        "Press WASD for movement.\n(Press Space to continue)",
     };
 
     private int currentIndex = 0;
