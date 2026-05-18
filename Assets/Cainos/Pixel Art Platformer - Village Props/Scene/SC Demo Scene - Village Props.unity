@@ -1091,6 +1091,8 @@ GameObject:
   - component: {fileID: 8032631}
   - component: {fileID: 8032630}
   - component: {fileID: 8032629}
+  - component: {fileID: 8032633}
+  - component: {fileID: 8032632}
   m_Layer: 0
   m_Name: barrels_0
   m_TagString: Untagged
@@ -1218,6 +1220,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 551837507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8032632
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032628}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.15944982, y: -0.19133921}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.64}
+    newSize: {x: 0.32, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.63889956, y: 0.6910237}
+  m_EdgeRadius: 0
+--- !u!114 &8032633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: The way these barrels are arranged feels deliberate.
 --- !u!1 &8559295
 GameObject:
   m_ObjectHideFlags: 0
@@ -11469,6 +11530,8 @@ GameObject:
   - component: {fileID: 99828629}
   - component: {fileID: 99828628}
   - component: {fileID: 99828630}
+  - component: {fileID: 99828631}
+  - component: {fileID: 99828632}
   m_Layer: 0
   m_Name: Furniture_props_17
   m_TagString: Untagged
@@ -11595,6 +11658,65 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 0.57, y: 0.88}
+  m_EdgeRadius: 0
+--- !u!114 &99828631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99828626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: 'A sofa. '
+--- !u!61 &99828632
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99828626}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &100450729
 GameObject:
@@ -18713,7 +18835,7 @@ Transform:
   m_GameObject: {fileID: 157872659}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.7, y: 3.04, z: 0}
+  m_LocalPosition: {x: -5.6, y: 4.5, z: 0}
   m_LocalScale: {x: 4.14, y: 5.34, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23090,8 +23212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
-  dialogueText: There are some candles... they seem to be fixed on top of the candlesticks.
-    Should I check the others?
+  dialogueText: Some candles... I can't move them. Should I check those on the ground?
 --- !u!70 &202816042
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -50472,6 +50593,7 @@ GameObject:
   - component: {fileID: 446294073}
   - component: {fileID: 446294078}
   - component: {fileID: 446294077}
+  - component: {fileID: 446294079}
   m_Layer: 0
   m_Name: tree 1
   m_TagString: Untagged
@@ -50587,7 +50709,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1373707, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -50597,7 +50719,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.2}
+  m_Size: {x: 0.7252586, y: 1.2}
   m_EdgeRadius: 0
 --- !u!61 &446294078
 BoxCollider2D:
@@ -50645,6 +50767,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.3, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &446294079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446294071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: A potted plant.
 --- !u!1 &448894167
 GameObject:
   m_ObjectHideFlags: 0
@@ -52757,7 +52892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
   dialogueText: The lab notes said something magical would happen if you drink the
-    blended potions.
+    blended potions. What does this mean?
 --- !u!61 &471186930
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60268,7 +60403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
-  dialogueText: Magic will appear when the eyes are covered... what does this mean?
+  dialogueText: Magic will appear when the eyes are covered... What does this mean?
 --- !u!1 &551837506
 GameObject:
   m_ObjectHideFlags: 0
@@ -65917,6 +66052,8 @@ GameObject:
   - component: {fileID: 617696244}
   - component: {fileID: 617696243}
   - component: {fileID: 617696242}
+  - component: {fileID: 617696246}
+  - component: {fileID: 617696245}
   m_Layer: 0
   m_Name: barrels_10
   m_TagString: Untagged
@@ -66044,6 +66181,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 551837507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &617696245
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617696241}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.006178826}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.64, y: 0.65235764}
+  m_EdgeRadius: 0
+--- !u!114 &617696246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617696241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: The way these barrels are arranged feels deliberate.
 --- !u!1 &619949263
 GameObject:
   m_ObjectHideFlags: 0
@@ -70678,6 +70874,8 @@ GameObject:
   - component: {fileID: 657794032}
   - component: {fileID: 657794031}
   - component: {fileID: 657794033}
+  - component: {fileID: 657794034}
+  - component: {fileID: 657794035}
   m_Layer: 0
   m_Name: Furniture_props_17 (1)
   m_TagString: Untagged
@@ -70804,6 +71002,65 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 0.57, y: 0.88}
+  m_EdgeRadius: 0
+--- !u!114 &657794034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657794029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: 'A sofa. '
+--- !u!61 &657794035
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657794029}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &659640307
 GameObject:
@@ -81198,7 +81455,7 @@ GameObject:
   - component: {fileID: 744960073}
   - component: {fileID: 744960072}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GuideCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81266,7 +81523,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &744960075
 RectTransform:
@@ -102665,8 +102922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyPickup
   keyId: Room1Key
   keySprite: {fileID: 21300000, guid: 10b3fcdaf84d2b74da6e5b05390b89e6, type: 3}
-  pickupDialogue: I found a key
-  emptyDialogue: empty bedside table
+  pickupDialogue: I found a key!
+  emptyDialogue: Empty bedside table.
   deactivateOnPickup: 0
 --- !u!61 &955846423
 BoxCollider2D:
@@ -102702,7 +102959,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.1, y: 0}
+  m_Offset: {x: -0.083476186, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -102712,7 +102969,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.7669524, y: 0.8}
   m_EdgeRadius: 0
 --- !u!61 &955846424
 BoxCollider2D:
@@ -103653,7 +103910,10 @@ MonoBehaviour:
     J - Jump
     (unlock required)
 
-    ESC - Open/Close this guide'
+    ESC - Open/Close this guide
+
+    Space - Interact with
+    objects'
 --- !u!222 &960610839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -163094,6 +163354,8 @@ GameObject:
   - component: {fileID: 1496373750}
   - component: {fileID: 1496373749}
   - component: {fileID: 1496373751}
+  - component: {fileID: 1496373752}
+  - component: {fileID: 1496373753}
   m_Layer: 0
   m_Name: tree 2
   m_TagString: Untagged
@@ -163220,6 +163482,65 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 0.47285464, y: 0.9682436}
+  m_EdgeRadius: 0
+--- !u!114 &1496373752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496373747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: A potted plant.
+--- !u!61 &1496373753
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496373747}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.082422316, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.761891, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1498502491
 GameObject:
@@ -174040,7 +174361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -180826,8 +181147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
-  dialogueText: There are some candles... they seem to be fixed on top of the candlesticks.
-    Should I check the others?
+  dialogueText: Some candles... I can't move them. Should I check those on the ground?
 --- !u!70 &1639952084
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -198663,6 +198983,8 @@ GameObject:
   - component: {fileID: 1795902026}
   - component: {fileID: 1795902025}
   - component: {fileID: 1795902027}
+  - component: {fileID: 1795902029}
+  - component: {fileID: 1795902028}
   m_Layer: 0
   m_Name: Furniture_props_01
   m_TagString: Untagged
@@ -198790,6 +199112,65 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8508722, y: 1.0088663}
   m_EdgeRadius: 0
+--- !u!61 &1795902028
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795902024}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.012371391, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.89608055, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1795902029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795902024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: A bed.
 --- !u!1 &1796274866
 GameObject:
   m_ObjectHideFlags: 0
@@ -201891,6 +202272,8 @@ GameObject:
   - component: {fileID: 1838414901}
   - component: {fileID: 1838414900}
   - component: {fileID: 1838414899}
+  - component: {fileID: 1838414903}
+  - component: {fileID: 1838414902}
   m_Layer: 0
   m_Name: barrels_2
   m_TagString: Untagged
@@ -202018,6 +202401,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 551837507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1838414902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838414898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: The way these barrels are arranged feels deliberate.
+--- !u!61 &1838414903
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838414898}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.025166333, y: -0.13211986}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.64}
+    newSize: {x: 0.32, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.83589673, y: 0.79099494}
+  m_EdgeRadius: 0
 --- !u!1 &1839210320
 GameObject:
   m_ObjectHideFlags: 0
@@ -229388,6 +229830,8 @@ GameObject:
   - component: {fileID: 2089379813}
   - component: {fileID: 2089379812}
   - component: {fileID: 2089379811}
+  - component: {fileID: 2089379815}
+  - component: {fileID: 2089379814}
   m_Layer: 0
   m_Name: barrels_5
   m_TagString: Untagged
@@ -229515,6 +229959,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 551837507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2089379814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089379810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55eee827863f047bb8dac068c43c2e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  dialogueText: The way these barrels are arranged feels deliberate.
+--- !u!61 &2089379815
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089379810}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.64, y: 0.64}
+  m_EdgeRadius: 0
 --- !u!1 &2089607551
 GameObject:
   m_ObjectHideFlags: 0
