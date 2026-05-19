@@ -3,7 +3,10 @@ using UnityEngine;
 public class CandlestickHolder : MonoBehaviour
 {
     private enum InteractionStep { Idle, FirstPrompt, SlotSelection }
+    private enum PendingAction { None, Place, TakeBack }
+
     private InteractionStep currentStep = InteractionStep.Idle;
+    private PendingAction pendingAction = PendingAction.None;
 
     [Header("Spots")]
     public GameObject leftSpot;
@@ -47,15 +50,30 @@ public class CandlestickHolder : MonoBehaviour
             {
                 if (hasHand && candleCount > 0) // Case 3: Choices 1 or 2
                 {
-                    if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2))
+                    if (Input.GetKeyDown(KeyCode.Alpha1))
                     {
+                        pendingAction = PendingAction.TakeBack;
+                        ShowSlotSelection();
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha2))
+                    {
+                        pendingAction = PendingAction.Place;
                         ShowSlotSelection();
                     }
                 }
-                else // Case 2 or 4: Press Space
+                else if (hasHand && candleCount == 0) // Case 2: must be placing
                 {
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
+                        pendingAction = PendingAction.Place;
+                        ShowSlotSelection();
+                    }
+                }
+                else if (!hasHand && candleCount > 0) // Case 4: must be taking back
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        pendingAction = PendingAction.TakeBack;
                         ShowSlotSelection();
                     }
                 }
@@ -84,6 +102,7 @@ public class CandlestickHolder : MonoBehaviour
 
         choiceTimer = ChoiceDuration;
         currentStep = InteractionStep.FirstPrompt;
+        pendingAction = PendingAction.None;
 
         if (hasHand && candleCount == 0) // Case 2
         {
@@ -101,18 +120,16 @@ public class CandlestickHolder : MonoBehaviour
 
     private void ShowSlotSelection()
     {
-        bool hasHand = InventoryManager.Instance != null && InventoryManager.Instance.HasItem(candlestickId);
-        int candleCount = GetCandleCount();
         choiceTimer = ChoiceDuration;
         currentStep = InteractionStep.SlotSelection;
 
         if (DialogueManager.Instance == null) return;
 
-        if (hasHand && candleCount == 0) // Case 2
+        if (pendingAction == PendingAction.Place)
         {
             DialogueManager.Instance.ShowDialogue("Place it on the left.\n(Press 1)\nPlace it on the middle.\n(Press 2)\nPlace it on the right\n(Press 3)", false);
         }
-        else // Case 3 or 4
+        else if (pendingAction == PendingAction.TakeBack)
         {
             DialogueManager.Instance.ShowDialogue("Take the left back.\n(Press 1)\nTake the middle back.\n(Press 2)\nTake the right back.\n(Press 3)", false);
         }
@@ -124,10 +141,15 @@ public class CandlestickHolder : MonoBehaviour
 
         bool actionTaken = false;
 
-        if (!spot.activeSelf)
+        // Use pendingAction to decide intent, so the player can't accidentally
+        // take back when they meant to place (or vice versa) by hitting the wrong slot.
+        if (pendingAction == PendingAction.Place)
         {
-            // Try to place
-            if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(candlestickId))
+            if (spot.activeSelf)
+            {
+                if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("There's already a candle there.");
+            }
+            else if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(candlestickId))
             {
                 InventoryManager.Instance.RemoveItem(candlestickId);
                 spot.SetActive(true);
@@ -139,10 +161,13 @@ public class CandlestickHolder : MonoBehaviour
                 if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("I need a candlestick.");
             }
         }
-        else
+        else if (pendingAction == PendingAction.TakeBack)
         {
-            // Try to pick back
-            if (InventoryManager.Instance != null)
+            if (!spot.activeSelf)
+            {
+                if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("Nothing there to take.");
+            }
+            else if (InventoryManager.Instance != null)
             {
                 if (InventoryManager.Instance.IsFull())
                 {
@@ -172,6 +197,7 @@ public class CandlestickHolder : MonoBehaviour
     private void EndInteraction()
     {
         currentStep = InteractionStep.Idle;
+        pendingAction = PendingAction.None;
     }
 
     public int GetCandleCount()
@@ -198,4 +224,3 @@ public class CandlestickHolder : MonoBehaviour
         }
     }
 }
-

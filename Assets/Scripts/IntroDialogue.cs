@@ -11,7 +11,7 @@ public class IntroDialogue : MonoBehaviour
         "Ummm I look like someone's pet, \n(Press Space to continue)",
         "but why they didn't feed me...?\n(Press Space to continue)",
         "I want to find some food...\n(Press Space to continue)",
-        "Press ESC for user guide.\n(Press Space to continue)",
+        "Press U for user guide.\n(Press Space to continue)",
     };
 
     private int currentIndex = 0;

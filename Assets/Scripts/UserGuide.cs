@@ -7,7 +7,7 @@ public class UserGuide : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             isOpen = !isOpen;
             manualPanel.SetActive(isOpen);

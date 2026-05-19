@@ -82305,7 +82305,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[ESC] User Guide
+  m_Text: '[U] User Guide
 
 '
 --- !u!222 &762435427
@@ -103910,10 +103910,9 @@ MonoBehaviour:
     J - Jump
     (unlock required)
 
-    ESC - Open/Close this guide
+    U - Open/Close this guide
 
-    Space - Interact with
-    objects'
+    Space - Interact with objects'
 --- !u!222 &960610839
 CanvasRenderer:
   m_ObjectHideFlags: 0
