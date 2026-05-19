@@ -23,7 +23,11 @@ public class TreasureChestInteraction : MonoBehaviour
     public string lockedDialogue = "It is locked.";
     public string foundDialogue = "There are potions inside...";
     public string instructionDialogue = "Choose one potion. Use arrow keys to move, and press Space to select.";
+    public string revisitDialogue = "Change your potion? Use arrow keys to move, and press Space to select.";
     public string fullInventoryDialogue = "My pockets are full...";
+
+    [Header("Visuals")]
+    public Color currentChoiceTint = new Color(0.6f, 1f, 0.6f, 1f); // greenish tint for the held potion
 
     private bool isPlayerInRange = false;
     private bool chestOpened = false;
@@ -32,6 +36,10 @@ public class TreasureChestInteraction : MonoBehaviour
     private bool choosingPotion = false;
 
     private int selectedIndex = 0;
+
+    // Track which potion (if any) the player currently has from this chest.
+    // -1 means they haven't picked one yet.
+    private int currentlyHeldPotionIndex = -1;
 
     private void Start()
     {
@@ -42,9 +50,18 @@ public class TreasureChestInteraction : MonoBehaviour
     {
         if (!isPlayerInRange) return;
 
-        if (!chestOpened && Input.GetKeyDown(KeyCode.Space))
+        // Entry point: nothing else active, player presses Space
+        if (!showingFoundDialogue && !showingInstructionDialogue && !choosingPotion
+            && Input.GetKeyDown(KeyCode.Space))
         {
-            TryOpenChest();
+            if (!chestOpened)
+            {
+                TryOpenChest();
+            }
+            else
+            {
+                ReopenChest();
+            }
             return;
         }
 
@@ -90,6 +107,13 @@ public class TreasureChestInteraction : MonoBehaviour
         ShowText(foundDialogue);
     }
 
+    // Subsequent visits: skip flavor, go to the swap prompt
+    private void ReopenChest()
+    {
+        showingInstructionDialogue = true;
+        ShowText(revisitDialogue);
+    }
+
     private void OpenPotionUI()
     {
         PlayerMovement.movementLocked = true;
@@ -99,7 +123,8 @@ public class TreasureChestInteraction : MonoBehaviour
             potionPanel.SetActive(true);
         }
 
-        selectedIndex = 0;
+        // Start selection on the currently held potion if there is one, else first
+        selectedIndex = currentlyHeldPotionIndex >= 0 ? currentlyHeldPotionIndex : 0;
 
         for (int i = 0; i < potionSlots.Length; i++)
         {
@@ -121,7 +146,8 @@ public class TreasureChestInteraction : MonoBehaviour
             if (i < potions.Length && potions[i] != null)
             {
                 potionSlots[i].sprite = potions[i].potionIcon;
-                potionSlots[i].color = Color.white;
+                // Tint the slot if it's the player's current pick, else white
+                potionSlots[i].color = (i == currentlyHeldPotionIndex) ? currentChoiceTint : Color.white;
                 potionSlots[i].gameObject.SetActive(true);
             }
             else
@@ -216,6 +242,26 @@ public class TreasureChestInteraction : MonoBehaviour
 
         if (InventoryManager.Instance == null) return;
 
+        // If they re-pick the same potion they already have, just close the UI
+        if (selectedIndex == currentlyHeldPotionIndex)
+        {
+            choosingPotion = false;
+            ClosePotionUI();
+            return;
+        }
+
+        // Swap: remove the old potion (if any) before adding the new one
+        if (currentlyHeldPotionIndex >= 0 && currentlyHeldPotionIndex < potions.Length)
+        {
+            PotionChoice oldPotion = potions[currentlyHeldPotionIndex];
+            if (oldPotion != null && InventoryManager.Instance.HasItem(oldPotion.potionId))
+            {
+                InventoryManager.Instance.RemoveItem(oldPotion.potionId);
+            }
+        }
+
+        // Now check space. With the swap, this should almost always succeed,
+        // but a brand-new pick (no previous potion) could still hit a full inventory.
         if (InventoryManager.Instance.IsFull())
         {
             ShowText(fullInventoryDialogue);
@@ -229,6 +275,7 @@ public class TreasureChestInteraction : MonoBehaviour
 
         if (added)
         {
+            currentlyHeldPotionIndex = selectedIndex;
             choosingPotion = false;
             ClosePotionUI();
         }
