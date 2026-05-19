@@ -20,20 +20,22 @@ public class DiaryInteraction : MonoBehaviour
     private string[] currentDialogueTexts;
     private bool currentDialogueWasBeforeLantern = false;
 
-    private bool lanternUsed = false;
+    private bool diaryUnlocked = false;
 
     private void Start()
     {
-        if (carpet != null)
+        if (GameProgress.Instance != null && GameProgress.Instance.diaryFullyRead)
         {
-            carpet.SetActive(false);
+            diaryUnlocked = true;
+            RevealCarpetAndFootprints();
         }
-
-        foreach (GameObject footprint in footprints)
+        else
         {
-            if (footprint != null)
+            if (carpet != null) carpet.SetActive(false);
+
+            foreach (GameObject footprint in footprints)
             {
-                footprint.SetActive(false);
+                if (footprint != null) footprint.SetActive(false);
             }
         }
     }
@@ -47,17 +49,19 @@ public class DiaryInteraction : MonoBehaviour
         bool hasLantern = InventoryManager.Instance != null &&
                           InventoryManager.Instance.HasItem("Lantern");
 
+        bool canReadDiary = diaryUnlocked || hasLantern;
+
         if (!isDialogueShowing)
         {
-            currentDialogueWasBeforeLantern = !hasLantern;
-            currentDialogueTexts = hasLantern ? readableDialogueTexts : darkDialogueTexts;
+            currentDialogueWasBeforeLantern = !canReadDiary;
+            currentDialogueTexts = canReadDiary ? readableDialogueTexts : darkDialogueTexts;
 
             if (currentDialogueTexts == null || currentDialogueTexts.Length == 0) return;
 
-            if (hasLantern && !lanternUsed)
+            if (hasLantern && !diaryUnlocked)
             {
+                diaryUnlocked = true;
                 InventoryManager.Instance.RemoveItem("Lantern");
-                lanternUsed = true;
             }
 
             currentDialogueIndex = 0;
@@ -82,8 +86,6 @@ public class DiaryInteraction : MonoBehaviour
                     {
                         GameProgress.Instance.diaryRead = true;
                     }
-
-                    Debug.Log("Diary has been read before getting lantern.");
                 }
                 else
                 {
@@ -93,7 +95,6 @@ public class DiaryInteraction : MonoBehaviour
                     }
 
                     RevealCarpetAndFootprints();
-                    Debug.Log("Diary has been fully read. Carpet and footprints revealed.");
                 }
 
                 isDialogueShowing = false;
@@ -104,17 +105,11 @@ public class DiaryInteraction : MonoBehaviour
 
     private void RevealCarpetAndFootprints()
     {
-        if (carpet != null)
-        {
-            carpet.SetActive(true);
-        }
+        if (carpet != null) carpet.SetActive(true);
 
         foreach (GameObject footprint in footprints)
         {
-            if (footprint != null)
-            {
-                footprint.SetActive(true);
-            }
+            if (footprint != null) footprint.SetActive(true);
         }
     }
 
