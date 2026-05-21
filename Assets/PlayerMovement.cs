@@ -16,9 +16,10 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public float idleActionThreshold = 5f;
+    public bool reverseSpriteFlip = false;
 
     [Header("Cat Settings")]
-    public string catPlayerName = "CatPlayer";
+public string catPlayerName = "CatPlayer";
 
     [Header("Normal Cat Jump")]
     public float normalJumpHeight = 0.35f;
@@ -62,11 +63,11 @@ public class PlayerMovement : MonoBehaviour
 
         isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-        if (movement.x > 0.01f) spriteRenderer.flipX = false;
-        else if (movement.x < -0.01f) spriteRenderer.flipX = true;
+        if (movement.x > 0.01f) spriteRenderer.flipX = reverseSpriteFlip;
+        else if (movement.x < -0.01f) spriteRenderer.flipX = !reverseSpriteFlip;
 
         if (Input.GetKeyDown(KeyCode.J))
-        {
+{
             HandleJKey();
         }
 

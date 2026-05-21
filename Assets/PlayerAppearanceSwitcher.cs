@@ -9,6 +9,7 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
         public Vector3 scale;
         public Vector2 colliderSize;
         public Vector2 colliderOffset;
+        public bool reverseSpriteFlip;
     }
 
     public AppearanceData fishAppearance;
@@ -35,9 +36,12 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
 
         if (animator == null) animator = GetComponent<Animator>();
         if (boxCollider == null) boxCollider = GetComponent<BoxCollider2D>();
+        PlayerMovement movement = GetComponent<PlayerMovement>();
 
         originalAppearance.controller = animator != null ? animator.runtimeAnimatorController : null;
         originalAppearance.scale = transform.localScale;
+        originalAppearance.reverseSpriteFlip = movement != null ? movement.reverseSpriteFlip : false;
+        
         if (boxCollider != null)
         {
             originalAppearance.colliderSize = boxCollider.size;
@@ -55,6 +59,9 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
             animator.runtimeAnimatorController = fishAppearance.controller;
             transform.localScale = fishAppearance.scale;
             
+            PlayerMovement movement = GetComponent<PlayerMovement>();
+            if (movement != null) movement.reverseSpriteFlip = fishAppearance.reverseSpriteFlip;
+
             if (boxCollider != null && fishAppearance.colliderSize != Vector2.zero)
             {
                 boxCollider.size = fishAppearance.colliderSize;
@@ -69,9 +76,11 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
     {
         if (animator == null) animator = GetComponent<Animator>();
         if (boxCollider == null) boxCollider = GetComponent<BoxCollider2D>();
+        PlayerMovement movement = GetComponent<PlayerMovement>();
 
         animator.runtimeAnimatorController = originalAppearance.controller;
         transform.localScale = originalAppearance.scale;
+        if (movement != null) movement.reverseSpriteFlip = originalAppearance.reverseSpriteFlip;
         
         if (boxCollider != null)
         {

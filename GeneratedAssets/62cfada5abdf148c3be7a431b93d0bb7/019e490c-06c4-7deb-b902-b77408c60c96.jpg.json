@@ -1,0 +1,28 @@
+{
+    "asset": "62cfada5abdf148c3be7a431b93d0bb7",
+    "fileName": "019e490c-06c4-7deb-b902-b77408c60c96.jpg",
+    "prompt": "A beautiful 2D pixel art ocean water background for a game, side-view perspective, shimmering waves, deep blue and turquoise gradients, light foam on top, matching a cozy 16-bit pixel art style, high detail, seamless-looking.",
+    "negativePrompt": "",
+    "model": "flux-2-pro",
+    "modelName": "Flux 2 (Pro)",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}

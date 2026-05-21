@@ -1,0 +1,12 @@
+{
+    "asset": "edc164315adac4cd194fd9cfe8b53154",
+    "fileName": "019e48f1-f89b-7304-b6ad-c782bb1062e7_Preview.jpg",
+    "prompt": "Seamless pixel art hallway floor texture, witchy aesthetic, dark purple and black stone tiles with mystical glowing green runes and occult symbols, 16-bit pixel art style, flat top-down perspective, matching the rustic fantasy village aesthetic. Sharp pixels, no blur. Tileable.",
+    "negativePrompt": "",
+    "model": "hand-painted-textures-2-0",
+    "modelName": "Hand Painted Textures 2.0",
+    "customSeed": 2091141117,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation"
+}

@@ -1,0 +1,28 @@
+{
+    "asset": "c2494f5f9855740d88b25215c28073b7",
+    "fileName": "019e490d-d41b-7f0e-8263-5e76ca09accf.jpg",
+    "prompt": "A set of underwater 2D pixel art props, including green seaweed, pink coral, and small grey rocks, cozy 16-bit style, isolated on a transparent background, matching a top-down pixel art game aesthetic.",
+    "negativePrompt": "",
+    "model": "flux-2-pro",
+    "modelName": "Flux 2 (Pro)",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}

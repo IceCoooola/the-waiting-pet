@@ -99,9 +99,9 @@ public class FootstepPuzzleManager : MonoBehaviour
 
         string pieceName = GetPieceName(index);
 
-        ShowText("Selected: " + pieceName + "\nPress T to rotate.");
+        ShowText("Selected: " + pieceName + "\nPress T to rotate.\nPress 1, 2, 3, 4 to reselect the item.");
         Debug.Log("Selected object " + (index + 1) + ": " + pieceName);
-    }
+        }
 
     private string GetPieceName(int index)
     {
@@ -124,8 +124,8 @@ public class FootstepPuzzleManager : MonoBehaviour
         puzzlePieces[selectedIndex].RotatePiece();
 
         string pieceName = GetPieceName(selectedIndex);
-        ShowText("Selected: " + pieceName + "\nPress T to rotate.");
-    }
+        ShowText("Selected: " + pieceName + "\nPress T to rotate.\nPress 1, 2, 3, 4 to reselect the item.");
+        }
 
     private void CheckPuzzle()
     {

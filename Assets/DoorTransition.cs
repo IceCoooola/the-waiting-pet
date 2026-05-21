@@ -10,6 +10,11 @@ public class DoorTransition : MonoBehaviour
     public GameObject roomToEnable;    // The room we are entering
     public TransitionDirection requiredDirection; // Key to press (W=Up, S=Down, etc.)
     public bool triggerOnTouch = false; // If true, transit immediately on touch
+    public bool transformToFish = false; // If true, player turns into a fish
+
+    [Header("Unlock Dialogue")]
+    public string[] unlockDialoguePages; // If set, these pages show on unlock instead of "Door unlocked!"
+    private int currentUnlockPageIndex = -1;
 
     [Header("Lock Settings")]
 public bool isLocked = false;
@@ -22,6 +27,16 @@ public bool isLocked = false;
     private void Update()
     {
         if (!isPlayerInRange) return;
+
+        // Handle multi-page unlock dialogue
+        if (currentUnlockPageIndex != -1)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                AdvanceUnlockDialogue();
+            }
+            return;
+        }
 
         // If triggerOnTouch is enabled and not locked, transit immediately
         if (triggerOnTouch && !isLocked)
@@ -50,11 +65,21 @@ public bool isLocked = false;
         {
             isLocked = false;
             InventoryManager.Instance.RemoveItem(requiredKeyId);
-            if (DialogueManager.Instance != null)
+            
+            if (unlockDialoguePages != null && unlockDialoguePages.Length > 0)
             {
-                DialogueManager.Instance.ShowDialogue("Door unlocked!");
+                currentUnlockPageIndex = 0;
+                DialogueManager.Instance.ShowDialogue(unlockDialoguePages[0], false);
+                PlayerMovement.movementLocked = true;
             }
-            PerformTransition();
+            else
+            {
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.ShowDialogue("Door unlocked!");
+                }
+                PerformTransition();
+            }
         }
         else
         {
@@ -62,6 +87,22 @@ public bool isLocked = false;
             {
                 DialogueManager.Instance.ShowDialogue(lockedDialogue);
             }
+        }
+    }
+
+    private void AdvanceUnlockDialogue()
+    {
+        currentUnlockPageIndex++;
+        if (currentUnlockPageIndex < unlockDialoguePages.Length)
+        {
+            DialogueManager.Instance.ShowDialogue(unlockDialoguePages[currentUnlockPageIndex], false);
+        }
+        else
+        {
+            currentUnlockPageIndex = -1;
+            PlayerMovement.movementLocked = false;
+            DialogueManager.Instance.HideDialogue();
+            PerformTransition();
         }
     }
 
@@ -100,13 +141,23 @@ switch (requiredDirection)
         lastTransitionTime = Time.time;
 
         // 1. Teleport player
-if (destination != null)
+        if (destination != null)
         {
             player.transform.position = destination.position;
         }
 
+        // 1.5. Transform to fish if requested
+        if (transformToFish)
+        {
+            PlayerAppearanceSwitcher switcher = player.GetComponent<PlayerAppearanceSwitcher>();
+            if (switcher != null)
+            {
+                switcher.SwitchToFish();
+            }
+        }
+
         // 2. Toggle rooms
-        // By disabling the room parent, this script stops running immediately, 
+// By disabling the room parent, this script stops running immediately, 
         // preventing multiple transitions in one frame.
         if (roomToDisable != null) roomToDisable.SetActive(false);
         if (roomToEnable != null) roomToEnable.SetActive(true);
@@ -133,6 +184,12 @@ if (destination != null)
         if (other.CompareTag("Player") || other.name.Contains("Dog") || other.GetComponent<PlayerMovement>() != null)
         {
             isPlayerInRange = false;
+            if (currentUnlockPageIndex != -1)
+            {
+                currentUnlockPageIndex = -1;
+                PlayerMovement.movementLocked = false;
+                if (DialogueManager.Instance != null) DialogueManager.Instance.HideDialogue();
+            }
         }
     }
 }
