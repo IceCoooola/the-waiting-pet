@@ -16735,6 +16735,15 @@ MonoBehaviour:
     colliderSize: {x: 0.12, y: 0.12}
     colliderOffset: {x: 0, y: 0}
     reverseSpriteFlip: 1
+    prefab: {fileID: 0}
+  witchAppearance:
+    controller: {fileID: 0}
+    scale: {x: 1, y: 1, z: 1}
+    colliderSize: {x: 0.4, y: 1.4}
+    colliderOffset: {x: 0, y: 0}
+    reverseSpriteFlip: 0
+    prefab: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28,
+      type: 3}
 --- !u!1 &158881665
 GameObject:
   m_ObjectHideFlags: 0
@@ -36346,6 +36355,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 377792657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &377095767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 377095768}
+  m_Layer: 0
+  m_Name: WizardSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &377095768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377095767}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -38.84, y: 44.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 750744697}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377792656
 GameObject:
   m_ObjectHideFlags: 0
@@ -51392,6 +51432,7 @@ GameObject:
   - component: {fileID: 537905060}
   - component: {fileID: 537905063}
   - component: {fileID: 537905062}
+  - component: {fileID: 537905064}
   m_Layer: 0
   m_Name: CrystalBall_seagrass
   m_TagString: Untagged
@@ -51467,7 +51508,7 @@ Transform:
   m_GameObject: {fileID: 537905059}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.093384, y: 11.644117, z: 0}
+  m_LocalPosition: {x: -58.15, y: 7.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51541,6 +51582,76 @@ MonoBehaviour:
   - I remember I was a small fish...
   - I swam through narrow pipes and into the vast ocean...
   - The currents were strong, but I was finally free.
+  witchSpawnPoint: {fileID: 0}
+  triggerTransformation: 0
+  glowColor: {r: 0.2, g: 0.8, b: 1, a: 1}
+  pulseSpeed: 5
+  scalePulseAmount: 0.2
+--- !u!108 &537905064
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537905059}
+  m_Enabled: 0
+  serializedVersion: 13
+  m_Type: 2
+  m_Color: {r: 0.2, g: 0.8, b: 1, a: 1}
+  m_Intensity: 0
+  m_Range: 5
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize2D: {x: 0.5, y: 0.5}
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShapeRadius: 0.025
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &540734470
 GameObject:
   m_ObjectHideFlags: 0
@@ -70626,6 +70737,7 @@ Transform:
   - {fileID: 1716427923}
   - {fileID: 111371226}
   - {fileID: 1626977980}
+  - {fileID: 377095768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &759762438
@@ -86087,7 +86199,7 @@ Transform:
   m_GameObject: {fileID: 909308748}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.769997, y: 8.08, z: 0}
+  m_LocalPosition: {x: -60.65, y: 12.01, z: 0}
   m_LocalScale: {x: 0.6818, y: 0.6818, z: 0.6818}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110995,6 +111107,7 @@ GameObject:
   - component: {fileID: 1142476023}
   - component: {fileID: 1142476026}
   - component: {fileID: 1142476025}
+  - component: {fileID: 1142476027}
   m_Layer: 0
   m_Name: CrystalBall_magicWand
   m_TagString: Untagged
@@ -111148,6 +111261,76 @@ MonoBehaviour:
   - I was escaping from the villagers that they want to kill me....
   - I made a shapeshift potion to escape...
   - But I made a mistake that I lost all my memories...
+  witchSpawnPoint: {fileID: 377095768}
+  triggerTransformation: 1
+  glowColor: {r: 0.2, g: 0.8, b: 1, a: 1}
+  pulseSpeed: 5
+  scalePulseAmount: 0.2
+--- !u!108 &1142476027
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142476022}
+  m_Enabled: 0
+  serializedVersion: 13
+  m_Type: 2
+  m_Color: {r: 0.2, g: 0.8, b: 1, a: 1}
+  m_Intensity: 0
+  m_Range: 5
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize2D: {x: 0.5, y: 0.5}
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShapeRadius: 0.025
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &1144234467
 GameObject:
   m_ObjectHideFlags: 0
@@ -115082,6 +115265,8 @@ Transform:
   - {fileID: 2024997842}
   - {fileID: 1142476024}
   - {fileID: 338508014}
+  - {fileID: 1718017012}
+  - {fileID: 1382181094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1179728937
@@ -134003,12 +134188,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382181090}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -81.880104, y: 26.011995, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -63.1901, y: 9.221994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1178100718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1382725283
 GameObject:
@@ -146556,6 +146741,7 @@ GameObject:
   - component: {fileID: 1517042589}
   - component: {fileID: 1517042588}
   - component: {fileID: 1517042587}
+  - component: {fileID: 1517042590}
   m_Layer: 0
   m_Name: CrystalBall_cat
   m_TagString: Untagged
@@ -146646,6 +146832,11 @@ MonoBehaviour:
   - I remember, I remember I was a cat,
   - I was jumping around the village rooftops, chasing shadows and sunlight.
   - The world was so much bigger from up there.
+  witchSpawnPoint: {fileID: 0}
+  triggerTransformation: 0
+  glowColor: {r: 0.2, g: 0.8, b: 1, a: 1}
+  pulseSpeed: 5
+  scalePulseAmount: 0.2
 --- !u!212 &1517042589
 SpriteRenderer:
   serializedVersion: 2
@@ -146705,6 +146896,71 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!108 &1517042590
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517042585}
+  m_Enabled: 0
+  serializedVersion: 13
+  m_Type: 2
+  m_Color: {r: 0.2, g: 0.8, b: 1, a: 1}
+  m_Intensity: 0
+  m_Range: 5
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize2D: {x: 0.5, y: 0.5}
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShapeRadius: 0.025
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &1518785666
 GameObject:
   m_ObjectHideFlags: 0
@@ -167278,12 +167534,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718017010}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -77.28, y: 11.37, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -58.589996, y: -5.420001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1178100718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1718017013
 BoxCollider2D:
@@ -196215,6 +196471,7 @@ GameObject:
   - component: {fileID: 2024997841}
   - component: {fileID: 2024997844}
   - component: {fileID: 2024997843}
+  - component: {fileID: 2024997845}
   m_Layer: 0
   m_Name: CrystalBall_bone
   m_TagString: Untagged
@@ -196364,6 +196621,76 @@ MonoBehaviour:
   - I remember I was a dog...
   - I was running between multiple things.. training myself my speed.
   - The scent of adventure was everywhere.
+  witchSpawnPoint: {fileID: 0}
+  triggerTransformation: 0
+  glowColor: {r: 0.2, g: 0.8, b: 1, a: 1}
+  pulseSpeed: 5
+  scalePulseAmount: 0.2
+--- !u!108 &2024997845
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024997840}
+  m_Enabled: 0
+  serializedVersion: 13
+  m_Type: 2
+  m_Color: {r: 0.2, g: 0.8, b: 1, a: 1}
+  m_Intensity: 0
+  m_Range: 5
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize2D: {x: 0.5, y: 0.5}
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShapeRadius: 0.025
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &2026260841
 GameObject:
   m_ObjectHideFlags: 0
@@ -212060,5 +212387,3 @@ SceneRoots:
   - {fileID: 157872665}
   - {fileID: 953878557}
   - {fileID: 744960075}
-  - {fileID: 1718017012}
-  - {fileID: 1382181094}

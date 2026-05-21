@@ -16,9 +16,35 @@ public class CrystalBallDialogue : MonoBehaviour
     [TextArea]
     public string[] postPickupDialogues;
 
+    [Header("Witch Transformation")]
+    public Transform witchSpawnPoint;
+    public bool triggerTransformation = false;
+    
+    [Header("Lighting Animation")]
+    public Color glowColor = new Color(0.2f, 0.8f, 1f, 1f); 
+    public float pulseSpeed = 4f;
+    public float scalePulseAmount = 0.15f;
+    
+    private bool isGlowing = false;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    private Vector3 originalScale;
+    private Light pointLight;
+
     private const string SPACE_PROMPT = "\n(Press space to continue.)";
     private int currentPageIndex = -1;
     private bool isPlayerInRange;
+    private bool hasTransformed = false;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null) originalColor = spriteRenderer.color;
+        originalScale = transform.localScale;
+        
+        pointLight = GetComponent<Light>();
+        if (pointLight != null) pointLight.enabled = false;
+    }
 
     private void Update()
     {
@@ -42,6 +68,24 @@ public class CrystalBallDialogue : MonoBehaviour
                 ShowPrePickupDialogue();
             }
         }
+
+        if (isGlowing)
+        {
+            float lerp = (Mathf.Sin(Time.time * pulseSpeed) + 1f) / 2f;
+            
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = Color.Lerp(originalColor, glowColor, lerp);
+            }
+
+            transform.localScale = originalScale * (1f + lerp * scalePulseAmount);
+
+            if (pointLight != null)
+            {
+                pointLight.enabled = true;
+                pointLight.intensity = 1f + lerp * 2f;
+            }
+        }
     }
 
     private bool AreDependenciesMet()
@@ -59,6 +103,7 @@ public class CrystalBallDialogue : MonoBehaviour
         if (DialogueManager.Instance != null)
         {
             DialogueManager.Instance.ShowDialogue(lockedDialogue + SPACE_PROMPT, false);
+            StartGlow();
         }
     }
 
@@ -66,9 +111,14 @@ public class CrystalBallDialogue : MonoBehaviour
     {
         if (DialogueManager.Instance != null)
         {
-            // We set autoHide to false so the player actually has to press space as prompted
             DialogueManager.Instance.ShowDialogue(prePickupDialogue + SPACE_PROMPT, false);
+            // Optional: StartGlow(); // If you want it to glow on pre-pickup too
         }
+    }
+
+    public void StartGlow()
+    {
+        isGlowing = true;
     }
 
     private void ShowPostPickupDialogue()
@@ -117,5 +167,38 @@ public class CrystalBallDialogue : MonoBehaviour
         {
             DialogueManager.Instance.HideDialogue();
         }
+
+        if (isStoryCompleted && triggerTransformation && !hasTransformed)
+        {
+            TransformToWitch();
+        }
     }
-}
+
+    private void TransformToWitch()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null) player = GameObject.Find("GoldenRetrieverPlayer");
+
+        if (player != null)
+        {
+            if (witchSpawnPoint != null)
+            {
+                player.transform.position = witchSpawnPoint.position;
+            }
+
+            PlayerAppearanceSwitcher switcher = player.GetComponent<PlayerAppearanceSwitcher>();
+            if (switcher != null)
+            {
+                switcher.SwitchToWitch();
+            }
+
+            player.name = "WitchPlayer";
+            hasTransformed = true;
+
+            // Trigger the flashback dialogue
+            player.AddComponent<WitchTransformationDialogue>();
+            
+            Debug.Log("[CrystalBall] Player transformed into Witch and teleported.");
+        }
+    }
+    }

@@ -237,9 +237,15 @@ public string catPlayerName = "CatPlayer";
         if (HasParameter("Speed"))
             animator.SetFloat("Speed", speedValue);
 
+        if (HasParameter("isRun"))
+            animator.SetBool("isRun", movement.sqrMagnitude > 0.001f);
+
+        if (HasParameter("isJump"))
+            animator.SetBool("isJump", isNormalJumping);
+
         if (HasParameter("IdleTime"))
             animator.SetFloat("IdleTime", idleTimer);
-    }
+        }
 
     private bool HasParameter(string paramName)
     {

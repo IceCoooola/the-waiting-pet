@@ -10,13 +10,17 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
         public Vector2 colliderSize;
         public Vector2 colliderOffset;
         public bool reverseSpriteFlip;
+        public GameObject prefab;
     }
 
     public AppearanceData fishAppearance;
+    public AppearanceData witchAppearance;
     private AppearanceData originalAppearance;
 
     private Animator animator;
     private BoxCollider2D boxCollider;
+    private SpriteRenderer spriteRenderer;
+    private GameObject currentPrefab;
     private bool isInitialized = false;
 
     void Awake()
@@ -36,6 +40,7 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
 
         if (animator == null) animator = GetComponent<Animator>();
         if (boxCollider == null) boxCollider = GetComponent<BoxCollider2D>();
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
         PlayerMovement movement = GetComponent<PlayerMovement>();
 
         originalAppearance.controller = animator != null ? animator.runtimeAnimatorController : null;
@@ -52,42 +57,66 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
 
     public void SwitchToFish()
     {
+        ApplyAppearance(fishAppearance, "Fish");
+    }
+
+    public void SwitchToWitch()
+    {
+        ApplyAppearance(witchAppearance, "Witch");
+    }
+
+    private void ApplyAppearance(AppearanceData data, string name)
+    {
         CaptureOriginal();
 
-        if (fishAppearance.controller != null)
+        if (currentPrefab != null)
         {
-            animator.runtimeAnimatorController = fishAppearance.controller;
-            transform.localScale = fishAppearance.scale;
-            
-            PlayerMovement movement = GetComponent<PlayerMovement>();
-            if (movement != null) movement.reverseSpriteFlip = fishAppearance.reverseSpriteFlip;
-
-            if (boxCollider != null && fishAppearance.colliderSize != Vector2.zero)
-            {
-                boxCollider.size = fishAppearance.colliderSize;
-                boxCollider.offset = fishAppearance.colliderOffset;
-            }
-            
-            Debug.Log("[AppearanceSwitcher] Switched to Fish appearance.");
+            Destroy(currentPrefab);
+            currentPrefab = null;
         }
+
+        PlayerMovement movement = GetComponent<PlayerMovement>();
+
+        if (data.prefab != null)
+        {
+            if (spriteRenderer != null) spriteRenderer.enabled = false;
+            if (animator != null) animator.enabled = false;
+
+            currentPrefab = Instantiate(data.prefab, transform);
+            currentPrefab.transform.localPosition = Vector3.zero;
+            currentPrefab.transform.localRotation = Quaternion.identity;
+
+            Animator childAnimator = currentPrefab.GetComponentInChildren<Animator>();
+            if (movement != null && childAnimator != null)
+            {
+                movement.animator = childAnimator;
+            }
+        }
+        else if (data.controller != null)
+        {
+            if (spriteRenderer != null) spriteRenderer.enabled = true;
+            if (animator != null)
+            {
+                animator.enabled = true;
+                animator.runtimeAnimatorController = data.controller;
+            }
+            if (movement != null) movement.animator = animator;
+        }
+
+        transform.localScale = data.scale;
+        if (movement != null) movement.reverseSpriteFlip = data.reverseSpriteFlip;
+
+        if (boxCollider != null && data.colliderSize != Vector2.zero)
+        {
+            boxCollider.size = data.colliderSize;
+            boxCollider.offset = data.colliderOffset;
+        }
+        
+        Debug.Log($"[AppearanceSwitcher] Switched to {name} appearance.");
     }
 
     public void RestoreOriginal()
     {
-        if (animator == null) animator = GetComponent<Animator>();
-        if (boxCollider == null) boxCollider = GetComponent<BoxCollider2D>();
-        PlayerMovement movement = GetComponent<PlayerMovement>();
-
-        animator.runtimeAnimatorController = originalAppearance.controller;
-        transform.localScale = originalAppearance.scale;
-        if (movement != null) movement.reverseSpriteFlip = originalAppearance.reverseSpriteFlip;
-        
-        if (boxCollider != null)
-        {
-            boxCollider.size = originalAppearance.colliderSize;
-            boxCollider.offset = originalAppearance.colliderOffset;
-        }
-        
-        Debug.Log("[AppearanceSwitcher] Restored original appearance.");
+        ApplyAppearance(originalAppearance, "Original");
     }
 }
