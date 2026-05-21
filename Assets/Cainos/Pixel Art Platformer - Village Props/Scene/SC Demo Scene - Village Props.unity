@@ -51586,6 +51586,8 @@ MonoBehaviour:
   - The currents were strong, but I was finally free.
   witchSpawnPoint: {fileID: 0}
   triggerTransformation: 0
+  roomToDisable: {fileID: 0}
+  roomToEnable: {fileID: 0}
   glowColor: {r: 0.2, g: 0.8, b: 1, a: 1}
   pulseSpeed: 5
   scalePulseAmount: 0.2
@@ -111265,6 +111267,8 @@ MonoBehaviour:
   - But I made a mistake that I lost all my memories...
   witchSpawnPoint: {fileID: 377095768}
   triggerTransformation: 1
+  roomToDisable: {fileID: 1178100717}
+  roomToEnable: {fileID: 750744696}
   glowColor: {r: 0.2, g: 0.8, b: 1, a: 1}
   pulseSpeed: 5
   scalePulseAmount: 0.2
@@ -146836,6 +146840,8 @@ MonoBehaviour:
   - The world was so much bigger from up there.
   witchSpawnPoint: {fileID: 0}
   triggerTransformation: 0
+  roomToDisable: {fileID: 0}
+  roomToEnable: {fileID: 0}
   glowColor: {r: 0.2, g: 0.8, b: 1, a: 1}
   pulseSpeed: 5
   scalePulseAmount: 0.2
@@ -196625,6 +196631,8 @@ MonoBehaviour:
   - The scent of adventure was everywhere.
   witchSpawnPoint: {fileID: 0}
   triggerTransformation: 0
+  roomToDisable: {fileID: 0}
+  roomToEnable: {fileID: 0}
   glowColor: {r: 0.2, g: 0.8, b: 1, a: 1}
   pulseSpeed: 5
   scalePulseAmount: 0.2
@@ -203125,7 +203133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorTransition
   destination: {fileID: 394722187}
-  roomToDisable: {fileID: 750744696}
+  roomToDisable: {fileID: 0}
   roomToEnable: {fileID: 551837506}
   requiredDirection: 1
   triggerOnTouch: 0

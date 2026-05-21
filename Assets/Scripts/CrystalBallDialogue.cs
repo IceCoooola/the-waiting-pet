@@ -19,7 +19,9 @@ public class CrystalBallDialogue : MonoBehaviour
     [Header("Witch Transformation")]
     public Transform witchSpawnPoint;
     public bool triggerTransformation = false;
-    
+    public GameObject roomToDisable;
+    public GameObject roomToEnable;
+
     [Header("Lighting Animation")]
     public Color glowColor = new Color(0.2f, 0.8f, 1f, 1f); 
     public float pulseSpeed = 4f;
@@ -197,6 +199,15 @@ public class CrystalBallDialogue : MonoBehaviour
 
             // Trigger the flashback dialogue
             player.AddComponent<WitchTransformationDialogue>();
+
+            if (roomToDisable != null)
+            {
+                roomToDisable.SetActive(false);
+            }
+            if (roomToEnable != null)
+            {
+                roomToEnable.SetActive(true);
+            }
             
             Debug.Log("[CrystalBall] Player transformed into Witch and teleported.");
         }
