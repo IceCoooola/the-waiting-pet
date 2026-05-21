@@ -1,0 +1,38 @@
+{
+    "asset": "7fe99caf3706049d29210d7ad61011e5",
+    "fileName": "019e4bbc-62db-7f2a-aa3b-35eb0d1c1273.jpg",
+    "prompt": "A small cat paw item, 2D pixel art style, game item icon, black fur with pink paw pads, clean edges, isolated, transparent background, matching the muted pixel art style and color palette of the Cainos Village Props. Single object, centered.",
+    "negativePrompt": "",
+    "model": "flux-2-pro",
+    "modelName": "Flux 2 (Pro)",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "7810966f0f690954c87305933cabf2b0",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}

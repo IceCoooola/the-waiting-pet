@@ -1,0 +1,28 @@
+{
+    "asset": "6e2675a1f4c1446f5b16d110a202067f",
+    "fileName": "019e4bb1-b73b-79ab-b314-f828a76c42cf.jpg",
+    "prompt": "A single isolated magic wand, 2D pixel art style, game item icon, clean edges, transparent background, matching the muted color palette and pixel art style of the Cainos Village Props. The wand should be elegant with a glowing crystal tip. No sheets, no collage, single object only.",
+    "negativePrompt": "",
+    "model": "flux-2-pro",
+    "modelName": "Flux 2 (Pro)",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}
