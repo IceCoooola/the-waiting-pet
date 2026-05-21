@@ -1,0 +1,38 @@
+{
+    "asset": "4b8881d30e2c14d0f8b82ba804ba88b1",
+    "fileName": "019e4942-0357-79d7-b874-90b4564c3a27.jpg",
+    "prompt": "A single bone, pixel art, 16-bit aesthetic, muted sepia and beige color palette matching the reference, isometric view, detailed pixel shading, dark outline, game item asset, transparent background",
+    "negativePrompt": "",
+    "model": "flux-2-pro",
+    "modelName": "Flux 2 (Pro)",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "13cbb8d3d639e494a8693f52424a4bfd",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}

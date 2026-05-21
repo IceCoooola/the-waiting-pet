@@ -1,0 +1,38 @@
+{
+    "asset": "ab36aad1e8ab747529fc86eae8412a8a",
+    "fileName": "019e4943-ee1d-7959-814e-f3804c15d14c.jpg",
+    "prompt": "A witch's crystal ball on a dark ornate wooden stand, pixel art, 16-bit aesthetic, glowing ethereal purple center, muted sepia and beige stand color palette matching the reference, isometric view, detailed pixel shading, dark outline, game item asset, transparent background",
+    "negativePrompt": "",
+    "model": "flux-2-pro",
+    "modelName": "Flux 2 (Pro)",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "13cbb8d3d639e494a8693f52424a4bfd",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}
