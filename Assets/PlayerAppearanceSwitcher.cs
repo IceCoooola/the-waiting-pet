@@ -11,6 +11,7 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
         public Vector2 colliderOffset;
         public bool reverseSpriteFlip;
         public GameObject prefab;
+        public float cameraSize;
     }
 
     public AppearanceData fishAppearance;
@@ -52,6 +53,16 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
             originalAppearance.colliderSize = boxCollider.size;
             originalAppearance.colliderOffset = boxCollider.offset;
         }
+
+        if (Camera.main != null)
+        {
+            originalAppearance.cameraSize = Camera.main.orthographicSize;
+        }
+        else
+        {
+            originalAppearance.cameraSize = 5f;
+        }
+
         isInitialized = true;
     }
 
@@ -110,6 +121,11 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
         {
             boxCollider.size = data.colliderSize;
             boxCollider.offset = data.colliderOffset;
+        }
+
+        if (Camera.main != null && data.cameraSize > 0.1f)
+        {
+            Camera.main.orthographicSize = data.cameraSize;
         }
         
         Debug.Log($"[AppearanceSwitcher] Switched to {name} appearance.");

@@ -16736,6 +16736,7 @@ MonoBehaviour:
     colliderOffset: {x: 0, y: 0}
     reverseSpriteFlip: 1
     prefab: {fileID: 0}
+    cameraSize: 5
   witchAppearance:
     controller: {fileID: 0}
     scale: {x: 1, y: 1, z: 1}
@@ -16744,6 +16745,7 @@ MonoBehaviour:
     reverseSpriteFlip: 0
     prefab: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28,
       type: 3}
+    cameraSize: 7.5
 --- !u!1 &158881665
 GameObject:
   m_ObjectHideFlags: 0
@@ -36380,7 +36382,7 @@ Transform:
   m_GameObject: {fileID: 377095767}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.84, y: 44.09, z: 0}
+  m_LocalPosition: {x: -37.44, y: 45.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
