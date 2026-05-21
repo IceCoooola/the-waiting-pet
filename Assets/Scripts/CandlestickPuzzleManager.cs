@@ -29,7 +29,7 @@ public class CandlestickPuzzleManager : MonoBehaviour
 
         // candlesticks_empty_3 (Index 3): Left and Right active
         bool empty_3_correct = IsSpotActive(holders[3].leftSpot) && 
-                               !IsSpotActive(holders[3].middleSpot) && 
+                               IsSpotActive(holders[3].middleSpot) && 
                                IsSpotActive(holders[3].rightSpot);
 
         if (empty_0_correct && empty_1_correct && empty_2_correct && empty_3_correct)
