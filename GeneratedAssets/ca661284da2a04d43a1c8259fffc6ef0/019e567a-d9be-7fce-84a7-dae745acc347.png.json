@@ -1,0 +1,28 @@
+{
+    "asset": "ca661284da2a04d43a1c8259fffc6ef0",
+    "fileName": "019e567a-d9be-7fce-84a7-dae745acc347.png",
+    "prompt": "I'm trying to design a top down view game\n, the background setting is witch's house, I want some furnitures for the bed room, can you generate some furnitures for the bed room?",
+    "negativePrompt": "",
+    "model": "gpt-image-1",
+    "modelName": "GPT Image 1",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}

@@ -108357,9 +108357,14 @@ MonoBehaviour:
     I need to recall my other memories first.
   postPickupDialogues:
   - I remember I was the witch!
-  - I was escaping from the villagers that they want to kill me....
-  - I made a shapeshift potion to escape...
-  - But I made a mistake that I lost all my memories...
+  - 'The villagers drove me from my home.
+
+    I didn''t know if I''d ever come back.'
+  - So I brewed a shapeshift potion to hide myself...
+  - 'But something went wrong.
+
+    I drank it too quickly, and lost everything I
+    knew.'
   witchSpawnPoint: {fileID: 377095768}
   triggerTransformation: 1
   roomToDisable: {fileID: 1178100717}
