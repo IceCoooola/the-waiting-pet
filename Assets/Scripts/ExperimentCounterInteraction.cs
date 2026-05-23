@@ -91,7 +91,7 @@ public class ExperimentCounterInteraction : MonoBehaviour
                     string choices = "Drink the green potion (Press 1)\n" +
                                      "Drink the red potion (Press 2)\n" +
                                      "Drink the blue potion (Press 3)\n" +
-                                     "Drink the orange potion (Press 4)\n" +
+                                     "Drink the purple potion (Press 4)\n" +
                                      "Drink the yellow potion (Press 5)\n" +
                                      "Drink the brown potion (Press 6)\n" +
                                      "Don't drink it (Press 7)";
@@ -104,9 +104,9 @@ public class ExperimentCounterInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1)) DrinkPotion(1, "It tastes like herbs...");
                 else if (Input.GetKeyDown(KeyCode.Alpha2)) DrinkPotion(2, "It tastes so spicy!");
                 else if (Input.GetKeyDown(KeyCode.Alpha3)) DrinkPotion(3, "It tastes like freezing water.");
-                else if (Input.GetKeyDown(KeyCode.Alpha4)) DrinkPotion(4, "It tastes like orange juice! I like it.");
+                else if (Input.GetKeyDown(KeyCode.Alpha4)) DrinkPotion(4, "It tastes like grape juice! I like it.");
                 else if (Input.GetKeyDown(KeyCode.Alpha5)) DrinkPotion(5, "It tastes so bitter.");
-                else if (Input.GetKeyDown(KeyCode.Alpha6)) DrinkPotion(6, "It tastes so bitter... Eww!");
+                else if (Input.GetKeyDown(KeyCode.Alpha6)) DrinkPotion(6, "Eww!");
                 else if (Input.GetKeyDown(KeyCode.Alpha7))
                 {
                     currentState = State.Inactive;
@@ -182,7 +182,7 @@ public class ExperimentCounterInteraction : MonoBehaviour
             ladderObject.SetActive(true);
 
         if (DialogueManager.Instance != null)
-            DialogueManager.Instance.ShowDialogue("Poof! You turned into a cat!\n(Press Space to continue)", false);
+            DialogueManager.Instance.ShowDialogue("What happened?! I turned into a cat!\n(Press Space to continue)", false);
         
         Debug.Log("[ExperimentCounter] Player transformed into CatPlayer.");
     }
