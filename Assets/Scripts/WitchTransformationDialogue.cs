@@ -9,20 +9,20 @@ public class WitchTransformationDialogue : MonoBehaviour
         public string text;
     }
 
-    private DialogueLine[] lines = new DialogueLine[]
-    {
-        new DialogueLine { portraitName = "", text = "I remember everything now.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 1", text = "The fire. The smoke. The screams outside our house.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 2", text = "They called us witches like it was something rotten, something evil. The villagers dragged my mother and my grandmother inside and burned them alive while the church bells rang in the distance. I can still hear them screaming my name.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 3", text = "My mother hid me in the cellar before they came. She told me not to cry. Not to move. No matter what happened upstairs.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 4", text = "They locked every door in the house… but they forgot the cellar hatch.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 4", text = "So I ran.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 5", text = "For years, I told myself I was only surviving. That I was only hiding.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 5", text = "But now I remember.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 7", text = "I am my mother’s daughter.\nMy grandmother’s blood runs through me.\nThe fire did not kill us.\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 7", text = "And if the hunters are coming again…\n(Press space to continue.)" },
-        new DialogueLine { portraitName = "witch 7", text = "This time, I will not run.\n(Press space to continue.)" }
-    };
+private DialogueLine[] lines = new DialogueLine[]
+{
+    new DialogueLine { portraitName = "", text = "I remember everything now.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 1", text = "The fire. The smoke. The chaos outside our house.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 2", text = "They called us witches like it was something terrible, something wrong. The villagers came for my mother and my grandmother while the church bells rang in the distance. I can still hear them calling my name.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 3", text = "My mother hid me in the cellar before they arrived. She told me not to cry. Not to move. No matter what happened upstairs.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 4", text = "They locked every door in the house… but they forgot the cellar hatch.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 4", text = "So I ran.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 5", text = "For years, I told myself I was only surviving. That I was only hiding.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 5", text = "But now I remember.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 7", text = "I am my mother's daughter.\nMy grandmother's strength lives in me.\nThey could not take everything from us.\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 7", text = "And if the hunters are coming again…\n(Press space to continue.)" },
+    new DialogueLine { portraitName = "witch 7", text = "This time, I will not run.\n(Press space to continue.)" }
+};
 
     private int currentIndex = 0;
     private bool isFinished = false;
@@ -110,7 +110,7 @@ public class WitchTransformationDialogue : MonoBehaviour
         if (DialogueManager.Instance != null)
         {
             // Final screen with larger text
-            DialogueManager.Instance.ShowDialogue("THE END\n\n(Thank you for playing!)", false, 48, null, true);
+            DialogueManager.Instance.ShowDialogue("THE END\n(Thank you for playing!)", false, 48, null, true);
         }
     }
 
