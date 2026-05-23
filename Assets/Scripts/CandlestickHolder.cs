@@ -13,17 +13,6 @@ public class CandlestickHolder : MonoBehaviour
 
     [Header("Dialogue")]
     [TextArea]
-    public string firstInstructionDialogue =
-        "Press 1, 2, or 3 to place or take back a candlestick.\n" +
-        "1 = Left, 2 = Middle, 3 = Right\n" +
-        "Press Space to close.";
-
-    [TextArea]
-    public string shortInstructionDialogue =
-        "1 = Left, 2 = Middle, 3 = Right\n" +
-        "Press Space to close.";
-
-    [TextArea]
     public string emptyDialogue = "Empty candlestick...";
 
     [TextArea]
@@ -34,8 +23,6 @@ public class CandlestickHolder : MonoBehaviour
 
     private bool isPlayerInRange = false;
     private bool choosingSpot = false;
-
-    private static bool hasShownInstructionOnce = false;
 
     private void Update()
     {
@@ -61,15 +48,15 @@ public class CandlestickHolder : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                ToggleSpot(leftSpot);
+                ToggleSpot(leftSpot, "left");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                ToggleSpot(middleSpot);
+                ToggleSpot(middleSpot, "middle");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                ToggleSpot(rightSpot);
+                ToggleSpot(rightSpot, "right");
             }
         }
     }
@@ -87,25 +74,50 @@ public class CandlestickHolder : MonoBehaviour
         {
             if (DialogueManager.Instance != null)
             {
-                DialogueManager.Instance.ShowDialogue(emptyDialogue, false);
+                DialogueManager.Instance.ShowDialogue(emptyDialogue, true);
             }
 
             return;
         }
 
         choosingSpot = true;
+        UpdateDialogue();
+    }
 
+    private void UpdateDialogue()
+    {
         if (DialogueManager.Instance == null) return;
 
-        if (!hasShownInstructionOnce)
+        bool hasHand = InventoryManager.Instance != null && InventoryManager.Instance.HasItem(candlestickId);
+        string dialogue = "";
+
+        dialogue += GetSpotOption(leftSpot, "left", "1", hasHand);
+        dialogue += GetSpotOption(middleSpot, "middle", "2", hasHand);
+        dialogue += GetSpotOption(rightSpot, "right", "3", hasHand);
+
+        if (string.IsNullOrEmpty(dialogue))
         {
-            hasShownInstructionOnce = true;
-            DialogueManager.Instance.ShowDialogue(firstInstructionDialogue, false);
+            dialogue = "Nothing more to do here.\n";
         }
-        else
+
+        dialogue += "Press Space to close.";
+        DialogueManager.Instance.ShowDialogue(dialogue, false);
+    }
+
+    private string GetSpotOption(GameObject spot, string spotName, string keyNum, bool hasHand)
+    {
+        if (spot == null) return "";
+
+        if (spot.activeSelf)
         {
-            DialogueManager.Instance.ShowDialogue(shortInstructionDialogue, false);
+            return $"Take the {spotName} candle back (Press {keyNum})\n";
         }
+        else if (hasHand)
+        {
+            return $"Place candle on the {spotName} (Press {keyNum})\n";
+        }
+
+        return "";
     }
 
     private void EndSpotSelection()
@@ -118,71 +130,65 @@ public class CandlestickHolder : MonoBehaviour
         }
     }
 
-    private void ToggleSpot(GameObject spot)
+    private void ToggleSpot(GameObject spot, string spotName)
     {
-        if (spot == null) return;
+        if (spot == null || !choosingSpot) return;
         if (InventoryManager.Instance == null) return;
 
-        // If candle exists there -> take back
-        if (spot.activeSelf)
+        bool wasActive = spot.activeSelf;
+        string feedback = "";
+
+        if (wasActive)
         {
-            TakeBackFromSpot(spot);
+            if (InventoryManager.Instance.IsFull())
+            {
+                DialogueManager.Instance?.ShowDialogue(fullInventoryDialogue, true);
+                choosingSpot = false;
+                return;
+            }
+
+            if (InventoryManager.Instance.AddItem(candlestickId, candlestickIcon))
+            {
+                spot.SetActive(false);
+                feedback = "Took the candle back.";
+            }
         }
-        // Otherwise -> place
         else
         {
-            PlaceOnSpot(spot);
+            if (!InventoryManager.Instance.HasItem(candlestickId))
+            {
+                DialogueManager.Instance?.ShowDialogue(needCandlestickDialogue, true);
+                choosingSpot = false;
+                return;
+            }
+
+            InventoryManager.Instance.RemoveItem(candlestickId);
+            spot.SetActive(true);
+            feedback = "Placed a candle.";
         }
 
-        CandlestickPuzzleManager manager =
-            Object.FindFirstObjectByType<CandlestickPuzzleManager>();
-
+        // Notify puzzle manager
+        CandlestickPuzzleManager manager = Object.FindAnyObjectByType<CandlestickPuzzleManager>();
+        bool solvedNow = false;
         if (manager != null)
         {
-            manager.CheckPuzzle();
+            solvedNow = manager.CheckPuzzle();
         }
 
-        // Keep dialogue active after interaction
-        if (DialogueManager.Instance != null && choosingSpot)
+        // Show feedback and end interaction
+        choosingSpot = false;
+        if (DialogueManager.Instance != null && !string.IsNullOrEmpty(feedback))
         {
-            DialogueManager.Instance.ShowDialogue(shortInstructionDialogue, false);
-        }
-    }
-
-    private void PlaceOnSpot(GameObject spot)
-    {
-        if (!InventoryManager.Instance.HasItem(candlestickId))
-        {
-            if (DialogueManager.Instance != null)
+            // Only show generic feedback if the puzzle wasn't just solved.
+            // If it was solved, the manager already showed the reward dialogue.
+            if (!solvedNow)
             {
-                DialogueManager.Instance.ShowDialogue(needCandlestickDialogue, false);
+                DialogueManager.Instance.ShowDialogue(feedback, true);
             }
-
-            return;
         }
-
-        InventoryManager.Instance.RemoveItem(candlestickId);
-
-        spot.SetActive(true);
     }
 
-    private void TakeBackFromSpot(GameObject spot)
-    {
-        if (InventoryManager.Instance.IsFull())
-        {
-            if (DialogueManager.Instance != null)
-            {
-                DialogueManager.Instance.ShowDialogue(fullInventoryDialogue, false);
-            }
 
-            return;
-        }
-
-        if (InventoryManager.Instance.AddItem(candlestickId, candlestickIcon))
-        {
-            spot.SetActive(false);
-        }
-    }
 
     public int GetCandleCount()
     {
