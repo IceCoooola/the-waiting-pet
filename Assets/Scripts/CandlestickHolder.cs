@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class CandlestickHolder : MonoBehaviour
 {
-    private enum InteractionStep { Idle, FirstPrompt, SlotSelection }
-    private enum PendingAction { None, Place, TakeBack }
-
-    private InteractionStep currentStep = InteractionStep.Idle;
-    private PendingAction pendingAction = PendingAction.None;
-
     [Header("Spots")]
     public GameObject leftSpot;
     public GameObject middleSpot;
@@ -17,201 +11,196 @@ public class CandlestickHolder : MonoBehaviour
     public string candlestickId = "Candlestick";
     public Sprite candlestickIcon;
 
-    private bool isPlayerInRange;
-    private float choiceTimer;
-    private const float ChoiceDuration = 5f;
+    [Header("Dialogue")]
+    [TextArea]
+    public string firstInstructionDialogue =
+        "Press 1, 2, or 3 to place or take back a candlestick.\n" +
+        "1 = Left, 2 = Middle, 3 = Right\n" +
+        "Press Space to close.";
+
+    [TextArea]
+    public string shortInstructionDialogue =
+        "1 = Left, 2 = Middle, 3 = Right\n" +
+        "Press Space to close.";
+
+    [TextArea]
+    public string emptyDialogue = "Empty candlestick...";
+
+    [TextArea]
+    public string needCandlestickDialogue = "I need a candlestick.";
+
+    [TextArea]
+    public string fullInventoryDialogue = "I can't carry more.";
+
+    private bool isPlayerInRange = false;
+    private bool choosingSpot = false;
+
+    private static bool hasShownInstructionOnce = false;
 
     private void Update()
     {
         if (!isPlayerInRange) return;
 
-        if (Input.GetKeyDown(KeyCode.Space) && currentStep == InteractionStep.Idle)
+        // Space = open OR close interaction
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (InventoryManager.Instance != null && InventoryManager.Instance.CanInteract())
+            if (choosingSpot)
             {
-                StartInteraction();
-            }
-        }
-
-        if (currentStep != InteractionStep.Idle)
-        {
-            choiceTimer -= Time.deltaTime;
-            if (choiceTimer <= 0)
-            {
-                EndInteraction();
-                if (DialogueManager.Instance != null) DialogueManager.Instance.HideDialogue();
-                return;
-            }
-
-            bool hasHand = InventoryManager.Instance != null && InventoryManager.Instance.HasItem(candlestickId);
-            int candleCount = GetCandleCount();
-
-            if (currentStep == InteractionStep.FirstPrompt)
-            {
-                if (hasHand && candleCount > 0) // Case 3: Choices 1 or 2
-                {
-                    if (Input.GetKeyDown(KeyCode.Alpha1))
-                    {
-                        pendingAction = PendingAction.TakeBack;
-                        ShowSlotSelection();
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Alpha2))
-                    {
-                        pendingAction = PendingAction.Place;
-                        ShowSlotSelection();
-                    }
-                }
-                else if (hasHand && candleCount == 0) // Case 2: must be placing
-                {
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        pendingAction = PendingAction.Place;
-                        ShowSlotSelection();
-                    }
-                }
-                else if (!hasHand && candleCount > 0) // Case 4: must be taking back
-                {
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        pendingAction = PendingAction.TakeBack;
-                        ShowSlotSelection();
-                    }
-                }
-            }
-            else if (currentStep == InteractionStep.SlotSelection)
-            {
-                if (Input.GetKeyDown(KeyCode.Alpha1)) HandleSpotInteraction(leftSpot);
-                else if (Input.GetKeyDown(KeyCode.Alpha2)) HandleSpotInteraction(middleSpot);
-                else if (Input.GetKeyDown(KeyCode.Alpha3)) HandleSpotInteraction(rightSpot);
-            }
-        }
-    }
-
-    private void StartInteraction()
-    {
-        bool hasHand = InventoryManager.Instance != null && InventoryManager.Instance.HasItem(candlestickId);
-        int candleCount = GetCandleCount();
-
-        if (DialogueManager.Instance == null) return;
-
-        if (!hasHand && candleCount == 0) // Case 1
-        {
-            DialogueManager.Instance.ShowDialogue("Empty candlestick...");
-            return;
-        }
-
-        choiceTimer = ChoiceDuration;
-        currentStep = InteractionStep.FirstPrompt;
-        pendingAction = PendingAction.None;
-
-        if (hasHand && candleCount == 0) // Case 2
-        {
-            DialogueManager.Instance.ShowDialogue("Place the candle in the candlestick.", false);
-        }
-        else if (hasHand && candleCount > 0) // Case 3
-        {
-            DialogueManager.Instance.ShowDialogue("Take the candle back \n(Press 1)\nPlace the candle \n(Press 2)", false);
-        }
-        else if (!hasHand && candleCount > 0) // Case 4
-        {
-            DialogueManager.Instance.ShowDialogue("Take the candle back from the candlestick", false);
-        }
-    }
-
-    private void ShowSlotSelection()
-    {
-        choiceTimer = ChoiceDuration;
-        currentStep = InteractionStep.SlotSelection;
-
-        if (DialogueManager.Instance == null) return;
-
-        if (pendingAction == PendingAction.Place)
-        {
-            DialogueManager.Instance.ShowDialogue("Place it on the left.\n(Press 1)\nPlace it on the middle.\n(Press 2)\nPlace it on the right\n(Press 3)", false);
-        }
-        else if (pendingAction == PendingAction.TakeBack)
-        {
-            DialogueManager.Instance.ShowDialogue("Take the left back.\n(Press 1)\nTake the middle back.\n(Press 2)\nTake the right back.\n(Press 3)", false);
-        }
-    }
-
-    private void HandleSpotInteraction(GameObject spot)
-    {
-        if (spot == null) return;
-
-        bool actionTaken = false;
-
-        // Use pendingAction to decide intent, so the player can't accidentally
-        // take back when they meant to place (or vice versa) by hitting the wrong slot.
-        if (pendingAction == PendingAction.Place)
-        {
-            if (spot.activeSelf)
-            {
-                if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("There's already a candle there.");
-            }
-            else if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(candlestickId))
-            {
-                InventoryManager.Instance.RemoveItem(candlestickId);
-                spot.SetActive(true);
-                if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("Placed candlestick.");
-                actionTaken = true;
+                EndSpotSelection();
             }
             else
             {
-                if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("I need a candlestick.");
+                StartSpotSelection();
             }
+
+            return;
         }
-        else if (pendingAction == PendingAction.TakeBack)
+
+        // While interaction is active
+        if (choosingSpot)
         {
-            if (!spot.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("Nothing there to take.");
+                ToggleSpot(leftSpot);
             }
-            else if (InventoryManager.Instance != null)
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                if (InventoryManager.Instance.IsFull())
-                {
-                    if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("I can't carry it, that's too many");
-                    EndInteraction();
-                    return;
-                }
-
-                if (InventoryManager.Instance.AddItem(candlestickId, candlestickIcon))
-                {
-                    spot.SetActive(false);
-                    if (DialogueManager.Instance != null) DialogueManager.Instance.ShowDialogue("Took back candlestick.");
-                    actionTaken = true;
-                }
+                ToggleSpot(middleSpot);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                ToggleSpot(rightSpot);
             }
         }
-
-        if (actionTaken)
-        {
-            CandlestickPuzzleManager manager = Object.FindFirstObjectByType<CandlestickPuzzleManager>();
-            if (manager != null) manager.CheckPuzzle();
-        }
-
-        EndInteraction();
     }
 
-    private void EndInteraction()
+    private void StartSpotSelection()
     {
-        currentStep = InteractionStep.Idle;
-        pendingAction = PendingAction.None;
+        bool hasHand =
+            InventoryManager.Instance != null &&
+            InventoryManager.Instance.HasItem(candlestickId);
+
+        int candleCount = GetCandleCount();
+
+        // Nothing to interact with
+        if (!hasHand && candleCount == 0)
+        {
+            if (DialogueManager.Instance != null)
+            {
+                DialogueManager.Instance.ShowDialogue(emptyDialogue, false);
+            }
+
+            return;
+        }
+
+        choosingSpot = true;
+
+        if (DialogueManager.Instance == null) return;
+
+        if (!hasShownInstructionOnce)
+        {
+            hasShownInstructionOnce = true;
+            DialogueManager.Instance.ShowDialogue(firstInstructionDialogue, false);
+        }
+        else
+        {
+            DialogueManager.Instance.ShowDialogue(shortInstructionDialogue, false);
+        }
+    }
+
+    private void EndSpotSelection()
+    {
+        choosingSpot = false;
+
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.HideDialogue();
+        }
+    }
+
+    private void ToggleSpot(GameObject spot)
+    {
+        if (spot == null) return;
+        if (InventoryManager.Instance == null) return;
+
+        // If candle exists there -> take back
+        if (spot.activeSelf)
+        {
+            TakeBackFromSpot(spot);
+        }
+        // Otherwise -> place
+        else
+        {
+            PlaceOnSpot(spot);
+        }
+
+        CandlestickPuzzleManager manager =
+            Object.FindFirstObjectByType<CandlestickPuzzleManager>();
+
+        if (manager != null)
+        {
+            manager.CheckPuzzle();
+        }
+
+        // Keep dialogue active after interaction
+        if (DialogueManager.Instance != null && choosingSpot)
+        {
+            DialogueManager.Instance.ShowDialogue(shortInstructionDialogue, false);
+        }
+    }
+
+    private void PlaceOnSpot(GameObject spot)
+    {
+        if (!InventoryManager.Instance.HasItem(candlestickId))
+        {
+            if (DialogueManager.Instance != null)
+            {
+                DialogueManager.Instance.ShowDialogue(needCandlestickDialogue, false);
+            }
+
+            return;
+        }
+
+        InventoryManager.Instance.RemoveItem(candlestickId);
+
+        spot.SetActive(true);
+    }
+
+    private void TakeBackFromSpot(GameObject spot)
+    {
+        if (InventoryManager.Instance.IsFull())
+        {
+            if (DialogueManager.Instance != null)
+            {
+                DialogueManager.Instance.ShowDialogue(fullInventoryDialogue, false);
+            }
+
+            return;
+        }
+
+        if (InventoryManager.Instance.AddItem(candlestickId, candlestickIcon))
+        {
+            spot.SetActive(false);
+        }
     }
 
     public int GetCandleCount()
     {
         int count = 0;
+
         if (leftSpot != null && leftSpot.activeSelf) count++;
         if (middleSpot != null && middleSpot.activeSelf) count++;
         if (rightSpot != null && rightSpot.activeSelf) count++;
+
         return count;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) isPlayerInRange = true;
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -219,8 +208,8 @@ public class CandlestickHolder : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            EndInteraction();
-            if (DialogueManager.Instance != null) DialogueManager.Instance.HideDialogue();
+
+            EndSpotSelection();
         }
     }
 }

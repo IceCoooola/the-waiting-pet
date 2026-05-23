@@ -67416,6 +67416,17 @@ MonoBehaviour:
   rightSpot: {fileID: 97173856}
   candlestickId: Candlestick
   candlestickIcon: {fileID: 21300000, guid: 2aee81ed312d8474286f45dd68748316, type: 3}
+  firstInstructionDialogue: 'Press 1, 2, or 3 to place or take back a candlestick.
+
+    1
+    = Left, 2 = Middle, 3 = Right'
+  shortInstructionDialogue: 'Press 1, 2, or 3 to place or take back a candlestick.
+
+    1
+    = Left, 2 = Middle, 3 = Right'
+  emptyDialogue: Empty candlestick...
+  needCandlestickDialogue: I need a candlestick.
+  fullInventoryDialogue: I can't carry more.
 --- !u!61 &743657527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151049,6 +151060,17 @@ MonoBehaviour:
   rightSpot: {fileID: 1769861897}
   candlestickId: Candlestick
   candlestickIcon: {fileID: 21300000, guid: 2aee81ed312d8474286f45dd68748316, type: 3}
+  firstInstructionDialogue: 'Press 1, 2, or 3 to place or take back a candlestick.
+
+    1
+    = Left, 2 = Middle, 3 = Right'
+  shortInstructionDialogue: 'Press 1, 2, or 3 to place or take back a candlestick.
+
+    1
+    = Left, 2 = Middle, 3 = Right'
+  emptyDialogue: Empty candlestick...
+  needCandlestickDialogue: I need a candlestick.
+  fullInventoryDialogue: I can't carry more.
 --- !u!61 &1591575827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153409,6 +153431,17 @@ MonoBehaviour:
   rightSpot: {fileID: 555304662}
   candlestickId: Candlestick
   candlestickIcon: {fileID: 21300000, guid: 2aee81ed312d8474286f45dd68748316, type: 3}
+  firstInstructionDialogue: 'Press 1, 2, or 3 to place or take back a candlestick.
+
+    1
+    = Left, 2 = Middle, 3 = Right'
+  shortInstructionDialogue: 'Press 1, 2, or 3 to place or take back a candlestick.
+
+    1
+    = Left, 2 = Middle, 3 = Right'
+  emptyDialogue: Empty candlestick...
+  needCandlestickDialogue: I need a candlestick.
+  fullInventoryDialogue: I can't carry more.
 --- !u!61 &1618415038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190448,6 +190481,17 @@ MonoBehaviour:
   rightSpot: {fileID: 805674009}
   candlestickId: Candlestick
   candlestickIcon: {fileID: 21300000, guid: 2aee81ed312d8474286f45dd68748316, type: 3}
+  firstInstructionDialogue: 'Press 1, 2, or 3 to place or take back a candlestick.
+
+    1
+    = Left, 2 = Middle, 3 = Right'
+  shortInstructionDialogue: 'Press 1, 2, or 3 to place or take back a candlestick.
+
+    1
+    = Left, 2 = Middle, 3 = Right'
+  emptyDialogue: Empty candlestick...
+  needCandlestickDialogue: I need a candlestick.
+  fullInventoryDialogue: I can't carry more.
 --- !u!61 &2021362546
 BoxCollider2D:
   m_ObjectHideFlags: 0
