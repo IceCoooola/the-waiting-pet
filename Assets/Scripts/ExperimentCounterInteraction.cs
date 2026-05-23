@@ -3,15 +3,16 @@ using System.Collections.Generic;
 
 public class ExperimentCounterInteraction : MonoBehaviour
 {
-    public float interactionDistance = 2.5f;
+    public float interactionDistance = 5.0f;
     public RuntimeAnimatorController catAnimator;
     public GameObject ladderObject;
 
     private Transform player;
     private static bool hasInvestigatedOnce = false;
     
-    private enum State { Inactive, Thirsty, Intro, Choices, Feedback }
+    private enum State { Inactive, Thirsty, Intro, Choices, Feedback, PostTransform }
     private State currentState = State.Inactive;
+    private int postTransformPageIndex = 0;
 
     private List<int> currentSequence = new List<int>();
     private readonly int[] targetSequence = { 3, 1, 2, 5 }; // Blue, Green, Red, Yellow
@@ -42,7 +43,7 @@ public class ExperimentCounterInteraction : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.position);
         bool inRange = distance <= interactionDistance;
 
-        if (!inRange)
+        if (!inRange && currentState != State.PostTransform)
         {
             if (currentState != State.Inactive)
             {
@@ -54,11 +55,22 @@ public class ExperimentCounterInteraction : MonoBehaviour
             return;
         }
 
+        // Additional safety for PostTransform range
+        if (!inRange && currentState == State.PostTransform && distance > interactionDistance * 2f)
+        {
+            currentState = State.Inactive;
+            if (DialogueManager.Instance != null)
+                DialogueManager.Instance.HideDialogue();
+            return;
+        }
+
         switch (currentState)
         {
             case State.Inactive:
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
+
                     if (!hasInvestigatedOnce)
                     {
                         hasInvestigatedOnce = true;
@@ -131,7 +143,30 @@ public class ExperimentCounterInteraction : MonoBehaviour
                     }
                 }
                 break;
-        }
+
+            case State.PostTransform:
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    postTransformPageIndex++;
+                    if (postTransformPageIndex == 1)
+                    {
+                        if (DialogueManager.Instance != null)
+                            DialogueManager.Instance.ShowDialogue("Something about this feels... familiar. But why?\n(Press Space to continue)", false);
+                    }
+                    else if (postTransformPageIndex == 2)
+                    {
+                        if (DialogueManager.Instance != null)
+                            DialogueManager.Instance.ShowDialogue("I feel like something is calling me from the second floor of the house...\n(Press Space to continue)", false);
+                    }
+                    else
+                    {
+                        currentState = State.Inactive;
+                        if (DialogueManager.Instance != null)
+                            DialogueManager.Instance.HideDialogue();
+                    }
+                }
+                break;
+            }
     }
 
     private void DrinkPotion(int id, string message)
@@ -180,6 +215,9 @@ public class ExperimentCounterInteraction : MonoBehaviour
 
         if (ladderObject != null)
             ladderObject.SetActive(true);
+
+        currentState = State.PostTransform;
+        postTransformPageIndex = 0;
 
         if (DialogueManager.Instance != null)
             DialogueManager.Instance.ShowDialogue("What happened?! I turned into a cat!\n(Press Space to continue)", false);
