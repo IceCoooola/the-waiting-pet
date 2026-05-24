@@ -35344,7 +35344,7 @@ GameObject:
   - component: {fileID: 378594508}
   - component: {fileID: 378594507}
   - component: {fileID: 378594506}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Prop_Vase_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41964,7 +41964,7 @@ GameObject:
   - component: {fileID: 444115005}
   - component: {fileID: 444115004}
   - component: {fileID: 444115003}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Prop_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61408,7 +61408,7 @@ GameObject:
   - component: {fileID: 674685766}
   - component: {fileID: 674685765}
   - component: {fileID: 674685764}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Prop_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88199,7 +88199,7 @@ Transform:
   m_GameObject: {fileID: 955846418}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.87, y: 10.2, z: 0}
+  m_LocalPosition: {x: 0.14, y: 10.23, z: 0}
   m_LocalScale: {x: 1.1084744, y: 1.1084744, z: 1.1084744}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90673,7 +90673,7 @@ GameObject:
   - component: {fileID: 974643541}
   - component: {fileID: 974643540}
   - component: {fileID: 974643539}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Prop_Heat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97388,7 +97388,7 @@ GameObject:
   - component: {fileID: 1038686535}
   - component: {fileID: 1038686534}
   - component: {fileID: 1038686533}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Prop_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133440,7 +133440,7 @@ GameObject:
   - component: {fileID: 1405082337}
   - component: {fileID: 1405082336}
   - component: {fileID: 1405082335}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Prop_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142267,6 +142267,228 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1499138621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1499138623}
+  - component: {fileID: 1499138627}
+  - component: {fileID: 1499138626}
+  - component: {fileID: 1499138625}
+  - component: {fileID: 1499138624}
+  - component: {fileID: 1499138628}
+  m_Layer: 25
+  m_Name: PotBoundary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1499138623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499138621}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9716, y: 23.22163, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1499138624
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499138621}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -2.8754096, y: 5.133951}
+  - {x: 9.553728, y: 5.632021}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!68 &1499138625
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499138621}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 9.576334, y: 5.708647}
+  - {x: 9.618509, y: -3.179985}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!68 &1499138626
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499138621}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -2.8754096, y: -3.9462452}
+  - {x: 9.634517, y: -3.1865997}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!68 &1499138627
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499138621}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -2.8887138, y: 5.148573}
+  - {x: -2.8822303, y: 0.9694233}
+  - {x: -2.8799663, y: -0.67813873}
+  - {x: -2.875327, y: -4.054203}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &1499138628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499138621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a9583d85db94e15af021435da2dfe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1499787005
 GameObject:
   m_ObjectHideFlags: 0
@@ -144107,7 +144329,7 @@ Transform:
   m_GameObject: {fileID: 1513159704}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 10.2, z: 0}
+  m_LocalPosition: {x: -2.9, y: 10.22, z: 0}
   m_LocalScale: {x: 1.1084744, y: 1.1084744, z: 1.1084744}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -196128,7 +196350,7 @@ GameObject:
   - component: {fileID: 2056988482}
   - component: {fileID: 2056988481}
   - component: {fileID: 2056988480}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Prop_Vase_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207875,7 +208097,7 @@ GameObject:
   - component: {fileID: 2139311193}
   - component: {fileID: 2139311192}
   - component: {fileID: 2139311191}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Prop_Vase_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208716,3 +208938,4 @@ SceneRoots:
   - {fileID: 157872665}
   - {fileID: 953878557}
   - {fileID: 744960075}
+  - {fileID: 1499138623}
