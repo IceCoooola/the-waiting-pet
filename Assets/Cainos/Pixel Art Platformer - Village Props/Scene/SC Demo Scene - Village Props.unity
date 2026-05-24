@@ -35346,7 +35346,7 @@ GameObject:
   - component: {fileID: 378594506}
   m_Layer: 24
   m_Name: Prop_Vase_E
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41966,7 +41966,7 @@ GameObject:
   - component: {fileID: 444115003}
   m_Layer: 24
   m_Name: Prop_2
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42297,7 +42297,7 @@ Transform:
   m_GameObject: {fileID: 446294071}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.53, y: 10.38, z: 0}
+  m_LocalPosition: {x: -3.69, y: 10.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61410,7 +61410,7 @@ GameObject:
   - component: {fileID: 674685764}
   m_Layer: 24
   m_Name: Prop_3
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90675,7 +90675,7 @@ GameObject:
   - component: {fileID: 974643539}
   m_Layer: 24
   m_Name: Prop_Heat
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97390,7 +97390,7 @@ GameObject:
   - component: {fileID: 1038686533}
   m_Layer: 24
   m_Name: Prop_4
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133442,7 +133442,7 @@ GameObject:
   - component: {fileID: 1405082335}
   m_Layer: 24
   m_Name: Prop_1
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142065,7 +142065,7 @@ Transform:
   m_GameObject: {fileID: 1496373747}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 10.4, z: 0}
+  m_LocalPosition: {x: 0.96, y: 10.394, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142164,7 +142164,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.082422316, y: 0}
+  m_Offset: {x: 0.08274305, y: -0.041373253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142174,7 +142174,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.761891, y: 1}
+  m_Size: {x: 0.36950028, y: 1.0827465}
   m_EdgeRadius: 0
 --- !u!1 &1498502491
 GameObject:
@@ -196352,7 +196352,7 @@ GameObject:
   - component: {fileID: 2056988480}
   m_Layer: 24
   m_Name: Prop_Vase_A
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208099,7 +208099,7 @@ GameObject:
   - component: {fileID: 2139311191}
   m_Layer: 24
   m_Name: Prop_Vase_C
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
