@@ -135,6 +135,8 @@ switch (requiredDirection)
 
     private void PerformTransition()
     {
+        GetComponent<SoundEffect>()?.PlaySound();
+        
         if (player == null) return;
         if (Time.time - lastTransitionTime < transitionCooldown) return;
 
