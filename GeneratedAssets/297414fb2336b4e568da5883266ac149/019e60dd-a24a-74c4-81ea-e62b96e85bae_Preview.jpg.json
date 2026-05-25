@@ -1,0 +1,12 @@
+{
+    "asset": "297414fb2336b4e568da5883266ac149",
+    "fileName": "019e60dd-a24a-74c4-81ea-e62b96e85bae_Preview.jpg",
+    "prompt": "A tileable hand-painted wooden plank floor texture for a medieval village interior. Seamless tiling. Matches the art style and color palette of the reference image. Dark oak wood, slightly worn, cozy cottage feel.",
+    "negativePrompt": "",
+    "model": "hand-painted-textures-2-0",
+    "modelName": "Hand Painted Textures 2.0",
+    "customSeed": 1638797744,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation"
+}

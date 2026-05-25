@@ -1,0 +1,12 @@
+{
+    "asset": "20614edbc8da840b1b06413e022ab1f3",
+    "fileName": "019e60dc-bfea-796e-99c5-53fd55ee12f8_Preview.jpg",
+    "prompt": "A tileable hand-painted stone floor texture for a medieval village interior. Seamless tiling. Matches the art style and color palette of the reference image. Rich in detail, worn stone slabs, cozy atmosphere.",
+    "negativePrompt": "",
+    "model": "hand-painted-textures-2-0",
+    "modelName": "Hand Painted Textures 2.0",
+    "customSeed": 429555495,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation"
+}

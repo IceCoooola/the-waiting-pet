@@ -1,0 +1,38 @@
+{
+    "asset": "4b0b3b73614a147c9b2f750e66a210d5",
+    "fileName": "019e60e1-cf3c-7682-a3df-0aceca581d88.png",
+    "prompt": "A single, seamless, tileable 2D floor tile sprite for a medieval village. Hand-painted wooden plank texture. Matches the art style and color palette of the reference image. Dark oak wood, slightly worn, 2D top-down view suitable for a tilemap. No background.",
+    "negativePrompt": "",
+    "model": "gemini-3.1-flash",
+    "modelName": "Gemini 3.1 Nano Banana 2",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "ca661284da2a04d43a1c8259fffc6ef0",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}

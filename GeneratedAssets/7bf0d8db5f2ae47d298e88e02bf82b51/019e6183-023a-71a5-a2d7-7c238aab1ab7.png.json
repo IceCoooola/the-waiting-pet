@@ -1,0 +1,38 @@
+{
+    "asset": "7bf0d8db5f2ae47d298e88e02bf82b51",
+    "fileName": "019e6183-023a-71a5-a2d7-7c238aab1ab7.png",
+    "prompt": "A top-down view of the wooden door, matching the hand-painted medieval style and color of the reference image. The door is viewed from directly above (top-down perspective), suitable for a door set into a wall in a top-down game. Only the top edge and top surface of the door and its frame are visible. Arched profile should be reflected in the top-down silhouette. No background.",
+    "negativePrompt": "",
+    "model": "gemini-3.1-flash",
+    "modelName": "Gemini 3.1 Nano Banana 2",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "c804f167116344e6fa66556981caa512",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}
