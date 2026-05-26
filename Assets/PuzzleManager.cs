@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class PuzzleManager : MonoBehaviour
@@ -74,21 +75,90 @@ public class PuzzleManager : MonoBehaviour
     {
         if (isPuzzleSolved) return;
 
+        bool allSlotsFilled = true;
         bool allSatisfied = true;
         foreach (var slot in slots)
         {
+            if (!slot.HasAnyPot)
+            {
+                allSlotsFilled = false;
+            }
             if (!slot.IsSatisfied)
             {
                 allSatisfied = false;
-                break;
             }
         }
 
         if (allSatisfied)
         {
             isPuzzleSolved = true;
+            if (isDisplayingDialogue)
+            {
+                StopAllCoroutines();
+                isDisplayingDialogue = false;
+                DialogueManager.Instance?.HideDialogue();
+            }
             ApplyState();
             Debug.Log("Puzzle Solved!");
         }
+        else if (allSlotsFilled && !isDisplayingDialogue)
+        {
+            if (Time.time - lastDialogueTime > dialogueCooldown)
+            {
+                StartCoroutine(PlayFailureDialogue());
+            }
+        }
     }
-}
+
+    private string[] failureLines = new string[]
+    {
+        "Hmm... Why did nothing happen?\n(Press space to continue.)",
+        "That's weird, maybe I did it wrong... \n(Press space to continue.)",
+        "Maybe it's the wrong pot... \n(Press space to continue.)",
+        "But which pot should I use to cover each eye? \n(Press space to continue.)"
+    };
+
+    private bool isDisplayingDialogue = false;
+    private float lastDialogueTime = -10f;
+    private const float dialogueCooldown = 10f;
+
+    private bool AreAllSlotsFilled()
+    {
+        foreach (var slot in slots)
+        {
+            if (!slot.HasAnyPot) return false;
+        }
+        return true;
+    }
+
+    private IEnumerator PlayFailureDialogue()
+    {
+        isDisplayingDialogue = true;
+        lastDialogueTime = Time.time;
+
+        foreach (var line in failureLines)
+        {
+            if (isPuzzleSolved || !AreAllSlotsFilled()) break;
+            
+            DialogueManager.Instance?.ShowDialogue(line, false);
+            
+            yield return null; 
+            
+            while (!Input.GetKeyDown(KeyCode.Space))
+            {
+                if (isPuzzleSolved || !AreAllSlotsFilled()) 
+                {
+                    DialogueManager.Instance?.HideDialogue();
+                    isDisplayingDialogue = false;
+                    yield break;
+                }
+                yield return null;
+            }
+            
+            while (Input.GetKey(KeyCode.Space)) yield return null;
+        }
+
+        DialogueManager.Instance?.HideDialogue();
+        isDisplayingDialogue = false;
+    }
+    }

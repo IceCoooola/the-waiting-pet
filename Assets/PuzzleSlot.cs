@@ -3,22 +3,25 @@ using UnityEngine;
 public class PuzzleSlot : MonoBehaviour
 {
     public GameObject targetProp;
-    public bool IsSatisfied { get; private set; }
+    public bool IsSatisfied => currentPot == targetProp;
+    public bool HasAnyPot => currentPot != null;
+
+    private GameObject currentPot;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == targetProp)
+        if (other.CompareTag("Pot"))
         {
-            IsSatisfied = true;
+            currentPot = other.gameObject;
             PuzzleManager.Instance?.CheckPuzzle();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject == targetProp)
+        if (other.gameObject == currentPot)
         {
-            IsSatisfied = false;
+            currentPot = null;
             PuzzleManager.Instance?.CheckPuzzle();
         }
     }
