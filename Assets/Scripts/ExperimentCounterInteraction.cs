@@ -32,6 +32,8 @@ public class ExperimentCounterInteraction : MonoBehaviour
 
     private bool sequenceCompleted = false;
 
+    private string feedbackMessage2 = "";
+
     private void Update()
     {
         if (player == null)
@@ -49,6 +51,7 @@ public class ExperimentCounterInteraction : MonoBehaviour
             {
                 currentState = State.Inactive;
                 sequenceCompleted = false;
+                feedbackMessage2 = "";
                 if (DialogueManager.Instance != null)
                     DialogueManager.Instance.HideDialogue();
             }
@@ -130,6 +133,14 @@ public class ExperimentCounterInteraction : MonoBehaviour
             case State.Feedback:
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    if (!string.IsNullOrEmpty(feedbackMessage2))
+                    {
+                        if (DialogueManager.Instance != null)
+                            DialogueManager.Instance.ShowDialogue(feedbackMessage2 + "\n(Press Space to continue)", false);
+                        feedbackMessage2 = "";
+                        return;
+                    }
+
                     if (sequenceCompleted)
                     {
                         sequenceCompleted = false;
@@ -171,15 +182,18 @@ public class ExperimentCounterInteraction : MonoBehaviour
 
     private void DrinkPotion(int id, string message)
     {
-        if (DialogueManager.Instance != null)
-            DialogueManager.Instance.ShowDialogue(message + "\n(Press Space to continue)", false);
-        
-        currentState = State.Feedback;
+        feedbackMessage2 = "";
+        int previousCount = currentSequence.Count;
 
         // Sequence logic: Blue(3), Green(1), Red(2), Yellow(5)
         if (id == targetSequence[currentSequence.Count])
         {
             currentSequence.Add(id);
+            int newCount = currentSequence.Count;
+            if (newCount == 1) feedbackMessage2 = "My body feels warm.";
+            else if (newCount == 2) feedbackMessage2 = "My body feels hot.";
+            else if (newCount == 3) feedbackMessage2 = "My body feels burning!";
+
             if (currentSequence.Count == targetSequence.Length)
             {
                 sequenceCompleted = true;
@@ -188,12 +202,19 @@ public class ExperimentCounterInteraction : MonoBehaviour
         }
         else
         {
+            if (previousCount > 0) feedbackMessage2 = "My body feels normal now.";
             currentSequence.Clear();
             if (id == targetSequence[0])
             {
                 currentSequence.Add(id);
+                feedbackMessage2 = "My body feels warm.";
             }
         }
+
+        if (DialogueManager.Instance != null)
+            DialogueManager.Instance.ShowDialogue(message + "\n(Press Space to continue)", false);
+        
+        currentState = State.Feedback;
     }
 
     private void TransformToCat()
