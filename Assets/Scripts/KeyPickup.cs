@@ -66,7 +66,7 @@ public class KeyPickup : MonoBehaviour
                     DialogueManager.Instance.ShowDialogue(pickupDialogue);
                 }
 
-                GetComponent<SoundEffect>()?.PlaySound();
+                GetComponent<GenericSoundEffect>()?.PlaySound();
 
                 isPickedUp = true;
 

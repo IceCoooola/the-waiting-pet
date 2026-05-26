@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class MultiPageDialogueInteraction : MonoBehaviour
 {
+    [Header("Dialogue")]
     public string[] dialoguePages;
+
+    [Header("Sound")]
+    public AudioSource pageFlipAudio;
+
     private int currentPageIndex = -1;
     private bool isPlayerInRange;
 
@@ -10,19 +15,33 @@ public class MultiPageDialogueInteraction : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
         {
-            if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
+            if (InventoryManager.Instance != null &&
+                !InventoryManager.Instance.CanInteract())
+            {
+                return;
+            }
 
             if (DialogueManager.Instance != null)
-{
+            {
                 currentPageIndex++;
+
                 if (currentPageIndex < dialoguePages.Length)
                 {
-                    // Show current page. We use autoHide = false so it stays until next Space.
-                    DialogueManager.Instance.ShowDialogue(dialoguePages[currentPageIndex], false);
+                    // Play page flip sound when moving to a dialogue page
+                    if (pageFlipAudio != null)
+                    {
+                        pageFlipAudio.Play();
+                    }
+
+                    // Show current page. autoHide = false keeps it visible until next Space.
+                    DialogueManager.Instance.ShowDialogue(
+                        dialoguePages[currentPageIndex],
+                        false
+                    );
                 }
                 else
                 {
-                    // End of dialogue
+                    // End dialogue
                     ResetDialogue();
                 }
             }
@@ -49,6 +68,7 @@ public class MultiPageDialogueInteraction : MonoBehaviour
     private void ResetDialogue()
     {
         currentPageIndex = -1;
+
         if (DialogueManager.Instance != null)
         {
             DialogueManager.Instance.HideDialogue();

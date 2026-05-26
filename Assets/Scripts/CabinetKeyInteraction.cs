@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class CabinetKeyInteraction : MonoBehaviour
 {
+    [Header("Key")]
     public string keyId = "LivingToHallKey";
     public Sprite keySprite;
     public GameObject keyVisual;
+
+    [Header("Interaction")]
     public float interactionDistance = 2.0f;
-    
+
+    [Header("Sound")]
+    public AudioSource pickupAudio;
+
     private Transform player;
     private bool isPlayerInRange;
     private bool hasKey = false;
@@ -17,7 +23,9 @@ public class CabinetKeyInteraction : MonoBehaviour
         if (player == null)
         {
             FindPlayer();
-            if (player == null) return;
+
+            if (player == null)
+                return;
         }
 
         float distance = Vector2.Distance(transform.position, player.position);
@@ -28,9 +36,13 @@ public class CabinetKeyInteraction : MonoBehaviour
             if (waitingForJump)
             {
                 waitingForJump = false;
+
                 if (DialogueManager.Instance != null)
+                {
                     DialogueManager.Instance.HideDialogue();
+                }
             }
+
             return;
         }
 
@@ -43,13 +55,23 @@ public class CabinetKeyInteraction : MonoBehaviour
             if (isCat)
             {
                 waitingForJump = true;
+
                 if (DialogueManager.Instance != null)
-                    DialogueManager.Instance.ShowDialogue("I think I can reach it. I can jump! (Press J)", false);
+                {
+                    DialogueManager.Instance.ShowDialogue(
+                        "I think I can reach it. I can jump! (Press J)",
+                        false
+                    );
+                }
             }
             else
             {
                 if (DialogueManager.Instance != null)
-                    DialogueManager.Instance.ShowDialogue("I cannot reach the key.");
+                {
+                    DialogueManager.Instance.ShowDialogue(
+                        "I cannot reach the key."
+                    );
+                }
             }
         }
 
@@ -61,27 +83,40 @@ public class CabinetKeyInteraction : MonoBehaviour
 
     private void GrabKey()
     {
-        if (InventoryManager.Instance != null)
+        if (InventoryManager.Instance == null) return;
+
+        if (InventoryManager.Instance.IsFull())
         {
-            if (InventoryManager.Instance.IsFull())
+            if (DialogueManager.Instance != null)
             {
-                if (DialogueManager.Instance != null)
-                    DialogueManager.Instance.ShowDialogue("I cannot carry any more items.");
-                return;
+                DialogueManager.Instance.ShowDialogue(
+                    "I cannot carry any more items."
+                );
             }
 
-            if (InventoryManager.Instance.AddItem(keyId, keySprite))
-            {
-                hasKey = true;
-                waitingForJump = false;
-                
-                if (DialogueManager.Instance != null)
-                    DialogueManager.Instance.ShowDialogue("Key grabbed.");
+            return;
+        }
 
-                if (keyVisual != null)
-                {
-                    keyVisual.SetActive(false);
-                }
+        bool added = InventoryManager.Instance.AddItem(keyId, keySprite);
+
+        if (added)
+        {
+            hasKey = true;
+            waitingForJump = false;
+
+            if (pickupAudio != null)
+            {
+                pickupAudio.Play();
+            }
+
+            if (DialogueManager.Instance != null)
+            {
+                DialogueManager.Instance.ShowDialogue("Key grabbed.");
+            }
+
+            if (keyVisual != null)
+            {
+                keyVisual.SetActive(false);
             }
         }
     }
@@ -89,8 +124,20 @@ public class CabinetKeyInteraction : MonoBehaviour
     private void FindPlayer()
     {
         GameObject p = GameObject.Find("CatPlayer");
-        if (p == null) p = GameObject.Find("GoldenRetrieverPlayer");
-        if (p == null) p = GameObject.FindWithTag("Player");
-        if (p != null) player = p.transform;
+
+        if (p == null)
+        {
+            p = GameObject.Find("GoldenRetrieverPlayer");
+        }
+
+        if (p == null)
+        {
+            p = GameObject.FindWithTag("Player");
+        }
+
+        if (p != null)
+        {
+            player = p.transform;
+        }
     }
 }
