@@ -7227,7 +7227,8 @@ MonoBehaviour:
   transformToFish: 1
   requiredPotionId: FishPotion
   noPotionDialogue: Hmm... A fish tank in an attic?
-  wrongPotionDialogue: The fish stares at it... judgmentally.
+  wrongPotionDialogue: "Interesting\u2026 the fish want nothing to do with this potion.
+    Perhaps I should try another?"
   correctPotionDialoguePages:
   - 'I poured the potion into the fish tank and jumped in. It felt strangely familiar,
     as if I had done this many times before.
