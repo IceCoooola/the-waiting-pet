@@ -104,7 +104,7 @@ public class CrystalBallDialogue : MonoBehaviour
     {
         if (DialogueManager.Instance != null)
         {
-            DialogueManager.Instance.ShowDialogue(lockedDialogue + SPACE_PROMPT, false);
+            DialogueManager.Instance.ShowDialogue(lockedDialogue, false);
             StartGlow();
         }
     }
