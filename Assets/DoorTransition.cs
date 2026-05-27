@@ -24,8 +24,14 @@ public class DoorTransition : MonoBehaviour
     [TextArea]
     public string lockedDialogue = "The door is locked,\nwhere's the key?";
 
+    [Header("Hint Settings")]
+    public string hintKeyId;
+    [TextArea]
+    public string hintDialogue;
+    public bool hintOnlyForCat = true;
+
     private bool isPlayerInRange = false;
-private GameObject player;
+    private GameObject player;
 
     private DoorSoundEffect soundEffect;
 
@@ -205,6 +211,19 @@ else
         if (destination != null)
         {
             player.transform.position = destination.position;
+        }
+
+        // Hint dialogue if key is missing
+        if (!string.IsNullOrEmpty(hintKeyId) && InventoryManager.Instance != null && !InventoryManager.Instance.HasItem(hintKeyId))
+        {
+            bool isCat = player.name == "CatPlayer" || player.name.Contains("Cat");
+            if (!hintOnlyForCat || isCat)
+            {
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.ShowDialogue(hintDialogue);
+                }
+            }
         }
 
         // Fish transformation

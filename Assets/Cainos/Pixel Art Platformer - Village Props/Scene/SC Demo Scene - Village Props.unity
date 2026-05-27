@@ -36920,6 +36920,9 @@ MonoBehaviour:
   isLocked: 1
   requiredKeyId: Room1Key
   lockedDialogue: The door is locked. Where's the key?
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &386212955
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84095,6 +84098,9 @@ MonoBehaviour:
   isLocked: 1
   requiredKeyId: HallwayKey
   lockedDialogue: The door is locked..
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &881524724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -103157,6 +103163,9 @@ MonoBehaviour:
   isLocked: 1
   requiredKeyId: Room2ndFloorKey
   lockedDialogue: The door won't budge. Maybe this isn't the way out.
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &1066710169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114320,6 +114329,9 @@ MonoBehaviour:
   lockedDialogue: 'The door is locked,
 
     where''s the key?'
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &1175554385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122254,6 +122266,9 @@ MonoBehaviour:
   lockedDialogue: 'The door is locked,
 
     where''s the key?'
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!82 &1241464804
 AudioSource:
   m_ObjectHideFlags: 0
@@ -127594,6 +127609,9 @@ MonoBehaviour:
   lockedDialogue: 'The door is locked,
 
     where''s the key?'
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &1305126542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137014,6 +137032,9 @@ MonoBehaviour:
   isLocked: 0
   requiredKeyId: 
   lockedDialogue: 
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!1 &1412578532
 GameObject:
   m_ObjectHideFlags: 0
@@ -152130,6 +152151,9 @@ MonoBehaviour:
   lockedDialogue: 'The door is locked,
 
     where''s the key?'
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &1557693670
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154993,6 +155017,9 @@ MonoBehaviour:
   lockedDialogue: 'The door is locked,
 
     where''s the key?'
+  hintKeyId: LivingToHallKey
+  hintDialogue: I saw something shaped like a key in the previous room...
+  hintOnlyForCat: 1
 --- !u!61 &1576958754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159975,6 +160002,9 @@ MonoBehaviour:
   lockedDialogue: 'The door is locked,
 
     where''s the key?'
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &1626977982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206093,6 +206123,9 @@ MonoBehaviour:
   lockedDialogue: 'The door is locked,
 
     where''s the key?'
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &2084621874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -214547,6 +214580,9 @@ MonoBehaviour:
   lockedDialogue: 'The door is locked,
 
     where''s the key?'
+  hintKeyId: 
+  hintDialogue: 
+  hintOnlyForCat: 1
 --- !u!61 &2137103918
 BoxCollider2D:
   m_ObjectHideFlags: 0
