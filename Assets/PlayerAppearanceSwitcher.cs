@@ -18,8 +18,10 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
     public AppearanceData witchAppearance;
     private AppearanceData originalAppearance;
 
+    public string CurrentForm { get; private set; } = "Original";
+
     private Animator animator;
-    private BoxCollider2D boxCollider;
+private BoxCollider2D boxCollider;
     private SpriteRenderer spriteRenderer;
     private GameObject currentPrefab;
     private bool isInitialized = false;
@@ -78,6 +80,7 @@ public class PlayerAppearanceSwitcher : MonoBehaviour
 
     private void ApplyAppearance(AppearanceData data, string name)
     {
+        CurrentForm = name;
         CaptureOriginal();
 
         if (currentPrefab != null)

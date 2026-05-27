@@ -18,8 +18,38 @@ public class LadderClimber : MonoBehaviour
 
     void Update()
     {
+        // Reset state if current ladder becomes inactive (due to room transition)
+        if (isOnLadder && currentLadder != null && !currentLadder.activeInHierarchy)
+        {
+            isOnLadder = false;
+        }
+
         if (isOnLadder && Input.GetKeyDown(KeyCode.J))
         {
+            // Silence if player is a fish
+            PlayerAppearanceSwitcher switcher = GetComponent<PlayerAppearanceSwitcher>();
+            if (switcher != null && switcher.CurrentForm == "Fish")
+            {
+                return;
+            }
+
+            // Silence dialogue and ladder action in restricted rooms
+            bool inRestrictedRoom = false;
+            GameObject[] allRooms = GameObject.FindGameObjectsWithTag("Untagged");
+            foreach (var room in allRooms)
+            {
+                if (room.activeInHierarchy && (room.name.Contains("2nd Floor") || room.name.Contains("Basement")))
+                {
+                    inRestrictedRoom = true;
+                    break;
+                }
+            }
+
+            if (inRestrictedRoom)
+            {
+                return;
+            }
+
             ClimbToNextPoint();
         }
     }

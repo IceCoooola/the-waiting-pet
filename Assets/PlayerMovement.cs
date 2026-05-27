@@ -100,10 +100,13 @@ public string catPlayerName = "CatPlayer";
             return;
         }
 
-        if (!IsCat())
+        PlayerAppearanceSwitcher switcher = GetComponent<PlayerAppearanceSwitcher>();
+        bool isFish = switcher != null && switcher.CurrentForm == "Fish";
+        bool isCat = IsCat() && (switcher == null || switcher.CurrentForm == "Original");
+
+        if (isFish || !isCat)
         {
-            Debug.Log("[PlayerMovement] Dog cannot use J jump.");
-            return;
+            return; // Silence J for fish and dog (no dialogue, no action)
         }
 
         if (currentCatJumpSpot != null)
