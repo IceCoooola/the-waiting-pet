@@ -24,7 +24,18 @@ public class DialogueManager : MonoBehaviour
         if (dialogueText != null) defaultFontSize = dialogueText.fontSize;
     }
 
-    public void ShowDialogue(string message, bool autoHide = true, int fontSize = 0, Sprite portrait = null, bool isFullScreen = false)
+    private void Update()
+    {
+        if (dialoguePanel != null && dialoguePanel.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                HideDialogue();
+            }
+        }
+    }
+
+    public void ShowDialogue(string message, bool autoHide = false, int fontSize = 0, Sprite portrait = null, bool isFullScreen = false)
     {
         if (dialoguePanel == null || dialogueText == null) return;
 

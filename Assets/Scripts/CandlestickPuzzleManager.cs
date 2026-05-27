@@ -7,6 +7,8 @@ public class CandlestickPuzzleManager : MonoBehaviour
     public GameObject hallwayKey;
     public string rewardDialogue = "A clicking sound echoes... something appears in the hallway.";
 
+    public bool IsSolved => puzzleSolved;
+
     private bool puzzleSolved = false;
 
     private void Start()
