@@ -34,8 +34,21 @@ public class InventoryManager : MonoBehaviour
     public bool CanInteract()
     {
         if (interactionHandledThisFrame) return false;
+
+        // Block new interactions if a single-page dialogue is currently active.
+        // This prevents re-triggering the dialogue while the player is trying to close it.
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive() && !DialogueManager.Instance.isMultiPage)
+        {
+            return false;
+        }
+
         interactionHandledThisFrame = true;
         return true;
+    }
+
+    public void ConsumeInteraction()
+    {
+        interactionHandledThisFrame = true;
     }
 
     public bool IsFull()

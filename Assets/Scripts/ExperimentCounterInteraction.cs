@@ -79,29 +79,31 @@ public class ExperimentCounterInteraction : MonoBehaviour
                         hasInvestigatedOnce = true;
                         currentState = State.Thirsty;
                         if (DialogueManager.Instance != null)
-                            DialogueManager.Instance.ShowDialogue("I'm thirsty... But what is it? A potion?\n(Press Space to continue)", false);
+                            DialogueManager.Instance.ShowDialogue("I'm thirsty... But what is it? A potion?\n(Press Space to continue)", false, 0, null, false, true);
                     }
                     else
                     {
                         currentState = State.Intro;
                         if (DialogueManager.Instance != null)
-                            DialogueManager.Instance.ShowDialogue("There are some potions on the table... Should I drink one?\n(Press Space to continue)", false);
+                            DialogueManager.Instance.ShowDialogue("There are some potions on the table... Should I drink one?\n(Press Space to continue)", false, 0, null, false, true);
                     }
-                }
-                break;
+                    }
+                    break;
 
-            case State.Thirsty:
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
+                    case State.Thirsty:
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                    if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
                     currentState = State.Intro;
                     if (DialogueManager.Instance != null)
-                        DialogueManager.Instance.ShowDialogue("There are some potions on the table... Should I drink one?\n(Press Space to continue)", false);
-                }
-                break;
+                        DialogueManager.Instance.ShowDialogue("There are some potions on the table... Should I drink one?\n(Press Space to continue)", false, 0, null, false, true);
+                    }
+                    break;
 
-            case State.Intro:
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
+                    case State.Intro:
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                    if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
                     currentState = State.Choices;
                     string choices = "Drink the green potion (Press 1)\n" +
                                      "Drink the red potion (Press 2)\n" +
@@ -111,9 +113,9 @@ public class ExperimentCounterInteraction : MonoBehaviour
                                      "Drink the brown potion (Press 6)\n" +
                                      "Don't drink it (Press 7)";
                     if (DialogueManager.Instance != null)
-                        DialogueManager.Instance.ShowDialogue(choices, false, 18);
-                }
-                break;
+                        DialogueManager.Instance.ShowDialogue(choices, false, 18, null, false, true);
+                    }
+                    break;
 
             case State.Choices:
                 if (Input.GetKeyDown(KeyCode.Alpha1)) DrinkPotion(1, "It tastes like herbs...");
@@ -124,6 +126,7 @@ public class ExperimentCounterInteraction : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.Alpha6)) DrinkPotion(6, "Eww!");
                 else if (Input.GetKeyDown(KeyCode.Alpha7))
                 {
+                    if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
                     currentState = State.Inactive;
                     if (DialogueManager.Instance != null)
                         DialogueManager.Instance.HideDialogue();
@@ -133,10 +136,12 @@ public class ExperimentCounterInteraction : MonoBehaviour
             case State.Feedback:
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
+
                     if (!string.IsNullOrEmpty(feedbackMessage2))
                     {
                         if (DialogueManager.Instance != null)
-                            DialogueManager.Instance.ShowDialogue(feedbackMessage2 + "\n(Press Space to continue)", false);
+                            DialogueManager.Instance.ShowDialogue(feedbackMessage2 + "\n(Press Space to continue)", false, 0, null, false, true);
                         feedbackMessage2 = "";
                         return;
                     }
@@ -152,22 +157,24 @@ public class ExperimentCounterInteraction : MonoBehaviour
                         if (DialogueManager.Instance != null)
                             DialogueManager.Instance.HideDialogue();
                     }
-                }
-                break;
+                    }
+                    break;
 
-            case State.PostTransform:
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
+                    case State.PostTransform:
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                    if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
+
                     postTransformPageIndex++;
                     if (postTransformPageIndex == 1)
                     {
                         if (DialogueManager.Instance != null)
-                            DialogueManager.Instance.ShowDialogue("Something about this feels... familiar. But why?\n(Press Space to continue)", false);
+                            DialogueManager.Instance.ShowDialogue("Something about this feels... familiar. But why?\n(Press Space to continue)", false, 0, null, false, true);
                     }
                     else if (postTransformPageIndex == 2)
                     {
                         if (DialogueManager.Instance != null)
-                            DialogueManager.Instance.ShowDialogue("I feel like something is calling me from the second floor of the house...\n(Press Space to continue)", false);
+                            DialogueManager.Instance.ShowDialogue("I feel like something is calling me from the second floor of the house...\n(Press Space to continue)", false, 0, null, false, true);
                     }
                     else
                     {
@@ -175,74 +182,74 @@ public class ExperimentCounterInteraction : MonoBehaviour
                         if (DialogueManager.Instance != null)
                             DialogueManager.Instance.HideDialogue();
                     }
-                }
-                break;
-            }
-    }
+                    }
+                    break;
+                    }
+                    }
 
-    private void DrinkPotion(int id, string message)
-    {
-        feedbackMessage2 = "";
-        int previousCount = currentSequence.Count;
+                    private void DrinkPotion(int id, string message)
+                    {
+                    feedbackMessage2 = "";
+                    int previousCount = currentSequence.Count;
 
-        // Sequence logic: Blue(3), Green(1), Red(2), Yellow(5)
-        if (id == targetSequence[currentSequence.Count])
-        {
-            currentSequence.Add(id);
-            int newCount = currentSequence.Count;
-            if (newCount == 1) feedbackMessage2 = "My body feels warm.";
-            else if (newCount == 2) feedbackMessage2 = "My body feels hot.";
-            else if (newCount == 3) feedbackMessage2 = "My body feels burning!";
+                    // Sequence logic: Blue(3), Green(1), Red(2), Yellow(5)
+                    if (id == targetSequence[currentSequence.Count])
+                    {
+                    currentSequence.Add(id);
+                    int newCount = currentSequence.Count;
+                    if (newCount == 1) feedbackMessage2 = "My body feels warm.";
+                    else if (newCount == 2) feedbackMessage2 = "My body feels hot.";
+                    else if (newCount == 3) feedbackMessage2 = "My body feels burning!";
 
-            if (currentSequence.Count == targetSequence.Length)
-            {
-                sequenceCompleted = true;
-                currentSequence.Clear();
-            }
-        }
-        else
-        {
-            if (previousCount > 0) feedbackMessage2 = "My body feels normal now.";
-            currentSequence.Clear();
-            if (id == targetSequence[0])
-            {
-                currentSequence.Add(id);
-                feedbackMessage2 = "My body feels warm.";
-            }
-        }
+                    if (currentSequence.Count == targetSequence.Length)
+                    {
+                    sequenceCompleted = true;
+                    currentSequence.Clear();
+                    }
+                    }
+                    else
+                    {
+                    if (previousCount > 0) feedbackMessage2 = "My body feels normal now.";
+                    currentSequence.Clear();
+                    if (id == targetSequence[0])
+                    {
+                    currentSequence.Add(id);
+                    feedbackMessage2 = "My body feels warm.";
+                    }
+                    }
 
-        if (DialogueManager.Instance != null)
-            DialogueManager.Instance.ShowDialogue(message + "\n(Press Space to continue)", false);
+                    if (DialogueManager.Instance != null)
+                    DialogueManager.Instance.ShowDialogue(message + "\n(Press Space to continue)", false, 0, null, false, true);
         
-        currentState = State.Feedback;
-    }
+                    currentState = State.Feedback;
+                    }
 
-    private void TransformToCat()
-    {
-        if (player == null || catAnimator == null)
-        {
-            Debug.LogWarning("[ExperimentCounter] Missing player or catAnimator!");
-            return;
-        }
+                    private void TransformToCat()
+                    {
+                    if (player == null || catAnimator == null)
+                    {
+                    Debug.LogWarning("[ExperimentCounter] Missing player or catAnimator!");
+                    return;
+                    }
 
-        Animator anim = player.GetComponent<Animator>();
-        if (anim != null)
-        {
-            anim.runtimeAnimatorController = catAnimator;
-            anim.Update(0);
-        }
+                    Animator anim = player.GetComponent<Animator>();
+                    if (anim != null)
+                    {
+                    anim.runtimeAnimatorController = catAnimator;
+                    anim.Update(0);
+                    }
 
-        player.name = "CatPlayer";
+                    player.name = "CatPlayer";
 
-        if (ladderObject != null)
-            ladderObject.SetActive(true);
+                    if (ladderObject != null)
+                    ladderObject.SetActive(true);
 
-        currentState = State.PostTransform;
-        postTransformPageIndex = 0;
+                    currentState = State.PostTransform;
+                    postTransformPageIndex = 0;
 
-        if (DialogueManager.Instance != null)
-            DialogueManager.Instance.ShowDialogue("What happened?! I turned into a cat!\n(Press Space to continue)", false);
+                    if (DialogueManager.Instance != null)
+                    DialogueManager.Instance.ShowDialogue("What happened?! I turned into a cat!\n(Press Space to continue)", false, 0, null, false, true);
         
-        Debug.Log("[ExperimentCounter] Player transformed into CatPlayer.");
-    }
+                    Debug.Log("[ExperimentCounter] Player transformed into CatPlayer.");
+                    }
 }

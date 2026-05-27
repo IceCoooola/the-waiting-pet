@@ -66,7 +66,7 @@ public class FoodInteraction : MonoBehaviour
                 if (dialogueIndex < dialogues.Length)
                 {
                     if (DialogueManager.Instance != null)
-                        DialogueManager.Instance.ShowDialogue(dialogues[dialogueIndex], false);
+                        DialogueManager.Instance.ShowDialogue(dialogues[dialogueIndex], false, 0, null, false, true);
                 }
                 else
                 {
@@ -75,48 +75,48 @@ public class FoodInteraction : MonoBehaviour
                         DialogueManager.Instance.HideDialogue();
                 }
                 return;
-            }
+                }
 
-            if (inRange)
-            {
+                if (inRange)
+                {
                 // Check if something else already handled interaction this frame
                 if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
                 
                 EatFood();
-            }
-        }
-    }
+                }
+                }
+                }
 
-    private void EatFood()
-    {
-        // 1. Hide visuals and disable collision so the object "disappears" but the script stays active
-        var sr = GetComponent<SpriteRenderer>();
-        if (sr != null) sr.enabled = false;
+                private void EatFood()
+                {
+                // 1. Hide visuals and disable collision so the object "disappears" but the script stays active
+                var sr = GetComponent<SpriteRenderer>();
+                if (sr != null) sr.enabled = false;
         
-        var col2D = GetComponent<Collider2D>();
-        if (col2D != null) col2D.enabled = false;
+                var col2D = GetComponent<Collider2D>();
+                if (col2D != null) col2D.enabled = false;
 
-        // Fallback for 3D components if any
-        var r = GetComponent<Renderer>();
-        if (r != null && sr == null) r.enabled = false;
+                // Fallback for 3D components if any
+                var r = GetComponent<Renderer>();
+                if (r != null && sr == null) r.enabled = false;
         
-        var col = GetComponent<Collider>();
-        if (col != null && col2D == null) col.enabled = false;
+                var col = GetComponent<Collider>();
+                if (col != null && col2D == null) col.enabled = false;
 
-        if (emptyBox != null)
-        {
-            emptyBox.SetActive(true);
-        }
+                if (emptyBox != null)
+                {
+                emptyBox.SetActive(true);
+                }
 
-        // 2. Start dialogue sequence
-        isEating = true;
-        dialogueIndex = 0;
-        if (DialogueManager.Instance != null)
-        {
-            DialogueManager.Instance.ShowDialogue(dialogues[dialogueIndex], false);
-        }
-        else
-        {
+                // 2. Start dialogue sequence
+                isEating = true;
+                dialogueIndex = 0;
+                if (DialogueManager.Instance != null)
+                {
+                DialogueManager.Instance.ShowDialogue(dialogues[dialogueIndex], false, 0, null, false, true);
+                }
+                else
+                {
             Debug.LogWarning("DialogueManager instance not found!");
         }
 

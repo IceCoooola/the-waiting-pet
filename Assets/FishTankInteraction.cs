@@ -47,6 +47,12 @@ public class FishTankInteraction : MonoBehaviour
 
         if (IsPressingRequiredKey())
         {
+            // If the required key is Space, check CanInteract to prevent double-triggers with DialogueManager
+            if (requiredDirection == TransitionDirection.None)
+            {
+                if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
+            }
+
             TryUseFishTank();
         }
     }
@@ -66,36 +72,36 @@ public class FishTankInteraction : MonoBehaviour
 
                 if (DialogueManager.Instance != null)
                 {
-                    DialogueManager.Instance.ShowDialogue(correctPotionDialoguePages[0], false);
+                    DialogueManager.Instance.ShowDialogue(correctPotionDialoguePages[0], false, 0, null, false, true);
                 }
-            }
-            else
-            {
+                }
+                else
+                {
                 PerformTransition();
-            }
-        }
-        else if (PlayerHasAnyPotion())
-        {
-            ShowText(wrongPotionDialogue);
-        }
-        else
-        {
-            ShowText(noPotionDialogue);
-        }
-    }
+                }
+                }
+                else if (PlayerHasAnyPotion())
+                {
+                ShowText(wrongPotionDialogue);
+                }
+                else
+                {
+                ShowText(noPotionDialogue);
+                }
+                }
 
-    private void AdvanceCorrectDialogue()
-    {
-        currentDialoguePageIndex++;
+                private void AdvanceCorrectDialogue()
+                {
+                currentDialoguePageIndex++;
 
-        if (currentDialoguePageIndex < correctPotionDialoguePages.Length)
-        {
-            if (DialogueManager.Instance != null)
-            {
-                DialogueManager.Instance.ShowDialogue(correctPotionDialoguePages[currentDialoguePageIndex], false);
-            }
-        }
-        else
+                if (currentDialoguePageIndex < correctPotionDialoguePages.Length)
+                {
+                if (DialogueManager.Instance != null)
+                {
+                DialogueManager.Instance.ShowDialogue(correctPotionDialoguePages[currentDialoguePageIndex], false, 0, null, false, true);
+                }
+                }
+                else
         {
             currentDialoguePageIndex = -1;
             PlayerMovement.movementLocked = false;
@@ -217,11 +223,18 @@ public class FishTankInteraction : MonoBehaviour
             {
                 currentDialoguePageIndex = -1;
                 PlayerMovement.movementLocked = false;
-            }
 
-            if (DialogueManager.Instance != null)
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.HideDialogue();
+                }
+            }
+            else
             {
-                DialogueManager.Instance.HideDialogue();
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.HideSingleDialogue();
+                }
             }
         }
     }

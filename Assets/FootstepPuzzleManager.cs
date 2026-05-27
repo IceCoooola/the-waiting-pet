@@ -26,10 +26,25 @@ public class FootstepPuzzleManager : MonoBehaviour
     private bool playerInRange = false;
     private bool puzzleActive = false;
     private bool selectionMode = false;
-    private bool puzzleSolved = false;
 
     private void Start()
+{
+        ApplyState();
+    }
+
+    private void OnEnable()
     {
+        ApplyState();
+    }
+
+    private void ApplyState()
+    {
+        if (GameData.FootstepPuzzleSolved)
+        {
+            if (objectToReveal != null) objectToReveal.SetActive(true);
+            return;
+        }
+
         if (objectToReveal != null)
         {
             objectToReveal.SetActive(false);
@@ -37,7 +52,7 @@ public class FootstepPuzzleManager : MonoBehaviour
     }
 
     private void Update()
-    {
+{
         if (!playerInRange) return;
 
         bool diaryFullyRead = GameProgress.Instance != null &&
@@ -76,7 +91,7 @@ public class FootstepPuzzleManager : MonoBehaviour
             return;
         }
 
-        if (puzzleSolved) return;
+        if (GameData.FootstepPuzzleSolved) return;
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) SelectPiece(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) SelectPiece(1);
@@ -144,14 +159,10 @@ public class FootstepPuzzleManager : MonoBehaviour
 
     private void PuzzleSolved()
     {
-        puzzleSolved = true;
+        GameData.FootstepPuzzleSolved = true;
+        ApplyState();
 
         ShowText("Something appeared on the carpet.");
-
-        if (objectToReveal != null)
-        {
-            objectToReveal.SetActive(true);
-        }
 
         Debug.Log("Puzzle solved!");
     }
@@ -160,7 +171,7 @@ public class FootstepPuzzleManager : MonoBehaviour
     {
         if (DialogueManager.Instance != null)
         {
-            DialogueManager.Instance.ShowDialogue(text, false);
+            DialogueManager.Instance.ShowDialogue(text, false, 0, null, false, true);
         }
     }
 
@@ -173,8 +184,8 @@ public class FootstepPuzzleManager : MonoBehaviour
             bool diaryFullyRead = GameProgress.Instance != null &&
                                   GameProgress.Instance.diaryFullyRead;
 
-            if (!puzzleSolved && diaryFullyRead)
-            {
+            if (!GameData.FootstepPuzzleSolved && diaryFullyRead)
+{
                 
             }
         }

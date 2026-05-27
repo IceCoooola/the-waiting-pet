@@ -58,6 +58,10 @@ public class LanternPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
+            if (DialogueManager.Instance != null)
+            {
+                DialogueManager.Instance.HideSingleDialogue();
+            }
         }
     }
 }

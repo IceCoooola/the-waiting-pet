@@ -17,6 +17,7 @@ public class DoorTransition : MonoBehaviour
     private int currentUnlockPageIndex = -1;
 
     [Header("Lock Settings")]
+    public string doorId; // Unique ID for this door
     public bool isLocked = false;
     public string requiredKeyId = "Room1Key";
 
@@ -24,15 +25,23 @@ public class DoorTransition : MonoBehaviour
     public string lockedDialogue = "The door is locked,\nwhere's the key?";
 
     private bool isPlayerInRange = false;
-    private GameObject player;
+private GameObject player;
 
     private DoorSoundEffect soundEffect;
 
     private static float lastTransitionTime = 0f;
     private const float transitionCooldown = 0.5f;
 
-    private void Awake()
+    private void Start()
     {
+        if (!string.IsNullOrEmpty(doorId) && GameData.IsDoorUnlocked(doorId))
+        {
+            isLocked = false;
+        }
+    }
+
+    private void Awake()
+{
         soundEffect = GetComponent<DoorSoundEffect>();
     }
 
@@ -78,6 +87,10 @@ public class DoorTransition : MonoBehaviour
             InventoryManager.Instance.HasItem(requiredKeyId))
         {
             isLocked = false;
+            if (!string.IsNullOrEmpty(doorId))
+            {
+                GameData.UnlockDoor(doorId);
+            }
 
             InventoryManager.Instance.RemoveItem(requiredKeyId);
 
@@ -88,7 +101,8 @@ public class DoorTransition : MonoBehaviour
 
                 DialogueManager.Instance.ShowDialogue(
                     unlockDialoguePages[0],
-                    false
+                    false,
+                    0, null, false, true
                 );
 
                 PlayerMovement.movementLocked = true;
@@ -123,10 +137,11 @@ public class DoorTransition : MonoBehaviour
         {
             DialogueManager.Instance.ShowDialogue(
                 unlockDialoguePages[currentUnlockPageIndex],
-                false
+                false,
+                0, null, false, true
             );
         }
-        else
+else
         {
             currentUnlockPageIndex = -1;
 
@@ -257,6 +272,16 @@ public class DoorTransition : MonoBehaviour
                     DialogueManager.Instance.HideDialogue();
                 }
             }
-        }
+            else
+            {
+                // Only hide single-page dialogues if the player walked away, 
+                // but NOT if the room was just disabled (e.g. during a transition).
+                // This prevents the "Door unlocked!" message from disappearing instantly.
+                if (DialogueManager.Instance != null && gameObject.activeInHierarchy)
+                {
+                    DialogueManager.Instance.HideSingleDialogue();
+                }
+            }
+}
     }
 }

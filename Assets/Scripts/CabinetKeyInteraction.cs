@@ -39,7 +39,7 @@ public class CabinetKeyInteraction : MonoBehaviour
 
                 if (DialogueManager.Instance != null)
                 {
-                    DialogueManager.Instance.HideDialogue();
+                    DialogueManager.Instance.HideSingleDialogue();
                 }
             }
 

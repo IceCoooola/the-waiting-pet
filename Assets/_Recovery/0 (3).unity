@@ -15116,7 +15116,7 @@ Transform:
   m_GameObject: {fileID: 157872659}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 6, z: 0}
+  m_LocalPosition: {x: 27.8, y: 24.1, z: 0}
   m_LocalScale: {x: 4.14, y: 5.34, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36916,7 +36916,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 1
   requiredKeyId: Room1Key
   lockedDialogue: The door is locked. Where's the key?
@@ -84090,7 +84089,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 1
   requiredKeyId: HallwayKey
   lockedDialogue: The door is locked..
@@ -103152,7 +103150,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 1
   requiredKeyId: Room2ndFloorKey
   lockedDialogue: The door won't budge. Maybe this isn't the way out.
@@ -114313,7 +114310,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 0
   requiredKeyId: Room1Key
   lockedDialogue: 'The door is locked,
@@ -122247,7 +122243,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 1
   requiredKeyId: LivingToHallKey
   lockedDialogue: 'The door is locked,
@@ -127587,7 +127582,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 0
   requiredKeyId: Room1Key
   lockedDialogue: 'The door is locked,
@@ -137009,7 +137003,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 0
   requiredKeyId: 
   lockedDialogue: 
@@ -152123,7 +152116,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 0
   requiredKeyId: Room1Key
   lockedDialogue: 'The door is locked,
@@ -154986,7 +154978,6 @@ MonoBehaviour:
   triggerOnTouch: 1
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 0
   requiredKeyId: Room1Key
   lockedDialogue: 'The door is locked,
@@ -159968,7 +159959,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 0
   requiredKeyId: Room1Key
   lockedDialogue: 'The door is locked,
@@ -180616,7 +180606,6 @@ MonoBehaviour:
   dialogueText: {fileID: 1317035032}
   portraitImage: {fileID: 1327529585}
   displayDuration: 3
-  isMultiPage: 0
 --- !u!114 &1826498996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205995,7 +205984,6 @@ MonoBehaviour:
   triggerOnTouch: 0
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 0
   requiredKeyId: Room1Key
   lockedDialogue: 'The door is locked,
@@ -214449,7 +214437,6 @@ MonoBehaviour:
   triggerOnTouch: 1
   transformToFish: 0
   unlockDialoguePages: []
-  doorId: 
   isLocked: 0
   requiredKeyId: Room1Key
   lockedDialogue: 'The door is locked,

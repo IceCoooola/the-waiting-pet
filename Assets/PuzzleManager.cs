@@ -5,10 +5,9 @@ using System.Collections.Generic;
 public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance;
-    private static bool isPuzzleSolved = false;
 
     public List<PuzzleSlot> slots = new List<PuzzleSlot>();
-    public GameObject starDecal;
+public GameObject starDecal;
     public GameObject livingSpotDecal;
     public List<GameObject> puzzleProps = new List<GameObject>(); // Prop_1 to Prop_4
 
@@ -40,7 +39,7 @@ public class PuzzleManager : MonoBehaviour
 
     private void ApplyState()
     {
-        if (isPuzzleSolved)
+        if (GameData.EyePuzzleSolved)
         {
             if (starDecal != null) starDecal.SetActive(true);
             if (livingSpotDecal != null) livingSpotDecal.SetActive(true);
@@ -50,7 +49,7 @@ public class PuzzleManager : MonoBehaviour
             }
         }
         else
-        {
+{
             if (starDecal != null) starDecal.SetActive(false);
             if (livingSpotDecal != null) livingSpotDecal.SetActive(false);
             // Reset all props to initial positions
@@ -73,7 +72,7 @@ public class PuzzleManager : MonoBehaviour
 
     public void CheckPuzzle()
     {
-        if (isPuzzleSolved) return;
+        if (GameData.EyePuzzleSolved) return;
 
         bool allSlotsFilled = true;
         bool allSatisfied = true;
@@ -91,8 +90,8 @@ public class PuzzleManager : MonoBehaviour
 
         if (allSatisfied)
         {
-            isPuzzleSolved = true;
-            if (isDisplayingDialogue)
+            GameData.EyePuzzleSolved = true;
+if (isDisplayingDialogue)
             {
                 StopAllCoroutines();
                 isDisplayingDialogue = false;
@@ -138,15 +137,15 @@ public class PuzzleManager : MonoBehaviour
 
         foreach (var line in failureLines)
         {
-            if (isPuzzleSolved || !AreAllSlotsFilled()) break;
+            if (GameData.EyePuzzleSolved || !AreAllSlotsFilled()) break;
             
-            DialogueManager.Instance?.ShowDialogue(line, false);
+            DialogueManager.Instance?.ShowDialogue(line, false, 0, null, false, true);
             
             yield return null; 
             
             while (!Input.GetKeyDown(KeyCode.Space))
             {
-                if (isPuzzleSolved || !AreAllSlotsFilled()) 
+                if (GameData.EyePuzzleSolved || !AreAllSlotsFilled()) 
                 {
                     DialogueManager.Instance?.HideDialogue();
                     isDisplayingDialogue = false;
@@ -154,7 +153,7 @@ public class PuzzleManager : MonoBehaviour
                 }
                 yield return null;
             }
-            
+
             while (Input.GetKey(KeyCode.Space)) yield return null;
         }
 

@@ -9,6 +9,8 @@ public class InteractableObject : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
         {
+            if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
+
             if (DialogueManager.Instance != null)
             {
                 DialogueManager.Instance.ShowDialogue(dialogueText);
@@ -31,7 +33,7 @@ public class InteractableObject : MonoBehaviour
             isPlayerInRange = false;
             if (DialogueManager.Instance != null)
             {
-                DialogueManager.Instance.HideDialogue();
+                DialogueManager.Instance.HideSingleDialogue();
             }
         }
     }

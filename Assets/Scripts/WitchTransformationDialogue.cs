@@ -99,20 +99,20 @@ private DialogueLine[] lines = new DialogueLine[]
                 portrait = Resources.Load<Sprite>("Backgrounds/" + lines[currentIndex].portraitName);
             }
             // Increase font size for cutscene effect
-            DialogueManager.Instance.ShowDialogue(lines[currentIndex].text, false, 28, portrait, true);
-        }
-    }
+            DialogueManager.Instance.ShowDialogue(lines[currentIndex].text, false, 28, portrait, true, true);
+            }
+            }
 
-    private void FinishDialogue()
-    {
-        isFinished = true;
+            private void FinishDialogue()
+            {
+            isFinished = true;
         
-        if (DialogueManager.Instance != null)
-        {
+            if (DialogueManager.Instance != null)
+            {
             // Final screen with larger text
-            DialogueManager.Instance.ShowDialogue("THE END\n(Thank you for playing!)", false, 48, null, true);
-        }
-    }
+            DialogueManager.Instance.ShowDialogue("THE END\n(Thank you for playing!)", false, 48, null, true, true);
+            }
+            }
 
     private void SetPlayerMovement(bool state)
     {

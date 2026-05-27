@@ -48,7 +48,7 @@ public class IntroDialogue : MonoBehaviour
         if (DialogueManager.Instance != null)
         {
             // Show dialogue without auto-hiding
-            DialogueManager.Instance.ShowDialogue(sentences[currentIndex], false);
+            DialogueManager.Instance.ShowDialogue(sentences[currentIndex], false, 0, null, false, true);
         }
     }
 

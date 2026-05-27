@@ -36,7 +36,8 @@ public class MultiPageDialogueInteraction : MonoBehaviour
                     // Show current page. autoHide = false keeps it visible until next Space.
                     DialogueManager.Instance.ShowDialogue(
                         dialoguePages[currentPageIndex],
-                        false
+                        false,
+                        0, null, false, true
                     );
                 }
                 else

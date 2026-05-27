@@ -24,19 +24,43 @@ public class DialogueManager : MonoBehaviour
         if (dialogueText != null) defaultFontSize = dialogueText.fontSize;
     }
 
+    private int lastShownFrame = -1;
+    public bool isMultiPage = false;
+
+    public bool IsDialogueActive()
+    {
+        return dialoguePanel != null && dialoguePanel.activeSelf;
+    }
+
     private void Update()
     {
         if (dialoguePanel != null && dialoguePanel.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                // If it's a multi-page dialogue, the interaction script handles Space
+                if (isMultiPage) return;
+
+                // Skip hiding if shown in the same frame
+                if (Time.frameCount == lastShownFrame) return;
+
+                // We are closing a single-page dialogue. 
+                // We should consume the interaction so other scripts don't re-trigger.
+                if (InventoryManager.Instance != null)
+                {
+                    InventoryManager.Instance.ConsumeInteraction();
+                }
+
                 HideDialogue();
             }
         }
     }
 
-    public void ShowDialogue(string message, bool autoHide = false, int fontSize = 0, Sprite portrait = null, bool isFullScreen = false)
+    public void ShowDialogue(string message, bool autoHide = false, int fontSize = 0, Sprite portrait = null, bool isFullScreen = false, bool isMultiPage = false)
     {
+        lastShownFrame = Time.frameCount;
+        this.isMultiPage = isMultiPage;
+
         if (dialoguePanel == null || dialogueText == null) return;
 
         dialogueText.fontSize = fontSize > 0 ? fontSize : defaultFontSize;
@@ -164,6 +188,15 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
         if (hideCoroutine != null) StopCoroutine(hideCoroutine);
+        isMultiPage = false;
+    }
+
+    public void HideSingleDialogue()
+    {
+        if (IsDialogueActive() && !isMultiPage)
+        {
+            HideDialogue();
+        }
     }
 
     private IEnumerator HideAfterDelay()
@@ -171,5 +204,6 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(displayDuration);
         dialoguePanel.SetActive(false);
         hideCoroutine = null;
+        isMultiPage = false;
     }
 }

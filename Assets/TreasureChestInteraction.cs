@@ -52,7 +52,8 @@ public Color currentChoiceTint = new Color(0.6f, 1f, 0.6f, 1f); // greenish tint
 
 // Entry point: nothing else active, player presses Space
 if (!showingFoundDialogue && !showingInstructionDialogue && !choosingPotion
-    && Input.GetKeyDown(KeyCode.Space))
+    && Input.GetKeyDown(KeyCode.Space)
+    && InventoryManager.Instance != null && InventoryManager.Instance.CanInteract())
 {
     if (!chestOpened)
     {
@@ -95,7 +96,7 @@ if (showingFoundDialogue && Input.GetKeyDown(KeyCode.Space))
 
         if (!InventoryManager.Instance.HasItem(requiredKeyId))
         {
-            ShowText(lockedDialogue);
+            ShowText(lockedDialogue, false);
             return;
         }
 
@@ -264,7 +265,7 @@ if (showingFoundDialogue && Input.GetKeyDown(KeyCode.Space))
         // but a brand-new pick (no previous potion) could still hit a full inventory.
         if (InventoryManager.Instance.IsFull())
         {
-            ShowText(fullInventoryDialogue);
+            ShowText(fullInventoryDialogue, false);
             return;
         }
 
@@ -281,11 +282,11 @@ if (showingFoundDialogue && Input.GetKeyDown(KeyCode.Space))
         }
     }
 
-    private void ShowText(string text)
+    private void ShowText(string text, bool isMultiPage = true)
     {
         if (!string.IsNullOrEmpty(text) && DialogueManager.Instance != null)
         {
-            DialogueManager.Instance.ShowDialogue(text, false);
+            DialogueManager.Instance.ShowDialogue(text, false, 0, null, false, isMultiPage);
         }
     }
 

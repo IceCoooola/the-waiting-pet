@@ -130,7 +130,7 @@ public class CrystalBallDialogue : MonoBehaviour
             currentPageIndex++;
             if (currentPageIndex < postPickupDialogues.Length)
             {
-                DialogueManager.Instance.ShowDialogue(postPickupDialogues[currentPageIndex] + SPACE_PROMPT, false);
+                DialogueManager.Instance.ShowDialogue(postPickupDialogues[currentPageIndex] + SPACE_PROMPT, false, 0, null, false, true);
                 
                 // Mark as completed when the last page is reached
                 if (currentPageIndex == postPickupDialogues.Length - 1)
@@ -164,14 +164,22 @@ public class CrystalBallDialogue : MonoBehaviour
 
     private void ResetDialogue()
     {
-        currentPageIndex = -1;
         if (DialogueManager.Instance != null)
         {
-            DialogueManager.Instance.HideDialogue();
+            if (currentPageIndex != -1)
+            {
+                DialogueManager.Instance.HideDialogue();
+            }
+            else
+            {
+                DialogueManager.Instance.HideSingleDialogue();
+            }
         }
 
+        currentPageIndex = -1;
+        
         if (isStoryCompleted && triggerTransformation && !hasTransformed)
-        {
+{
             TransformToWitch();
         }
     }

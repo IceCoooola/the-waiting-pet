@@ -46,6 +46,8 @@ private void Update()
     if (!Input.GetKeyDown(KeyCode.Space)) return;
     if (DialogueManager.Instance == null) return;
 
+    if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
+
     bool hasLantern = InventoryManager.Instance != null &&
                       InventoryManager.Instance.HasItem("Lantern");
 
@@ -65,7 +67,7 @@ private void Update()
         }
 
         currentDialogueIndex = 0;
-            DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex], false);
+            DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex], false, 0, null, false, true);
             isDialogueShowing = true;
         }
         else
@@ -74,7 +76,7 @@ private void Update()
 
             if (currentDialogueIndex < currentDialogueTexts.Length)
             {
-                DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex], false);
+                DialogueManager.Instance.ShowDialogue(currentDialogueTexts[currentDialogueIndex], false, 0, null, false, true);
             }
             else
             {

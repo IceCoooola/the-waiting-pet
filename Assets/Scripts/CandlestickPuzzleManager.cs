@@ -7,18 +7,35 @@ public class CandlestickPuzzleManager : MonoBehaviour
     public GameObject hallwayKey;
     public string rewardDialogue = "A clicking sound echoes... something appears in the hallway.";
 
-    public bool IsSolved => puzzleSolved;
-
-    private bool puzzleSolved = false;
+    public bool IsSolved => GameData.CandlestickPuzzleSolved;
 
     private void Start()
+{
+        ApplyState();
+    }
+
+    private void OnEnable()
     {
+        ApplyState();
+    }
+
+    private void ApplyState()
+    {
+        if (GameData.CandlestickPuzzleSolved)
+        {
+            if (hallwayKey != null) hallwayKey.SetActive(true);
+            
+            // If solved, we might want to ensure the holders reflect the solved state
+            // but usually the key is the important part.
+            return;
+        }
+
         if (hallwayKey != null)
         {
             hallwayKey.SetActive(false);
         }
 
-        // Ensure all holders start empty
+        // Ensure all holders start empty only if not solved
         if (holders != null)
         {
             foreach (var holder in holders)
@@ -33,8 +50,8 @@ public class CandlestickPuzzleManager : MonoBehaviour
 
     public bool CheckPuzzle()
     {
-        if (puzzleSolved) return false;
-        if (holders == null || holders.Count < 4) return false;
+        if (GameData.CandlestickPuzzleSolved) return false;
+if (holders == null || holders.Count < 4) return false;
 
         // candlesticks_empty (Index 0): Should be empty (0 candles)
         bool empty_0_correct = holders[0].GetCandleCount() == 0;
@@ -70,15 +87,12 @@ public class CandlestickPuzzleManager : MonoBehaviour
 
     private void SolvePuzzle()
     {
-        puzzleSolved = true;
-        if (hallwayKey != null)
-        {
-            hallwayKey.SetActive(true);
-        }
+        GameData.CandlestickPuzzleSolved = true;
+        ApplyState();
 
         if (DialogueManager.Instance != null)
         {
-            DialogueManager.Instance.ShowDialogue(rewardDialogue);
+            DialogueManager.Instance.ShowDialogue(rewardDialogue, false, 0, null, false, true);
         }
     }
 }
