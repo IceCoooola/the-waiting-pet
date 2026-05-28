@@ -42,6 +42,13 @@ public class FootstepPuzzleManager : MonoBehaviour
     private void OnEnable()
     {
         ApplyState();
+        playerInRange = false;
+        hintTimer = 0f;
+    }
+
+    private void OnDisable()
+    {
+        playerInRange = false;
     }
 
     private void ApplyState()
@@ -215,6 +222,7 @@ public class FootstepPuzzleManager : MonoBehaviour
             playerInRange = false;
             puzzleActive = false;
             selectionMode = false;
+            hintTimer = 0f;
 
             if (DialogueManager.Instance != null)
             {

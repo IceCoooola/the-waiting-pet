@@ -36092,7 +36092,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 4
   m_LinearDamping: 5
   m_AngularDamping: 5
   m_GravityScale: 0
@@ -42604,7 +42604,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 4
   m_LinearDamping: 5
   m_AngularDamping: 5
   m_GravityScale: 0
@@ -52534,6 +52534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 551837507}
   - component: {fileID: 551837508}
+  - component: {fileID: 551837509}
   m_Layer: 0
   m_Name: Hallway
   m_TagString: Untagged
@@ -52823,6 +52824,52 @@ MonoBehaviour:
   hintDelay: 180
   hintDialogue: Some barriers are standing up, some are lying down... Does that relate
     to the candle placement?
+--- !u!61 &551837509
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551837506}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -8.629999, y: -5.1000004}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 17.3, y: 10.2}
+  m_EdgeRadius: 0
 --- !u!1 &553611740
 GameObject:
   m_ObjectHideFlags: 0
@@ -64012,7 +64059,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 4
   m_LinearDamping: 5
   m_AngularDamping: 5
   m_GravityScale: 0
@@ -64458,7 +64505,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.0957527, y: 0.24434233}
+  m_Offset: {x: 1.3936186, y: -0.014097571}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -64468,7 +64515,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.0766497, y: 4.5113153}
+  m_Size: {x: 5.816469, y: 4.87749}
   m_EdgeRadius: 0
 --- !u!114 &677438529
 MonoBehaviour:
@@ -93580,7 +93627,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 4
   m_LinearDamping: 5
   m_AngularDamping: 5
   m_GravityScale: 0
@@ -100371,7 +100418,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 4
   m_LinearDamping: 5
   m_AngularDamping: 5
   m_GravityScale: 0
@@ -136528,7 +136575,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 4
   m_LinearDamping: 5
   m_AngularDamping: 5
   m_GravityScale: 0
@@ -165688,7 +165735,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.009974666}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165698,7 +165745,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.96, y: 0.45}
+  m_Size: {x: 0.96, y: 0.43005067}
   m_EdgeRadius: 0
 --- !u!61 &1679400546
 BoxCollider2D:
@@ -202706,7 +202753,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 4
   m_LinearDamping: 5
   m_AngularDamping: 5
   m_GravityScale: 0
@@ -213211,7 +213258,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.035555482, y: 0.14872688}
+  m_Offset: {x: 0.035555482, y: 0.13066608}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -213221,7 +213268,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.568889, y: 0.66254616}
+  m_Size: {x: 0.568889, y: 0.69866776}
   m_EdgeRadius: 0
 --- !u!114 &2126132940
 MonoBehaviour:
@@ -214742,7 +214789,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 4
   m_LinearDamping: 5
   m_AngularDamping: 5
   m_GravityScale: 0

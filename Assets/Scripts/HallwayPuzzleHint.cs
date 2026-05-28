@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class HallwayPuzzleHint : MonoBehaviour
 {
@@ -7,8 +6,9 @@ public class HallwayPuzzleHint : MonoBehaviour
     public string hintDialogue = "Some barrels are standing up, some are lying down... Does that relate to the candle placement?";
     
     private CandlestickPuzzleManager puzzleManager;
-    private Coroutine hintCoroutine;
+    private float hintTimer = 0f;
     private bool hintShown = false;
+    private bool playerInRange = false;
 
     private void Awake()
     {
@@ -21,39 +21,48 @@ public class HallwayPuzzleHint : MonoBehaviour
 
     private void OnEnable()
     {
-        if (hintShown) return;
-        
-        StopHintCoroutine();
-        hintCoroutine = StartCoroutine(HintTimerRoutine());
+        playerInRange = false;
+        hintTimer = 0f;
     }
 
     private void OnDisable()
     {
-        StopHintCoroutine();
+        playerInRange = false;
     }
 
-    private void StopHintCoroutine()
+    private void Update()
     {
-        if (hintCoroutine != null)
-        {
-            StopCoroutine(hintCoroutine);
-            hintCoroutine = null;
-        }
-    }
-
-    private IEnumerator HintTimerRoutine()
-    {
-        yield return new WaitForSeconds(hintDelay);
+        if (hintShown || !playerInRange) return;
 
         if (puzzleManager != null && !puzzleManager.IsSolved)
         {
-            if (DialogueManager.Instance != null)
+            hintTimer += Time.deltaTime;
+            if (hintTimer >= hintDelay)
             {
-                DialogueManager.Instance.ShowDialogue(hintDialogue, false);
-                hintShown = true;
+                if (DialogueManager.Instance != null)
+                {
+                    DialogueManager.Instance.ShowDialogue(hintDialogue, false);
+                    hintShown = true;
+                }
             }
         }
-        
-        hintCoroutine = null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+            hintTimer = 0f;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            hintTimer = 0f;
+        }
     }
 }
