@@ -64506,6 +64506,9 @@ MonoBehaviour:
     3
 
     Rose: Press 4'
+  hintText: Hmm... The diary says the wider side is the direction I move forward...
+    How does that relate to the objects on the table?
+  hintDelay: 180
 --- !u!1 &681083731
 GameObject:
   m_ObjectHideFlags: 0

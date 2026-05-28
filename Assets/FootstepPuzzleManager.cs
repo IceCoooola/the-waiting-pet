@@ -22,13 +22,20 @@ public class FootstepPuzzleManager : MonoBehaviour
     public string selectionInstruction =
         "Quill: Press 1\nBottle: Press 2\nGlasses: Press 3\nRose: Press 4";
 
+    [Header("Hint")]
+    [TextArea]
+    public string hintText = "Hmm... The diary says the wider side is the direction I move forward... How does that relate to the objects on the table?";
+    public float hintDelay = 180f;
+    private float hintTimer = 0f;
+    private bool hintShown = false;
+
     private int selectedIndex = 0;
     private bool playerInRange = false;
     private bool puzzleActive = false;
     private bool selectionMode = false;
 
     private void Start()
-{
+    {
         ApplyState();
     }
 
@@ -52,11 +59,21 @@ public class FootstepPuzzleManager : MonoBehaviour
     }
 
     private void Update()
-{
+    {
         if (!playerInRange) return;
 
         bool diaryFullyRead = GameProgress.Instance != null &&
                               GameProgress.Instance.diaryFullyRead;
+
+        if (!GameData.FootstepPuzzleSolved && diaryFullyRead && !hintShown)
+        {
+            hintTimer += Time.deltaTime;
+            if (hintTimer >= hintDelay)
+            {
+                ShowText(hintText);
+                hintShown = true;
+            }
+        }
 
         if (!diaryFullyRead)
         {
