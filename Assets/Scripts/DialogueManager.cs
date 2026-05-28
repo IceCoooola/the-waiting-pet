@@ -97,16 +97,15 @@ public class DialogueManager : MonoBehaviour
             {
                 portraitImage.sprite = portrait;
                 portraitImage.gameObject.SetActive(true);
-                portraitImage.preserveAspect = false; // Force stretch
+                portraitImage.preserveAspect = true; // Use true to maintain original ratio
                 
                 RectTransform portraitRT = portraitImage.rectTransform;
-                portraitRT.anchorMin = Vector2.zero;
-                portraitRT.anchorMax = Vector2.one;
-                portraitRT.offsetMin = Vector2.zero;
-                portraitRT.offsetMax = Vector2.zero;
+                // Center the portrait at a fixed 600x600 size
+                portraitRT.anchorMin = new Vector2(0.5f, 0.5f);
+                portraitRT.anchorMax = new Vector2(0.5f, 0.5f);
                 portraitRT.pivot = new Vector2(0.5f, 0.5f);
-                portraitRT.anchoredPosition = Vector2.zero;
-                portraitRT.sizeDelta = Vector2.zero;
+                portraitRT.anchoredPosition = new Vector2(0, 0); 
+                portraitRT.sizeDelta = new Vector2(2500, 2500);
                 
                 portraitImage.transform.SetAsFirstSibling();
             }
@@ -126,7 +125,7 @@ public class DialogueManager : MonoBehaviour
             // Standard small panel layout
             panelRT.anchorMin = new Vector2(0.5f, 0.1f);
             panelRT.anchorMax = new Vector2(0.5f, 0.1f);
-            panelRT.sizeDelta = new Vector2(500, 200);
+            panelRT.sizeDelta = new Vector2(600, 250); // Increased from 500, 200
             panelRT.anchoredPosition = new Vector2(0, 100);
             
             if (panelImage != null)
@@ -147,15 +146,15 @@ public class DialogueManager : MonoBehaviour
                     portraitRT.anchorMin = new Vector2(0, 0.5f);
                     portraitRT.anchorMax = new Vector2(0, 0.5f);
                     portraitRT.pivot = new Vector2(0, 0.5f);
-                    portraitRT.sizeDelta = new Vector2(150, 150);
-                    portraitRT.anchoredPosition = new Vector2(20, 0);
+                    portraitRT.sizeDelta = new Vector2(600, 600); // Increased from 150, 150
+                    portraitRT.anchoredPosition = new Vector2(25, 0); // Adjusted padding
                     
                     dialogueText.alignment = TextAnchor.MiddleLeft;
                     textRT.anchorMin = new Vector2(0, 1);
                     textRT.anchorMax = new Vector2(0, 1);
                     textRT.pivot = new Vector2(0.5f, 0.5f);
-                    textRT.anchoredPosition = new Vector2(335, -100);
-                    textRT.sizeDelta = new Vector2(310, 160);
+                    textRT.anchoredPosition = new Vector2(415, -125); // Adjusted for larger portrait and panel
+                    textRT.sizeDelta = new Vector2(340, 200); // Adjusted size
                 }
                 else
                 {
@@ -164,8 +163,8 @@ public class DialogueManager : MonoBehaviour
                     textRT.anchorMin = new Vector2(0, 1);
                     textRT.anchorMax = new Vector2(0, 1);
                     textRT.pivot = new Vector2(0.5f, 0.5f);
-                    textRT.anchoredPosition = new Vector2(250, -100);
-                    textRT.sizeDelta = new Vector2(460, 160);
+                    textRT.anchoredPosition = new Vector2(300, -125); // Centered in the 600 width panel
+                    textRT.sizeDelta = new Vector2(550, 200);
                 }
             }
         }
