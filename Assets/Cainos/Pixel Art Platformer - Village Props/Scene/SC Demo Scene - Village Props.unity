@@ -7227,8 +7227,8 @@ MonoBehaviour:
   transformToFish: 1
   requiredPotionId: FishPotion
   noPotionDialogue: Hmm... A fish tank in an attic?
-  wrongPotionDialogue: "Interesting\u2026 the fish want nothing to do with this potion.
-    Perhaps I should try another?"
+  wrongPotionDialogue: Interesting... the fish want nothing to do with this potion.
+    Perhaps I should try another?
   correctPotionDialoguePages:
   - 'I poured the potion into the fish tank and jumped in. It felt strangely familiar,
     as if I had done this many times before.
@@ -35925,7 +35925,7 @@ MonoBehaviour:
   - 'Sky first, then forest calls,
 
     (Press space to continue)'
-  - Fire next, then morning bright, (Press space to continue)
+  - Fire next, then morning bright               (Press space to continue)
   - Light and leaping, small as secrets.
   pageFlipAudio: {fileID: 377833916}
 --- !u!61 &377833915
