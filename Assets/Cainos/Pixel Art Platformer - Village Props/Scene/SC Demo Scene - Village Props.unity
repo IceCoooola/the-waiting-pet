@@ -9767,7 +9767,7 @@ GameObject:
   - component: {fileID: 111371228}
   - component: {fileID: 111371227}
   - component: {fileID: 111371229}
-  - component: {fileID: 111371230}
+  - component: {fileID: 111371231}
   m_Layer: 0
   m_Name: LadderObject
   m_TagString: Ladder
@@ -9950,7 +9950,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9960,10 +9960,10 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.34, y: 10.8}
+  m_Size: {x: 3, y: 10.8}
   m_EdgeRadius: 0
---- !u!68 &111371230
-EdgeCollider2D:
+--- !u!61 &111371231
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9996,42 +9996,18 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.8, y: -4.3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.34, y: 10.8}
+    newSize: {x: 3.34, y: 10.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5, y: 0.1}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -1.3922949, y: 5.15399}
-  - {x: -1.3071826, y: 2.047368}
-  - {x: -1.25322, y: 3.4812152}
-  - {x: 0.4121573, y: 3.8087955}
-  - {x: 0.35027957, y: 5.2450895}
-  - {x: 0.6082801, y: 2.296055}
-  - {x: 0.5398184, y: 0.95555294}
-  - {x: 0.49378645, y: 2.2703493}
-  - {x: -1.3985919, y: 1.8946973}
-  - {x: -1.1648338, y: 0.43863463}
-  - {x: -0.9980928, y: -1.0130498}
-  - {x: -1.0981753, y: 0.51674765}
-  - {x: 0.6696842, y: 0.82397777}
-  - {x: 0.88065445, y: -0.64235103}
-  - {x: -0.9778628, y: -1.1495223}
-  - {x: -0.56971073, y: -2.5731087}
-  - {x: -0.8669598, y: -1.130428}
-  - {x: 0.8305143, y: -0.71549916}
-  - {x: 1.3652636, y: -2.329337}
-  - {x: 1.3545744, y: -3.465091}
-  - {x: 1.1999493, y: -2.3216932}
-  - {x: -0.51715493, y: -2.7812226}
-  - {x: -0.5008552, y: -4.2000527}
-  - {x: 2.5137606, y: -3.4753766}
-  - {x: 1.7937943, y: -3.994092}
-  - {x: -0.42437574, y: -4.743161}
-  - {x: -0.4243808, y: -4.743155}
-  - {x: -0.51645315, y: -4.345804}
-  - {x: -1.3536837, y: -4.434107}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &111600080
 GameObject:
   m_ObjectHideFlags: 0
