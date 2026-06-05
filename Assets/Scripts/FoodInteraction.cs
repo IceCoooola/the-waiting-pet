@@ -19,10 +19,10 @@ public class FoodInteraction : MonoBehaviour
     private int dialogueIndex = 0;
     private string[] dialogues = new string[]
     {
-        "I saw some bread on top of the dining table...\n(Press Space to continue)",
+        "I saw some bread on top of the\ndining table...\n(Press Space to continue)",
         "I stepped on the chair and ate it.\n(Press Space to continue)",
         "Yummy!\n(Press Space to continue)",
-        "Hmm... Why does this house have no pet food or pet bowls?\n(Press Space to continue)",
+        "Hmm... Why does this house have\nno pet food or pet bowls?\n(Press Space to continue)",
         "That's weird...\n(Press Space to continue)"
     };
 

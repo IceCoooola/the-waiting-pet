@@ -96,7 +96,7 @@ public class ExperimentCounterInteraction : MonoBehaviour
                     if (InventoryManager.Instance != null && !InventoryManager.Instance.CanInteract()) return;
                     currentState = State.Intro;
                     if (DialogueManager.Instance != null)
-                        DialogueManager.Instance.ShowDialogue("There are some potions on the table... Should I drink one?\n(Press Space to continue)", false, 0, null, false, true);
+                        DialogueManager.Instance.ShowDialogue("There are some potions on the table...\nShould I drink one?\n(Press Space to continue)", false, 0, null, false, true);
                     }
                     break;
 
