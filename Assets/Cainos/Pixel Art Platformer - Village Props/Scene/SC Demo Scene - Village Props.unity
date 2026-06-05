@@ -144730,7 +144730,7 @@ MonoBehaviour:
   startTheme: {fileID: 8300000, guid: cfee3f9fb5c234f1584350f11337b173, type: 3}
   harmoniousTheme: {fileID: 8300000, guid: 52bcbcd905afb41758e15c9fe57dc77d, type: 3}
   basementTheme: {fileID: 0}
-  witchTheme: {fileID: 0}
+  witchTheme: {fileID: 8300000, guid: 739424698927746749dc809bcbe79c02, type: 3}
   fadeDuration: 1
   maxVolume: 0.5
 --- !u!4 &1494236617

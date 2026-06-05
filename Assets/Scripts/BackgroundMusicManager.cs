@@ -18,17 +18,17 @@ public class BackgroundMusicManager : MonoBehaviour
     public float maxVolume = 0.5f;
 
     private GameObject player;
-    private GameObject outsideObject;
-    private GameObject room1Object;
-    private GameObject basementObject;
     
-    private Collider2D outsideCollider;
-    private Collider2D room1Collider;
-    private Collider2D basementCollider;
+    private struct RoomConfig {
+        public string name;
+        public Bounds bounds;
+        public AudioClip clip;
+        public float area;
+    }
 
+    private List<RoomConfig> roomConfigs = new List<RoomConfig>();
     private bool isWitchScene = false;
     private AudioClip currentTargetClip;
-
     private Coroutine fadeCoroutine;
 
     void Awake()
@@ -37,12 +37,7 @@ public class BackgroundMusicManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            if (audioSource == null)
-            {
-                audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.loop = true;
-                audioSource.playOnAwake = false;
-            }
+            EnsureAudioSource();
         }
         else
         {
@@ -50,40 +45,69 @@ public class BackgroundMusicManager : MonoBehaviour
         }
     }
 
+    private void EnsureAudioSource()
+    {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+        }
+        audioSource.loop = true;
+        audioSource.playOnAwake = false;
+        if (!audioSource.isPlaying) audioSource.volume = 0;
+    }
+
     void Start()
     {
-        FindRoomObjects();
+        InitializeRoomConfigs();
 
-        // Start with the starting music
         if (startTheme != null)
         {
             PlayMusic(startTheme);
         }
     }
 
-    private void FindRoomObjects()
+    private void InitializeRoomConfigs()
     {
-        outsideObject = GameObject.Find("Outside");
-        if (outsideObject != null)
+        roomConfigs.Clear();
+        
+        // Define rooms and their themes
+        AddRoomConfig("Hallway", startTheme);
+        AddRoomConfig("Bedroom", startTheme);
+        AddRoomConfig("Living Room", startTheme);
+        AddRoomConfig("Magic Room", startTheme);
+        AddRoomConfig("2nd Floor Room 1", harmoniousTheme);
+        AddRoomConfig("2nd Floor Room1", harmoniousTheme);
+        AddRoomConfig("Basement", basementTheme);
+        AddRoomConfig("Outside", harmoniousTheme);
+
+        // Sort by area (smallest first) to prioritize more specific rooms
+        roomConfigs.Sort((a, b) => a.area.CompareTo(b.area));
+    }
+
+    private void AddRoomConfig(string name, AudioClip clip)
+    {
+        GameObject go = GameObject.Find(name);
+        if (go == null) return;
+
+        Renderer[] renderers = go.GetComponentsInChildren<Renderer>();
+        if (renderers.Length == 0) return;
+
+        Bounds b = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
         {
-            outsideCollider = outsideObject.GetComponent<Collider2D>();
-            if (outsideCollider == null) outsideCollider = outsideObject.GetComponentInChildren<Collider2D>();
+            b.Encapsulate(renderers[i].bounds);
         }
 
-        room1Object = GameObject.Find("2nd Floor Room1");
-        if (room1Object == null) room1Object = GameObject.Find("2nd Floor Room 1");
-        if (room1Object != null)
-        {
-            room1Collider = room1Object.GetComponent<Collider2D>();
-            if (room1Collider == null) room1Collider = room1Object.GetComponentInChildren<Collider2D>();
-        }
-
-        basementObject = GameObject.Find("Basement");
-        if (basementObject != null)
-        {
-            basementCollider = basementObject.GetComponent<Collider2D>();
-            if (basementCollider == null) basementCollider = basementObject.GetComponentInChildren<Collider2D>();
-        }
+        roomConfigs.Add(new RoomConfig {
+            name = name,
+            bounds = b,
+            clip = clip,
+            area = b.size.x * b.size.y
+        });
     }
 
     void Update()
@@ -92,7 +116,14 @@ public class BackgroundMusicManager : MonoBehaviour
 
         if (player == null)
         {
-            player = GameObject.FindWithTag("Player");
+            player = GameObject.Find("WitchPlayer");
+            if (player == null) player = GameObject.Find("GoldenRetrieverPlayer");
+            if (player == null) player = GameObject.FindWithTag("Player");
+            if (player == null)
+            {
+                var movement = FindFirstObjectByType<PlayerMovement>();
+                if (movement != null) player = movement.gameObject;
+            }
             if (player == null) return;
         }
 
@@ -101,22 +132,31 @@ public class BackgroundMusicManager : MonoBehaviour
         if (witchDialogue != null)
         {
             isWitchScene = true;
-            if (witchTheme != null) PlayMusic(witchTheme);
+            if (witchTheme != null) 
+            {
+                PlayMusic(witchTheme);
+            }
+            else
+            {
+                Debug.LogWarning("[MusicManager] Witch scene triggered but Witch Theme clip is missing (check file format).");
+            }
             return;
         }
 
-        // Room detection logic
+        // Determine target clip based on player position
         AudioClip nextClip = startTheme;
+        Vector3 playerPos = player.transform.position;
 
-        // Check basement first (priority)
-        if (IsPlayerInRoom(basementObject, basementCollider))
+        foreach (var config in roomConfigs)
         {
-            nextClip = basementTheme;
-        }
-        // Check outside or 2nd floor room 1
-        else if (IsPlayerInRoom(outsideObject, outsideCollider) || IsPlayerInRoom(room1Object, room1Collider))
-        {
-            nextClip = harmoniousTheme;
+            if (config.bounds.Contains(playerPos))
+            {
+                if (config.clip != null)
+                {
+                    nextClip = config.clip;
+                }
+                break;
+            }
         }
 
         if (nextClip != null && nextClip != currentTargetClip)
@@ -125,22 +165,11 @@ public class BackgroundMusicManager : MonoBehaviour
         }
     }
 
-    private bool IsPlayerInRoom(GameObject roomObj, Collider2D roomCol)
-    {
-        if (roomCol != null)
-        {
-            return roomCol.OverlapPoint(player.transform.position);
-        }
-        if (roomObj != null)
-        {
-            return roomObj.activeInHierarchy;
-        }
-        return false;
-    }
-
     public void PlayMusic(AudioClip clip)
     {
         if (clip == null) return;
+        if (audioSource == null) EnsureAudioSource();
+        
         if (audioSource.clip == clip && audioSource.isPlaying)
         {
             currentTargetClip = clip;
@@ -179,5 +208,3 @@ public class BackgroundMusicManager : MonoBehaviour
         }
     }
 }
-
-
